@@ -1,5 +1,5 @@
 import { Logo } from "./Logo";
-import { SoccerBall, SquaresFour, Bell, X } from "phosphor-react";
+import { SoccerBall, SquaresFour, Bell, X, List } from "phosphor-react";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 import IconePlantoes from "./IconePlantoes";
@@ -8,6 +8,7 @@ import IconeFarmacia from "./IconeFarmacia";
 import IconeProdutos from "./IconeProdutos";
 
 export function Header() {
+  const [open, setOpen] = useState(true);
   return (
     <>
       <header className="bg-white flex justify-center shadow shadow-md w-full fixed top-0 left-0 z-50 h-20">
@@ -52,13 +53,27 @@ export function Header() {
             <a href="#">
               <Bell size={32} className="hover:fill-blue-700" color="#737373" />
             </a>
+            <button className="lg:hidden" onClick={() => setOpen(!open)}>
+              <List size={32} />
+            </button>
           </div>
         </div>
       </header>
 
-      <div className="fixed z-50 inset-0 overflow-y-auto lg:hidden">
-        <div className="relative bg-white w-80 max-w-[100%-3rem]  h-full p-6 dark:bg-slate-800">
-          <button className="absolute z-10 top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-300">
+      <div
+        className={classNames(
+          "z-50 fixed inset-0 overflow-y-auto lg:hidden duration-300 transition-all ",
+          {
+            "right-[-100%]": open === true,
+            "right-[100%] fixed": open === false,
+          }
+        )}
+      >
+        <div className="relative bg-white w-80 max-w-[100%-3rem]  h-full p-6 dark:bg-slate-800 shadow shadow-sm shadow-slate-300">
+          <button
+            className="absolute z-10 top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-300"
+            onClick={() => setOpen(!open)}
+          >
             <span className="sr-only">Fechar Menu</span>
             <X size={24} />
           </button>
