@@ -11,7 +11,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <header className="bg-white flex justify-center shadow shadow-md w-full fixed top-0 left-0 z-60 h-20">
+      <header className="bg-white flex justify-center shadow shadow-md w-full fixed top-0 left-0 z-[90] h-20">
         <div className="flex justify-between w-5/6 max-w-5xl">
           <div className="flex items-center">
             <Logo />
@@ -74,7 +74,7 @@ export function Header() {
 
       <div
         className={classNames(
-          "z-10 fixed inset-0 overflow-y-auto lg:hidden bg-transparent uration-300 transition-all",
+          "z-[100] fixed inset-0 overflow-y-auto lg:hidden bg-transparent uration-300 transition-all",
           {
             "right-[-100%]": open === true,
             "right-[100%] fixed": open === false,
