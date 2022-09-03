@@ -1,51 +1,16 @@
 import React from 'react'
 import { Header } from './components/Header'
+import { Slide } from './components/Slide'
 
 function App() {
   
   return(
     <>
       <Header />
-      <div>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nemo dignissimos non voluptatem corrupti, iure, qui fugit repudiandae vel quaerat, voluptates laboriosam neque commodi! Cum aliquam expedita quae doloremque tenetur.
-        </p>
-      </div>
+      <main className='flex-row mt-20'>
+        <Slide />
+        <Slide />
+      </main>
     </>
   )
 }
