@@ -2,7 +2,7 @@ export function Farmacia() {
   return (
     <>
       <section className="w-full flex-col p-6 lg:p-8">
-        <div className="flex justify-center max-w-[986px] m-auto mb-5">
+        <div className="flex justify-center max-w-[986px] m-auto pb-5">
           <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
             Farmácias
           </h3>
@@ -104,15 +104,17 @@ export function Farmacia() {
               </div>
             </a>
           </li>
+          <li className="flex justify-center items-center">
+            <div className="p-6 m-auto max-w-sm lg:max-w-5xl justify-center">
+              <a
+                href="#"
+                className="bg-green-600 px-8 py-4 flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
+              >
+                Ver todas
+              </a>
+            </div>
+          </li>
         </ul>
-        <div className="flex p-6 m-auto max-w-sm lg:max-w-5xl justify-center">
-          <a
-            href="#"
-            className="bg-green-600 px-8 py-4 flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
-          >
-            Ver todas
-          </a>
-        </div>
       </section>
     </>
   );
