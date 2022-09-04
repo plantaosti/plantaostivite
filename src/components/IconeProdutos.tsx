@@ -3,7 +3,7 @@ import React from "react";
 function IconeProdutos() {
   return (
     <svg
-      className="h-8 w-8 dark:fill-slate-400 dark:hover:fill-slate-300"
+      className="h-8 w-8 dark:fill-gray-200 dark:hover:fill-slate-300"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

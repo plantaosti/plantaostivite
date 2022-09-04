@@ -1,17 +1,18 @@
-import React from 'react'
-import { Header } from './components/Header'
-import { Slide } from './components/Slide'
+import React from "react";
+import { Farmacia } from "./components/Farmacia";
+import { Header } from "./components/Header";
+import { Slide } from "./components/Slide";
 
 function App() {
-  
-  return(
+  return (
     <>
       <Header />
-      <main className='flex mt-20 w-full  antialiased'>
+      <main className="mt-20 w-full  antialiased">
         <Slide />
+        <Farmacia />
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -11,14 +11,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <header className="bg-white flex justify-center shadow shadow-md w-full fixed top-0 left-0 z-[90] h-20">
+      <header className="bg-white flex justify-center shadow shadow-md w-full fixed top-0 left-0 z-[90] h-20 antialiased dark:bg-gray-600">
         <div className="flex justify-between w-5/6 max-w-5xl">
-          <div className="flex items-center">
+          <a href="/" className="flex items-center">
             <Logo />
-            <span className="text-xl tracking-tight ml-3 text-neutral-500">
+            <span className="text-xl tracking-tight ml-3 text-gray-400 dark:text-gray-200">
               PLANTAO STI.
             </span>
-          </div>
+          </a>
 
           <div className="hidden lg:flex items-center">
             <div className="text-sm lg:flex-grow">
@@ -27,7 +27,7 @@ export function Header() {
                   <li>
                     <a
                       href="#"
-                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-blue-700 mr-4"
+                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                     >
                       Plantoes
                     </a>
@@ -35,7 +35,7 @@ export function Header() {
                   <li>
                     <a
                       href="#"
-                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-blue-700 mr-4"
+                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                     >
                       Plantao
                     </a>
@@ -43,7 +43,7 @@ export function Header() {
                   <li>
                     <a
                       href="#"
-                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-blue-700 mr-4"
+                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                     >
                       Farmacias
                     </a>
@@ -51,7 +51,7 @@ export function Header() {
                   <li>
                     <a
                       href="#"
-                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-blue-700 mr-4"
+                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                     >
                       Produtos
                     </a>
@@ -65,7 +65,10 @@ export function Header() {
             {/* <a href="#">
               <Bell size={32} className="hover:fill-blue-700" color="#737373" />
             </a> */}
-            <button className="lg:hidden" onClick={() => setOpen(!open)}>
+            <button
+              className="lg:hidden dark:text-gray-200"
+              onClick={() => setOpen(!open)}
+            >
               <List size={32} />
             </button>
           </div>
@@ -81,9 +84,9 @@ export function Header() {
           }
         )}
       >
-        <div className="relative bg-white w-80 max-w-[100%-3rem]  h-full p-7 dark:bg-slate-800 shadow shadow-lg shadow-slate-300">
+        <div className="relative bg-white w-80 max-w-[100%-3rem]  h-full p-7 dark:bg-gray-600 shadow shadow-lg shadow-gray-200">
           <button
-            className="absolute z-50 top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-300"
+            className="absolute z-50 top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-green-500 dark:text-slate-300"
             onClick={() => setOpen(!open)}
           >
             <span className="sr-only">Fechar Menu</span>
@@ -94,7 +97,7 @@ export function Header() {
               <li>
                 <a
                   href="#"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300 mb-5"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
                 >
                   <div className="mr-6 ">
                     <IconePlantoes />
@@ -105,7 +108,7 @@ export function Header() {
               <li>
                 <a
                   href="#"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300 mb-5"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
                 >
                   <div className="mr-5 ">
                     <IconePlantao />
@@ -116,7 +119,7 @@ export function Header() {
               <li>
                 <a
                   href="#"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300 mb-5"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
                 >
                   <div className="mr-5 ">
                     <IconeFarmacia />
@@ -127,7 +130,7 @@ export function Header() {
               <li>
                 <a
                   href="#"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300 mb-5"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
                 >
                   <div className="mr-5 ">
                     <IconeProdutos />
