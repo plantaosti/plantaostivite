@@ -8,6 +8,7 @@ export function Router() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/farmacias" element={<PgFarmacia />} />
+      <Route path="/farmacia/:slug" element={<PgFarmacia />} />
     </Routes>
   );
 }
