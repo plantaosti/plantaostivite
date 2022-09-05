@@ -42,7 +42,7 @@ export function Header() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/farmacias"
                       className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                     >
                       Farmacias
@@ -118,7 +118,7 @@ export function Header() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/farmacias"
                   className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
                 >
                   <div className="mr-5 ">
