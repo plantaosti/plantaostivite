@@ -1,7 +1,9 @@
 import React from "react";
 import { Farmacia } from "./components/Farmacia";
+import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Newsletter } from "./components/News";
+import { Produtos } from "./components/Produtos";
 import { Slide } from "./components/Slide";
 import { Tutoriais } from "./components/Tutoriais";
 
@@ -14,6 +16,8 @@ function App() {
         <Farmacia />
         <Tutoriais />
         <Newsletter />
+        <Produtos />
+        <Footer />
       </main>
     </>
   );
