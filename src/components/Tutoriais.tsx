@@ -14,7 +14,7 @@ export function Tutoriais() {
             <li>
               <a
                 href="#"
-                className="flex flex-col gap-4 justify-center p-6 bg-slate-100"
+                className="flex flex-col gap-4 justify-center p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
               >
                 <img
                   className="max-w-[200px] max-h-[200px] m-auto"
@@ -22,8 +22,10 @@ export function Tutoriais() {
                   alt=""
                 />
                 <div>
-                  <h4 className="text-lg">Migrar do Android para iOS</h4>
-                  <div className="flex gap-4 items-center">
+                  <h4 className="text-lg text-gray-600 font-semibold">
+                    Migrar do Android para iOS
+                  </h4>
+                  <div className="flex gap-4 items-center text-gray-400">
                     <p className="text-sm truncate">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Eum quibusdam recusandae praesentium quidem officiis! Non
@@ -42,7 +44,7 @@ export function Tutoriais() {
             <li>
               <a
                 href="#"
-                className="flex flex-col gap-4 justify-center p-6 bg-slate-100"
+                className="flex flex-col gap-4 justify-center p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
               >
                 <img
                   className="max-w-[200px] max-h-[200px] m-auto"
@@ -50,8 +52,10 @@ export function Tutoriais() {
                   alt=""
                 />
                 <div>
-                  <h4 className="text-lg">Configurar Apple Pay</h4>
-                  <div className="flex gap-4 items-center">
+                  <h4 className="text-lg text-gray-600 font-semibold">
+                    Configurar Apple Pay
+                  </h4>
+                  <div className="flex gap-4 items-center text-gray-400">
                     <p className="text-sm truncate">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Eum quibusdam recusandae praesentium quidem officiis! Non

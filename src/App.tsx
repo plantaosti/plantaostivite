@@ -1,6 +1,7 @@
 import React from "react";
 import { Farmacia } from "./components/Farmacia";
 import { Header } from "./components/Header";
+import { Newsletter } from "./components/News";
 import { Slide } from "./components/Slide";
 import { Tutoriais } from "./components/Tutoriais";
 
@@ -12,6 +13,7 @@ function App() {
         <Slide />
         <Farmacia />
         <Tutoriais />
+        <Newsletter />
       </main>
     </>
   );
