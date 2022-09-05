@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 
@@ -64,9 +64,9 @@ export function PgFarmacia() {
             <div className="flex flex-col max-w-5xl m-auto py-6">
               <ul className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
                 <li>
-                  <a
+                  <Link
+                    to={"/farmacia/clarifarma"}
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                    href="/farmacia/clarifarma-centro"
                   >
                     <img
                       className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
@@ -88,12 +88,12 @@ export function PgFarmacia() {
                         Detalhes
                       </button>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
+                    to={"/farmacia/clarifarma"}
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                    href="/farmacia/clarifarma-centro"
                   >
                     <img
                       className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
@@ -115,12 +115,12 @@ export function PgFarmacia() {
                         Detalhes
                       </button>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
+                    to={"/farmacia/clarifarma"}
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                    href="/farmacia/clarifarma-centro"
                   >
                     <img
                       className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
@@ -142,12 +142,12 @@ export function PgFarmacia() {
                         Detalhes
                       </button>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
+                    to={"/farmacia/clarifarma"}
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                    href="/farmacia/clarifarma-centro"
                   >
                     <img
                       className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
@@ -169,12 +169,12 @@ export function PgFarmacia() {
                         Detalhes
                       </button>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
+                    to={"/farmacia/clarifarma"}
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                    href="/farmacia/clarifarma-centro"
                   >
                     <img
                       className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
@@ -196,12 +196,12 @@ export function PgFarmacia() {
                         Detalhes
                       </button>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
+                    to={"/farmacia/clarifarma"}
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                    href="/farmacia/clarifarma-centro"
                   >
                     <img
                       className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
@@ -223,7 +223,7 @@ export function PgFarmacia() {
                         Detalhes
                       </button>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

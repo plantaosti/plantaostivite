@@ -1,4 +1,5 @@
 import { FacebookLogo, InstagramLogo } from "phosphor-react";
+import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -6,10 +7,10 @@ export function Footer() {
     <>
       <footer className="flex flex-col w-full bg-gray-300 text-center pt-8">
         <div className="flex flex-row gap-2 justify-center mb-6">
-          <a href="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <Logo />
             <span className="text-2xl text-gray-600 ">Plantão STI.</span>
-          </a>
+          </Link>
         </div>
         <div className="p-6 grid grid-cols-2 md:grid-cols-4 max-w-5xl md:m-auto gap-5">
           <div className="flex flex-col gap-4">
@@ -34,12 +35,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/farmacias"
                   className="hover:text-gray-200 transition-all duration-300"
                 >
                   Farmácias
-                </a>
+                </Link>
               </li>
               <li>
                 <a
