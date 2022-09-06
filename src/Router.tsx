@@ -1,6 +1,7 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Home from "./pages/Home";
+import { Home } from "./pages/Home";
 import { PgPlantoes } from "./pages/Plantoes";
 import { PgFarmacia } from "./pages/Farmacias";
 import { NotFound } from "./pages/NotFound";

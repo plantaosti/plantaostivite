@@ -6,7 +6,7 @@ import { Produtos } from "../components/Produtos";
 import { Slide } from "../components/Slide";
 import { Tutoriais } from "../components/Tutoriais";
 
-function Home() {
+export function Home() {
   return (
     <>
       <Header />
@@ -21,5 +21,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;
