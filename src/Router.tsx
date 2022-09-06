@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import { PgPlantoes } from "./pages/Plantoes";
 import { PgFarmacia } from "./pages/Farmacias";
+import { NotFound } from "./pages/NotFound";
 
 export function Router() {
   return (
@@ -12,6 +13,7 @@ export function Router() {
       <Route path="/farmacia/:slug" element={<PgFarmacia />} />
       <Route path="/plantoes" element={<PgPlantoes />} />
       <Route path="/plantoe/:slug" element={<PgPlantoes />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

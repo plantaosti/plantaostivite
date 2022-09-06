@@ -20,10 +20,10 @@ export function PgFarmacia() {
           <section className="max-w-full flex-col m-auto p-6">
             <Breadcrumbs />
 
-            <div className="flex gap-7 max-w-5xl m-auto py-6">
+            <div className="flex flex-col lg:flex-row gap-7 max-w-5xl m-auto py-6">
               <div>
                 <img
-                  className="max-w-[450px] m-auto"
+                  className="md:max-w-[450px] m-auto"
                   src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
                   alt=""
                 />
@@ -77,6 +77,33 @@ export function PgFarmacia() {
                         <tr>
                           <td>Vale Mais Saude</td>
                         </tr>
+                        <tr>
+                          <td>Vidalink</td>
+                        </tr>
+                        <tr>
+                          <td>Pharmalink</td>
+                        </tr>
+                        <tr>
+                          <td>Funcional Card</td>
+                        </tr>
+                        <tr>
+                          <td>Pec Febrafar</td>
+                        </tr>
+                        <tr>
+                          <td>Object Pro</td>
+                        </tr>
+                        <tr>
+                          <td>MAP MasterFarma</td>
+                        </tr>
+                        <tr>
+                          <td>Ellomais / Facillite</td>
+                        </tr>
+                        <tr>
+                          <td>Orizon</td>
+                        </tr>
+                        <tr>
+                          <td>Transaction Centre</td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -93,7 +120,22 @@ export function PgFarmacia() {
               </h3>
             </div>
             <div className="flex justify-center">
-              <ul className="flex gap-3">
+              <div className="flex gap-3 md:hidden">
+                <form action="">
+                  <div className="flex flex-1 px-6 bg-slate-400">
+                    <select
+                      name="bairro"
+                      id=""
+                      className="flex flex-1 bg-slate-400 py-2 text-white outline-none"
+                    >
+                      <option value="centro">Centro</option>
+                      <option value="centro">Parque dos Estados</option>
+                      <option value="centro">Santa Monica</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <ul className="hidden md:flex gap-3">
                 <li>
                   <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
                     Centro
@@ -127,10 +169,14 @@ export function PgFarmacia() {
                       <h4 className="text-sm md:text-lg text-gray-600 font-semibold">
                         Coperfarma
                       </h4>
+                      <ul className="flex flex-col gap-3 text-gray-400">
+                        <li>Bairro: Centro</li>
+                        <li className="flex items-center gap-2 text-sm">
+                          <WhatsappLogo size={20} /> 45 35412990
+                        </li>
+                      </ul>
                       <p className="text-sm md:text-lg">
-                        Bairro: Centro
                         <br />
-                        Telefone: (45)3541-2901
                       </p>
                     </div>
                     <div className="flex mt-2 justify-center">
