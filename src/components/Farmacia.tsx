@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Farmacia() {
   return (
     <>
@@ -9,8 +11,8 @@ export function Farmacia() {
         </div>
         <ul className="grid grid-cols-1 gap-4 md:gap-2 pt-8 md:grid-cols-3 max-w-5xl m-auto">
           <li>
-            <a
-              href="#"
+            <Link
+              to="/farmacia/coperfarma-wagner"
               title="Clique para mais detalhes!"
               className="p-3 flex gap-4 bg-slate-50 transition-all duration-200 hover:drop-shadow-lg"
             >
@@ -26,11 +28,11 @@ export function Farmacia() {
                 <span className="text-sm text-gray-400">Centro</span>
                 <span className="text-sm text-gray-400">45 3541-3232</span>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/farmacia/clarifarma-parque"
               className="p-3 flex gap-4 bg-slate-50 transition-all duration-200 hover:drop-shadow-lg"
             >
               <img
@@ -45,11 +47,11 @@ export function Farmacia() {
                 <span className="text-sm text-gray-400">Centro</span>
                 <span className="text-sm text-gray-400">45 3541-3232</span>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/farmacia/clarifarma-centro"
               className="p-3 flex gap-4 bg-slate-50 transition-all duration-200 hover:drop-shadow-lg"
             >
               <img
@@ -64,11 +66,11 @@ export function Farmacia() {
                 <span className="text-sm text-gray-400">Santa Monica</span>
                 <span className="text-sm text-gray-400">45 3541-3232</span>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/farmacia/clarifarma"
               className="p-3 flex gap-4 bg-slate-50 transition-all duration-200 hover:drop-shadow-lg"
             >
               <img
@@ -83,11 +85,11 @@ export function Farmacia() {
                 <span className="text-sm text-gray-400">Centro</span>
                 <span className="text-sm text-gray-400">45 3541-3232</span>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/farmacia/clarifarma"
               className="p-3 flex gap-4 bg-slate-50 transition-all duration-200 hover:drop-shadow-lg"
             >
               <img
@@ -102,16 +104,16 @@ export function Farmacia() {
                 <span className="text-sm text-gray-400">Centro</span>
                 <span className="text-sm text-gray-400">45 3541-3232</span>
               </div>
-            </a>
+            </Link>
           </li>
           <li className="flex justify-center items-center">
             <div className="p-6 m-auto max-w-sm lg:max-w-5xl justify-center">
-              <a
-                href="#"
+              <Link
+                to="/farmacias"
                 className="bg-green-600 px-8 py-4 flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
               >
                 Ver todas
-              </a>
+              </Link>
             </div>
           </li>
         </ul>

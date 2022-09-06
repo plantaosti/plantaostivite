@@ -1,4 +1,12 @@
+import {
+  Envelope,
+  Flag,
+  NavigationArrow,
+  Phone,
+  WhatsappLogo,
+} from "phosphor-react";
 import { useParams, Link } from "react-router-dom";
+import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 
@@ -10,33 +18,75 @@ export function PgFarmacia() {
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         {slug ? (
           <section className="max-w-full flex-col m-auto p-6">
-            <div className="flex max-w-5xl m-auto pb-5 justify-center">
-              <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
-                Farmácia Clarifarma
-              </h3>
-            </div>
-            <div className="flex gap-4 max-w-5xl m-auto py-6">
+            <Breadcrumbs />
+
+            <div className="flex gap-7 max-w-5xl m-auto py-6">
               <div>
                 <img
-                  className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
+                  className="max-w-[450px] m-auto"
                   src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
                   alt=""
                 />
               </div>
               <div>
-                <h4>Farmacia Clarifarma</h4>
-                <div>
-                  <span>Detales</span>
-                  <ul>
-                    <li>Endere</li>
-                    <li>Farmaceutico</li>
-                  </ul>
+                <h4 className="text-xl text-gray-400 font-bold mb-6">
+                  Farmacia Clarifarma
+                </h4>
+                <div className="flex flex-col gap-5 text-gray-400">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Perspiciatis odio nobis hic exercitationem aliquam ducimus
+                    commodi maiores aspernatur ad tenetur eaque ipsum tempore,
+                    iusto distinctio dolore placeat voluptatum alias nisi!
+                  </p>
+                  <hr />
+                  <div>
+                    <ul className="flex flex-col gap-3 text-gray-400">
+                      <li className="flex items-center gap-2">
+                        <Phone size={24} />
+                        45 35412990
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <WhatsappLogo size={24} /> 45 35412990
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Envelope size={24} /> farmacia@farmacia.com
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <NavigationArrow size={24} />
+                        Rua Primeiro de maio, 166
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Flag size={24} />
+                        Centro
+                      </li>
+                    </ul>
+                  </div>
+                  <hr />
+                  <div>
+                    <table>
+                      <thead>
+                        <th>
+                          <td className="text-lg">Programas</td>
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Farmacias Popular</td>
+                        </tr>
+                        <tr>
+                          <td>Vale Mais Saude</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
         ) : (
           <section className="max-w-full flex-col m-auto p-6">
+            <Breadcrumbs />
             <div className="flex max-w-5xl m-auto pb-5 justify-center">
               <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
                 Farmácias
