@@ -27,12 +27,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/plantoes"
                   className="hover:text-gray-200 transition-all duration-300"
                 >
                   Plantões
-                </a>
+                </Link>
               </li>
               <li>
                 <Link

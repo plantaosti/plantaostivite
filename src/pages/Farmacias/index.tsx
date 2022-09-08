@@ -3,6 +3,7 @@ import {
   Flag,
   NavigationArrow,
   Phone,
+  Pill,
   WhatsappLogo,
 } from "phosphor-react";
 import { useParams, Link } from "react-router-dom";
@@ -67,7 +68,10 @@ export function PgFarmacia() {
                     <table>
                       <thead>
                         <th>
-                          <td className="text-lg">Programas</td>
+                          <td className="text-lg flex gap-2">
+                            <Pill size={32} />
+                            Programas
+                          </td>
                         </th>
                       </thead>
                       <tbody>
@@ -153,33 +157,34 @@ export function PgFarmacia() {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-col max-w-5xl m-auto py-6">
-              <ul className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
+            <div className="flex flex-col max-w-5xl m-auto py-4">
+              <ul className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-4">
                 <li>
                   <Link
                     to={"/farmacia/clarifarma"}
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
                   >
                     <img
-                      className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
+                      className="max-w-full md:max-w-[200px] max-h-[200px] m-auto"
                       src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
                       alt=""
                     />
                     <div>
-                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold">
+                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold pb-2">
                         Coperfarma
                       </h4>
-                      <ul className="flex flex-col gap-3 text-gray-400">
-                        <li>Bairro: Centro</li>
+                      <ul className="flex flex-col gap-1 text-gray-400">
                         <li className="flex items-center gap-2 text-sm">
-                          <WhatsappLogo size={20} /> 45 35412990
+                          <Flag size={20} />
+                          Centro
+                        </li>
+                        <li className="flex items-center gap-2 text-sm">
+                          <Phone size={20} />
+                          45 35412990
                         </li>
                       </ul>
-                      <p className="text-sm md:text-lg">
-                        <br />
-                      </p>
                     </div>
-                    <div className="flex mt-2 justify-center">
+                    <div className="flex mx-4 md:mx-2 justify-center">
                       <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
                         Detalhes
                       </button>
@@ -192,21 +197,26 @@ export function PgFarmacia() {
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
                   >
                     <img
-                      className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
+                      className="max-w-full md:max-w-[200px] max-h-[200px] m-auto"
                       src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
                       alt=""
                     />
                     <div>
-                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold">
+                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold pb-2">
                         Coperfarma
                       </h4>
-                      <p className="text-sm md:text-lg">
-                        Bairro: Centro
-                        <br />
-                        Telefone: (45)3541-2901
-                      </p>
+                      <ul className="flex flex-col gap-1 text-gray-400">
+                        <li className="flex items-center gap-2 text-sm">
+                          <Flag size={20} />
+                          Centro
+                        </li>
+                        <li className="flex items-center gap-2 text-sm">
+                          <Phone size={20} />
+                          45 35412990
+                        </li>
+                      </ul>
                     </div>
-                    <div className="flex mt-2 justify-center">
+                    <div className="flex mx-4 md:mx-2 justify-center">
                       <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
                         Detalhes
                       </button>
@@ -219,102 +229,26 @@ export function PgFarmacia() {
                     className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
                   >
                     <img
-                      className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
+                      className="max-w-full md:max-w-[200px] max-h-[200px] m-auto"
                       src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
                       alt=""
                     />
                     <div>
-                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold">
+                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold pb-2">
                         Coperfarma
                       </h4>
-                      <p className="text-sm md:text-lg">
-                        Bairro: Centro
-                        <br />
-                        Telefone: (45)3541-2901
-                      </p>
+                      <ul className="flex flex-col gap-1 text-gray-400">
+                        <li className="flex items-center gap-2 text-sm">
+                          <Flag size={20} />
+                          Centro
+                        </li>
+                        <li className="flex items-center gap-2 text-sm">
+                          <Phone size={20} />
+                          45 35412990
+                        </li>
+                      </ul>
                     </div>
-                    <div className="flex mt-2 justify-center">
-                      <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
-                        Detalhes
-                      </button>
-                    </div>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to={"/farmacia/clarifarma"}
-                    className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                  >
-                    <img
-                      className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
-                      src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
-                      alt=""
-                    />
-                    <div>
-                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold">
-                        Coperfarma
-                      </h4>
-                      <p className="text-sm md:text-lg">
-                        Bairro: Centro
-                        <br />
-                        Telefone: (45)3541-2901
-                      </p>
-                    </div>
-                    <div className="flex mt-2 justify-center">
-                      <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
-                        Detalhes
-                      </button>
-                    </div>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to={"/farmacia/clarifarma"}
-                    className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                  >
-                    <img
-                      className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
-                      src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
-                      alt=""
-                    />
-                    <div>
-                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold">
-                        Coperfarma
-                      </h4>
-                      <p className="text-sm md:text-lg">
-                        Bairro: Centro
-                        <br />
-                        Telefone: (45)3541-2901
-                      </p>
-                    </div>
-                    <div className="flex mt-2 justify-center">
-                      <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
-                        Detalhes
-                      </button>
-                    </div>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to={"/farmacia/clarifarma"}
-                    className="flex flex-col gap-2 md:gap-4 justify-center p-2 md:p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
-                  >
-                    <img
-                      className="max-w-[130px] md:max-w-[200px] max-h-[200px] m-auto"
-                      src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
-                      alt=""
-                    />
-                    <div>
-                      <h4 className="text-sm md:text-lg text-gray-600 font-semibold">
-                        Coperfarma
-                      </h4>
-                      <p className="text-sm md:text-lg">
-                        Bairro: Centro
-                        <br />
-                        Telefone: (45)3541-2901
-                      </p>
-                    </div>
-                    <div className="flex mt-2 justify-center">
+                    <div className="flex mx-4 md:mx-2 justify-center">
                       <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
                         Detalhes
                       </button>

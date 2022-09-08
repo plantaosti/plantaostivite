@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -12,7 +13,7 @@ export function Slide() {
         <div className="grid lg:grid-cols-16 md:grid-cols-16 max-w-[986px] m-auto">
           <div className="flex m-auto max-w-sm md:max-w-md lg:max-w-lg p-6 md:order-2">
             <Swiper
-              className="rounded-lg drop-shadow-xl"
+              className="rounded-lg drop-shadow-xl w-[17rem] md:w-[20rem]"
               effect={"coverflow"}
               slidesPerView={"auto"}
               grabCursor={true}
@@ -48,11 +49,11 @@ export function Slide() {
                     <div className="flex justify-between">
                       <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                         <Calendar size={24} color="green" />
-                        Inicio: 03/09/2022
+                        03/09/2022
                       </span>
                       <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                         <Calendar size={24} color="red" />
-                        Fim: 10/09/2022
+                        10/09/2022
                       </span>
                     </div>
                   </div>
@@ -76,11 +77,11 @@ export function Slide() {
                     <div className="flex justify-between">
                       <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                         <Calendar size={24} color="green" />
-                        Inicio: 03/09/2022
+                        03/09/2022
                       </span>
                       <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                         <Calendar size={24} color="red" />
-                        Fim: 10/09/2022
+                        10/09/2022
                       </span>
                     </div>
                   </div>
@@ -104,11 +105,11 @@ export function Slide() {
                     <div className="flex justify-between">
                       <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                         <Calendar size={24} color="green" />
-                        Inicio: 03/09/2022
+                        03/09/2022
                       </span>
                       <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                         <Calendar size={24} color="red" />
-                        Fim: 10/09/2022
+                        10/09/2022
                       </span>
                     </div>
                   </div>
@@ -130,12 +131,12 @@ export function Slide() {
             <p className="text-sm text-gray-400 lg:text-lg dark:text-gray-50">
               Confira a lista atualizada dos plantões para este mês.
             </p>
-            <a
-              href="#"
+            <Link
+              to="/plantoes"
               className="bg-green-600 p-4 max-w-[200px] flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
             >
               Lista completa
-            </a>
+            </Link>
           </div>
         </div>
       </section>

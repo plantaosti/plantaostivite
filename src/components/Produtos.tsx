@@ -53,7 +53,7 @@ export function Produtos() {
                 </div>
                 <div>
                   <h4 className="text-lg text-gray-600 font-semibold">
-                    Echo Dot (4ª Geração): Smart Speaker com Alexa - Cor Preta
+                    Echo Dot 4ª G - Smart Speaker com Alexa
                   </h4>
                   <div className="flex gap-4 items-center text-gray-400 pt-4">
                     <p className="text-sm truncate">

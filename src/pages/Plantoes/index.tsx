@@ -1,8 +1,13 @@
-import { Calendar, Phone } from "phosphor-react";
+import { Calendar, CaretLeft, CaretRight, Phone } from "phosphor-react";
 import { Link } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export function PgPlantoes() {
   return (
@@ -16,9 +21,25 @@ export function PgPlantoes() {
               Plantões
             </h3>
           </div>
-          <div className="flex flex-col max-w-5xl m-auto py-6">
-            <ul className="flex gap-3">
-              <li className="max-w-sm">
+          <div className="flex m-auto max-w-sm md:max-w-full lg:max-w-5xl">
+            <Swiper
+              className="flex"
+              effect={"coverflow"}
+              slidesPerView={"auto"}
+              grabCursor={true}
+              spaceBetween={24}
+              modules={[Pagination, Navigation]}
+              breakpoints={{
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              navigation={{
+                prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next",
+              }}
+            >
+              <SwiperSlide className="">
                 <Link
                   to={"/farmacia/clarifarma"}
                   className="flex flex-col justify-center bg-slate-100 transition-all duration-200 rounded-lg"
@@ -39,21 +60,21 @@ export function PgPlantoes() {
                       <div className="flex justify-between">
                         <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                           <Calendar size={24} color="green" />
-                          Inicio: 03/09/2022
+                          03/09/2022
                         </span>
                         <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                           <Calendar size={24} color="red" />
-                          Fim: 10/09/2022
+                          10/09/2022
                         </span>
                       </div>
                     </div>
                   </div>
                 </Link>
-              </li>
-              <li className="max-w-sm">
+              </SwiperSlide>
+              <SwiperSlide className="">
                 <Link
                   to={"/farmacia/clarifarma"}
-                  className="flex flex-col justify-center bg-slate-100 transition-all duration-200 hover:drop-shadow-lg rounded-lg"
+                  className="flex flex-col justify-center bg-slate-100 transition-all duration-200 rounded-lg"
                 >
                   <img
                     src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
@@ -71,21 +92,21 @@ export function PgPlantoes() {
                       <div className="flex justify-between">
                         <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                           <Calendar size={24} color="green" />
-                          Inicio: 03/09/2022
+                          03/09/2022
                         </span>
                         <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                           <Calendar size={24} color="red" />
-                          Fim: 10/09/2022
+                          10/09/2022
                         </span>
                       </div>
                     </div>
                   </div>
                 </Link>
-              </li>
-              <li className="max-w-sm">
+              </SwiperSlide>
+              <SwiperSlide className="">
                 <Link
                   to={"/farmacia/clarifarma"}
-                  className="flex flex-col justify-center bg-slate-100 transition-all duration-200 hover:drop-shadow-lg rounded-lg"
+                  className="flex flex-col justify-center bg-slate-100 transition-all duration-200 rounded-lg"
                 >
                   <img
                     src="https://www.plantaosti.com.br/images/farmacia-coperfarma-wagner.jpg"
@@ -103,21 +124,27 @@ export function PgPlantoes() {
                       <div className="flex justify-between">
                         <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                           <Calendar size={24} color="green" />
-                          Inicio: 03/09/2022
+                          03/09/2022
                         </span>
                         <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                           <Calendar size={24} color="red" />
-                          Fim: 10/09/2022
+                          10/09/2022
                         </span>
                       </div>
                     </div>
                   </div>
                 </Link>
-              </li>
-            </ul>
+              </SwiperSlide>
+              <div className="swiper-button-prev text-white after:content-['']">
+                <CaretLeft className="text-2xl lg:text-4xl" />
+              </div>
+              <div className="swiper-button-next text-white after:content-['']">
+                <CaretRight className="text-2xl lg:text-4xl" />
+              </div>
+            </Swiper>
           </div>
 
-          <div className="flex flex-col max-w-5xl m-auto py-6">
+          <div className="flex flex-col overflow-auto py-2 md:max-w-5xl m-auto md:py-6">
             <table>
               <thead className="p-4 bg-gray-300">
                 <tr>
