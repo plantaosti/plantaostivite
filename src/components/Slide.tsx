@@ -9,11 +9,11 @@ import { Calendar, CaretLeft, CaretRight, Phone } from "phosphor-react";
 export function Slide() {
   return (
     <>
-      <section className="w-full flex-col bg-gray-100 dark:bg-gray-300">
-        <div className="grid lg:grid-cols-16 md:grid-cols-16 max-w-[986px] m-auto">
-          <div className="flex m-auto max-w-sm md:max-w-md lg:max-w-lg p-6 md:order-2">
+      <section className="w-full flex-col bg-gray-100 dark:bg-gray-300 mt-8">
+        <div className="grid lg:grid-cols-16 md:grid-cols-16 max-w-[986px] m-auto mt-12">
+          <div className="flex m-auto p-6 md:order-2">
             <Swiper
-              className="rounded-lg drop-shadow-xl w-[17rem] md:w-[20rem]"
+              className="rounded-lg drop-shadow-xl w-[17rem] md:w-[20rem] lg:w-[30rem]"
               effect={"coverflow"}
               slidesPerView={"auto"}
               grabCursor={true}

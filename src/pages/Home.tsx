@@ -3,6 +3,7 @@ import { Farmacia } from "../components/Farmacia";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Newsletter } from "../components/News";
+import { Produto } from "../components/Produto";
 import { Produtos } from "../components/Produtos";
 import { Slide } from "../components/Slide";
 import { Tutoriais } from "../components/Tutoriais";
@@ -17,7 +18,7 @@ export function Home() {
         <Apoiadores />
         <Tutoriais />
         <Newsletter />
-        <Produtos />
+        <Produto />
         <Footer />
       </main>
     </>

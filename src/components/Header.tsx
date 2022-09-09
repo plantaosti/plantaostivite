@@ -63,9 +63,6 @@ export function Header() {
           </div>
 
           <div className="flex items-center">
-            {/* <a href="#">
-              <Bell size={32} className="hover:fill-blue-700" color="#737373" />
-            </a> */}
             <button
               className="lg:hidden dark:text-gray-200"
               onClick={() => setOpen(!open)}
