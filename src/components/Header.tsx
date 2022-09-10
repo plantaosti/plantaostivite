@@ -12,8 +12,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <header className="bg-white flex justify-center shadow shadow-md w-full fixed top-0 left-0 z-[90] h-20 antialiased dark:bg-gray-600">
-        <div className="flex justify-between w-5/6 max-w-5xl">
+      <header className="bg-white flex justify-center shadow-md w-full fixed top-0 left-0 z-[90] h-20 antialiased dark:bg-gray-600">
+        <nav className="flex justify-between w-5/6 max-w-5xl">
           <Link to="/" className="flex items-center">
             <Logo />
             <span className="text-xl tracking-tight ml-3 text-gray-400 dark:text-gray-200">
@@ -23,42 +23,40 @@ export function Header() {
 
           <div className="hidden lg:flex items-center">
             <div className="text-sm lg:flex-grow">
-              <nav>
-                <ul className="flex gap-6">
-                  <li>
-                    <Link
-                      to="/"
-                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
-                    >
-                      Plantão
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/plantoes"
-                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
-                    >
-                      Plantões
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/farmacias"
-                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
-                    >
-                      Farmácias
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/produtos"
-                      className="block text-sm mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-green-500 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
-                    >
-                      Produtos
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
+              <ul className="flex gap-6">
+                <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
+                  <Link
+                    to="/"
+                    className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
+                  >
+                    Plantão
+                  </Link>
+                </li>
+                <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
+                  <Link
+                    to="/plantoes"
+                    className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
+                  >
+                    Plantões
+                  </Link>
+                </li>
+                <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
+                  <Link
+                    to="/farmacias"
+                    className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
+                  >
+                    Farmácias
+                  </Link>
+                </li>
+                <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
+                  <Link
+                    to="/produtos"
+                    className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
+                  >
+                    Produtos
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -70,7 +68,7 @@ export function Header() {
               <List size={32} />
             </button>
           </div>
-        </div>
+        </nav>
       </header>
 
       <div
@@ -91,11 +89,11 @@ export function Header() {
             <X size={32} />
           </button>
           <nav className="lg:text-sm lg:leading-6 relative">
-            <ul className="flex-row justify-center mt-6">
-              <li>
+            <ul className="flex flex-col gap-6 justify-center mt-6">
+            <li>
                 <Link
                   to="/"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300"
                 >
                   <div className="mr-6 ">
                     <IconePlantao />
@@ -106,7 +104,7 @@ export function Header() {
               <li>
                 <Link
                   to="/plantoes"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300"
                 >
                   <div className="mr-6 ">
                     <IconePlantoes />
@@ -117,7 +115,7 @@ export function Header() {
               <li>
                 <Link
                   to="/farmacias"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300"
                 >
                   <div className="mr-5 ">
                     <IconeFarmacia />
@@ -128,7 +126,7 @@ export function Header() {
               <li>
                 <Link
                   to="/produtos"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300 mb-5"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300"
                 >
                   <div className="mr-5 ">
                     <IconeProdutos />
