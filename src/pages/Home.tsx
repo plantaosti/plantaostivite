@@ -1,5 +1,5 @@
 import { Apoiadores } from "../components/Apoiadores";
-import { Farmacia } from "../components/Farmacia";
+import { Farmacias } from "../components/Farmacias";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Newsletter } from "../components/News";
@@ -14,9 +14,8 @@ export function Home() {
       <Header />
       <main className="mt-20 w-full  antialiased dark:bg-gray-200">
         <Slide />
-        <Farmacia />
+        <Farmacias />
         <Apoiadores />
-        <Tutoriais />
         <Newsletter />
         <Produto />
         <Footer />

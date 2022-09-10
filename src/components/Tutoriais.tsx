@@ -3,7 +3,7 @@ import { Eye } from "phosphor-react";
 export function Tutoriais() {
   return (
     <>
-      <section className="max-w-full flex-col m-auto p-6">
+      <section className="max-w-full flex-col m-auto pt-6 px-4">
         <div className="flex max-w-5xl m-auto pb-5 justify-center">
           <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
             Tutoriais

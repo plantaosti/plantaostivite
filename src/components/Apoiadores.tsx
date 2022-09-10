@@ -1,6 +1,6 @@
 export function Apoiadores() {
   return (
-    <section className="w-full flex-col py-8 my-7 lg:py-8 bg-gray-100 dark:bg-gray-600">
+    <section className="w-full flex-col py-8 my-7 px-4 bg-gray-100 dark:bg-gray-600">
       <div className="flex flex-col text-center justify-center max-w-4xl m-auto pb-5">
         <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-100">
           Apoiadores
@@ -9,7 +9,7 @@ export function Apoiadores() {
           Pessoas e empresas que apoian a nossa ferramenta.
         </span>
       </div>
-      <ul className="grid grid-cols-2 gap-3 text-left px-4 md:grid-cols-4 m-auto max-w-[986px] py-10 md:text-center text-gray-500 dark:text-gray-200">
+      <ul className="grid grid-cols-2 gap-3 text-left md:grid-cols-4 m-auto max-w-[986px] py-10 md:text-center text-gray-500 dark:text-gray-200">
         <li>Thais Reis Nails</li>
         <li>Estação Store</li>
         <li>Aline Mezzari Brand</li>

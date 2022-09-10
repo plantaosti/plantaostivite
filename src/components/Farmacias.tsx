@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export function Farmacia() {
+export function Farmacias() {
   return (
     <>
-      <section className="w-full flex-col p-6 lg:p-8">
+      <section className="w-full flex-col px-4">
         <div className="flex justify-center max-w-[986px] m-auto pb-5">
           <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
             Farmácias
