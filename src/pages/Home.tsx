@@ -6,6 +6,8 @@ import { Newsletter } from "../components/News";
 import { Produto } from "../components/Produto";
 import { Slide } from "../components/Slide";
 
+
+
 export function Home() {
   return (
     <>
