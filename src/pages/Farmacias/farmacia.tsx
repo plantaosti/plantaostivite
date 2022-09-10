@@ -28,13 +28,6 @@ export function PgFarmacia() {
       </div>
     );
   }
-  if (!slug) {
-    return (
-      <div>
-        <p>Erro</p>
-      </div>
-    );
-  }
   return (
     <>
       <Header />

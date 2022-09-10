@@ -1,4 +1,36 @@
+import { FormEvent, useState } from "react";
+import { useCreateSubscriberMutation } from "../graphql/generated";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+interface ISubscribe {
+  email: string;
+}
+
+const schemaSubscribe = yup
+  .object({
+    email: yup.string().email().required(),
+  })
+  .required();
+
 export function Newsletter() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schemaSubscribe) });
+  const [createSubscriber, { loading }] = useCreateSubscriberMutation();
+
+  async function handleSubscribe(data:ISubscribe) {
+    await createSubscriber({
+      variables: {
+        email: data.email,
+      },
+    });
+    reset();
+  }
   return (
     <section className="w-full flex-col px-6 py-8 lg:py-10 lg:px-6 bg-gray-300 md:bg-none">
       <div className="bg-gray-300">
@@ -19,18 +51,22 @@ export function Newsletter() {
               informação por email!
             </p>
           </div>
-          <form action="">
+          <form onSubmit={handleSubmit(handleSubscribe)}>
             <div className="flex flex-col md:flex-row justify-center p-4 gap-4 md:gap-0">
               <div className="flex flex-row md:flex-col w-60 md:max-w-xl bg-white">
                 <input
                   className="w-60 px-6 py-4 rounded-none"
                   type="email"
-                  name="email"
                   placeholder="Seu melhor email!"
+                  {...register("email", { required: true })}
                 />
               </div>
 
-              <button className="text-white bg-green-600 hover:bg-gray-400 transition-all dark:bg-gray-600 dark:hover:bg-gray-400 px-6 py-4">
+              <button
+                className="text-white bg-green-600 hover:bg-gray-400 transition-all dark:bg-gray-600 dark:hover:bg-gray-400 px-6 py-4"
+                disabled={loading}
+                type="submit"
+              >
                 Inscrever-se
               </button>
             </div>

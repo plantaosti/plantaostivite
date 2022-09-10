@@ -71,7 +71,7 @@ export function PgFarmacias() {
             <ul className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-4">
               {data?.farmacias.map((farmacia) => {
                 return (
-                  <li>
+                  <li key={farmacia.id}>
                     <Link
                       to={`/farmacia/${farmacia.slug}`}
                       className="flex flex-col gap-2 md:gap-4 justify-center p-4 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
