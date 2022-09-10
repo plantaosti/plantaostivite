@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 interface ISubscribe {
-  email: string;
+  email?: string;
 }
 
 const schemaSubscribe = yup
@@ -24,11 +24,13 @@ export function Newsletter() {
   const [createSubscriber, { loading }] = useCreateSubscriberMutation();
 
   async function handleSubscribe(data:ISubscribe) {
-    await createSubscriber({
-      variables: {
-        email: data.email,
-      },
-    });
+    if(data.email){
+      await createSubscriber({
+        variables: {
+          email: data.email,
+        },
+      });
+    }
     reset();
   }
   return (
