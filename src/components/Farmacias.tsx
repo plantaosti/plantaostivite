@@ -1,33 +1,17 @@
 import { Link } from "react-router-dom";
-import { gql, useQuery } from "@apollo/client";
-
-const GET_FARMACIAS_QUERY = gql`
-  query {
-    farmacias(last: 5) {
-      id
-      name
-      neighborhood
-      phone
-      urllogo
-      slug
-    }
-  }
-`;
-
-interface GetFarmaciasQueryResponse {
-  farmacias: {
-    id: string;
-    name: string;
-    neighborhood: string;
-    phone: string;
-    urllogo: string;
-    slug: string;
-  }[];
-}
+import { useGetFarmaciasQuery } from '../graphql/generated'
 
 export function Farmacias() {
-  const { data } = useQuery<GetFarmaciasQueryResponse>(GET_FARMACIAS_QUERY);
-  console.log(data);
+  const { data } = useGetFarmaciasQuery();
+
+  if(!data) {
+    return(
+      <div className="flex-1">
+        <p>Carregando...</p>
+      </div>
+    )
+  }
+
   return (
     <section className="w-full flex-col px-4 py-6">
       <div className="flex justify-center max-w-[986px] m-auto pb-5">
@@ -45,7 +29,7 @@ export function Farmacias() {
                 className="p-3 flex gap-4 bg-slate-50 transition-all duration-200 hover:drop-shadow-lg"
               >
                 <img
-                  className="max-w-[90px]"
+                  className="max-w-[90px] rounded-md"
                   src={`https://www.plantaosti.com.br/images/${farmacia.urllogo}`}
                   alt=""
                 />
