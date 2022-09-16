@@ -36,72 +36,70 @@ export function Slide() {
   }
   return (
     <section className="w-full flex-col bg-gray-100 dark:bg-gray-300 mt-8">
-      <div className="grid lg:grid-cols-16 md:grid-cols-16 max-w-[986px] m-auto mt-12">
-        <div className="flex m-auto p-6 md:order-2">
-          <Swiper
-            className="rounded-lg drop-shadow-xl w-[17rem] md:w-[20rem] lg:w-[30rem]"
-            effect={"coverflow"}
-            slidesPerView={"auto"}
-            grabCursor={true}
-            loop={true}
-            spaceBetween={24}
-            modules={[Pagination, Navigation]}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 1 },
-              1024: { slidesPerView: 1 },
-            }}
-            pagination={true}
-            navigation={{
-              prevEl: ".swiper-button-prev",
-              nextEl: ".swiper-button-next",
-            }}
-          >
-            {data?.plantoes.map((plantao) => {
-              return (
-                <SwiperSlide key={plantao.id}>
-                  <img
-                    className=""
-                    src={`https://www.plantaosti.com.br/images/${plantao.farmacias?.urllogo}`}
-                    alt=""
-                  />
-                  <div className="bg-white p-4">
-                    <h3 className="text-gray-400 text-lg mb-3 md:text-xl lg:text-2xl font-bold">
-                      {plantao.farmacias?.name}
-                    </h3>
-                    <div className="">
-                      <span className="text-sm text-gray-500 flex gap-2 items-center mb-3">
-                        <Phone size={20} />
-                        {plantao.farmacias?.phone}
+      <div className="grid grid-cols-1 md:grid-cols-2 max-w-[980px] m-auto">
+        <Swiper
+          className=" my-6 mx-4 md:order-2 drop-shadow-xl"
+          effect={"coverflow"}
+          slidesPerView={"auto"}
+          grabCursor={true}
+          loop={true}
+          spaceBetween={24}
+          modules={[Pagination, Navigation]}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 1 },
+            1024: { slidesPerView: 1 },
+          }}
+          pagination={true}
+          navigation={{
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+          }}
+        >
+          {data?.plantoes.map((plantao) => {
+            return (
+              <SwiperSlide key={plantao.id} className="w-[calc(100vw - 12rem)]">
+                <img
+                  className="rounded-t-lg"
+                  src={`https://www.plantaosti.com.br/images/${plantao.farmacias?.urllogo}`}
+                  alt=""
+                />
+                <div className="bg-white p-4 rounded-b-lg">
+                  <h3 className="text-gray-400 text-lg mb-3 md:text-xl lg:text-2xl font-bold">
+                    {plantao.farmacias?.name}
+                  </h3>
+                  <div className="">
+                    <span className="text-sm text-gray-500 flex gap-2 items-center mb-3">
+                      <Phone size={20} />
+                      {plantao.farmacias?.phone}
+                    </span>
+                    <div className="flex justify-between ">
+                      <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
+                        <Calendar size={24} color="green" />
+                        {format(parseISO(plantao.datetimestart), "dd/MM/yy", {
+                          locale: ptBR,
+                        })}
                       </span>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
-                          <Calendar size={24} color="green" />
-                          {format(parseISO(plantao.datetimestart), "dd/MM/yy", {
-                            locale: ptBR,
-                          })}
-                        </span>
-                        <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
-                          <Calendar size={24} color="red" />
-                          {format(parseISO(plantao.datetimeend), "dd/MM/yy", {
-                            locale: ptBR,
-                          })}
-                        </span>
-                      </div>
+                      <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
+                        <Calendar size={24} color="red" />
+                        {format(parseISO(plantao.datetimeend), "dd/MM/yy", {
+                          locale: ptBR,
+                        })}
+                      </span>
                     </div>
                   </div>
-                </SwiperSlide>
-              );
-            })}
+                </div>
+              </SwiperSlide>
+            );
+          })}
 
-            <div className="swiper-button-prev text-white after:content-['']">
-              <CaretLeft className="text-2xl lg:text-4xl" />
-            </div>
-            <div className="swiper-button-next text-white after:content-['']">
-              <CaretRight className="text-2xl lg:text-4xl" />
-            </div>
-          </Swiper>
-        </div>
+          <div className="swiper-button-prev text-white after:content-['']">
+            <CaretLeft className="text-2xl lg:text-4xl" />
+          </div>
+          <div className="swiper-button-next text-white after:content-['']">
+            <CaretRight className="text-2xl lg:text-4xl" />
+          </div>
+        </Swiper>
         <div className="p-6 flex flex-col gap-5 justify-center align-middle order-1 md:max-w-sm lg:max-w-md">
           <h3 className="text-xl lg:text-5xl font-bold text-gray-400 dark:text-gray-100">
             Farmácia de Plantão
