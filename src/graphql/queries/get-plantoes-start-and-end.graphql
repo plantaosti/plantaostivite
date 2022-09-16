@@ -1,0 +1,16 @@
+query GetPlantoesStartEnd($start: DateTime){
+  plantoes(where: {datetimestart_gte: $start}, first: 3) {
+    id
+    datetimestart
+    datetimeend
+    farmacias {
+      ... on Farmacia {
+        id
+        name
+        phone
+        slug
+        urllogo
+      }
+    }
+  }
+}

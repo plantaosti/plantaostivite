@@ -1667,7 +1667,8 @@ export type ImageTransformationInput = {
 /** Locale system enumeration */
 export enum Locale {
   /** System locale */
-  En = 'en'
+  En = 'en',
+  PtBr = 'pt_BR'
 }
 
 /** Representing a geolocation point with latitude and longitude */
@@ -2439,7 +2440,6 @@ export type PageInfo = {
 
 export type Plantao = Node & {
   __typename?: 'Plantao';
-  codigo: Scalars['String'];
   /** The time the document was created */
   createdAt: Scalars['DateTime'];
   /** User that created this document */
@@ -2554,7 +2554,6 @@ export type PlantaoConnection = {
 };
 
 export type PlantaoCreateInput = {
-  codigo: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** datetimeend input for default locale (en) */
   datetimeend: Scalars['DateTime'];
@@ -2697,25 +2696,6 @@ export type PlantaoManyWhereInput = {
   OR?: InputMaybe<Array<PlantaoWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']>;
-  codigo?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  codigo_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  codigo_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  codigo_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
-  codigo_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  codigo_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  codigo_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  codigo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** All values not starting with the given string. */
-  codigo_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  codigo_starts_with?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -2789,8 +2769,6 @@ export type PlantaoManyWhereInput = {
 };
 
 export enum PlantaoOrderByInput {
-  CodigoAsc = 'codigo_ASC',
-  CodigoDesc = 'codigo_DESC',
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
   DatetimeendAsc = 'datetimeend_ASC',
@@ -2806,7 +2784,6 @@ export enum PlantaoOrderByInput {
 }
 
 export type PlantaoUpdateInput = {
-  codigo?: InputMaybe<Scalars['String']>;
   /** datetimeend input for default locale (en) */
   datetimeend?: InputMaybe<Scalars['DateTime']>;
   /** datetimestart input for default locale (en) */
@@ -2936,25 +2913,6 @@ export type PlantaoWhereInput = {
   OR?: InputMaybe<Array<PlantaoWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']>;
-  codigo?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  codigo_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  codigo_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  codigo_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
-  codigo_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  codigo_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  codigo_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  codigo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  /** All values not starting with the given string. */
-  codigo_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  codigo_starts_with?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -3059,7 +3017,6 @@ export type PlantaoWhereInput = {
 
 /** References Plantao record uniquely */
 export type PlantaoWhereUniqueInput = {
-  codigo?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
 };
 
@@ -5349,6 +5306,13 @@ export type GetFarmaciasQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetFarmaciasQuery = { __typename?: 'Query', farmacias: Array<{ __typename?: 'Farmacia', id: string, slug: string, name: string, urllogo: string, neighborhood: string, phone: number }> };
 
+export type GetPlantoesStartEndQueryVariables = Exact<{
+  start?: InputMaybe<Scalars['DateTime']>;
+}>;
+
+
+export type GetPlantoesStartEndQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, phone: number, slug: string, urllogo: string } | null }> };
+
 
 export const CreateSubscriberDocument = gql`
     mutation CreateSubscriber($email: String!) {
@@ -5509,3 +5473,49 @@ export function useGetFarmaciasLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type GetFarmaciasQueryHookResult = ReturnType<typeof useGetFarmaciasQuery>;
 export type GetFarmaciasLazyQueryHookResult = ReturnType<typeof useGetFarmaciasLazyQuery>;
 export type GetFarmaciasQueryResult = Apollo.QueryResult<GetFarmaciasQuery, GetFarmaciasQueryVariables>;
+export const GetPlantoesStartEndDocument = gql`
+    query GetPlantoesStartEnd($start: DateTime) {
+  plantoes(where: {datetimestart_gte: $start}, first: 3) {
+    id
+    datetimestart
+    datetimeend
+    farmacias {
+      ... on Farmacia {
+        id
+        name
+        phone
+        slug
+        urllogo
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPlantoesStartEndQuery__
+ *
+ * To run a query within a React component, call `useGetPlantoesStartEndQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPlantoesStartEndQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPlantoesStartEndQuery({
+ *   variables: {
+ *      start: // value for 'start'
+ *   },
+ * });
+ */
+export function useGetPlantoesStartEndQuery(baseOptions?: Apollo.QueryHookOptions<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>(GetPlantoesStartEndDocument, options);
+      }
+export function useGetPlantoesStartEndLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>(GetPlantoesStartEndDocument, options);
+        }
+export type GetPlantoesStartEndQueryHookResult = ReturnType<typeof useGetPlantoesStartEndQuery>;
+export type GetPlantoesStartEndLazyQueryHookResult = ReturnType<typeof useGetPlantoesStartEndLazyQuery>;
+export type GetPlantoesStartEndQueryResult = Apollo.QueryResult<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>;
