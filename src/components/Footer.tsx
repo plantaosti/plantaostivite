@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex flex-row gap-2 justify-center mb-6">
           <Link to="/" className="flex items-center gap-2">
             <Logo />
-            <span className="text-2xl text-gray-600 ">Plantão STI.</span>
+            <span className="text-2xl text-green-600">Plantão STI.</span>
           </Link>
         </div>
         <div className="p-6 grid grid-cols-2 md:grid-cols-4 max-w-5xl md:m-auto gap-5">

@@ -11,10 +11,8 @@ import {
   Phone,
   SpinnerGap,
 } from "phosphor-react";
-import ptBr from "date-fns/locale/pt-BR";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { useGetPlantoesStartEndQuery } from "../graphql/generated";
-import { date } from "yup/lib/locale";
 import { ptBR } from "date-fns/locale";
 
 export function Slide() {
@@ -24,9 +22,6 @@ export function Slide() {
       start,
     },
   });
-  function Formatardata($datas:any){
-    return(format($datas, "d-M-yyyy",{locale: ptBR}))
-  }
   if (!data) {
     return (
       <div className="flex flex-col items-center p-6 mt-6">
@@ -82,11 +77,15 @@ export function Slide() {
                       <div className="flex justify-between">
                         <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                           <Calendar size={24} color="green" />
-                          {plantao.datetimestart}
+                          {format(parseISO(plantao.datetimestart), "dd/MM/yy", {
+                            locale: ptBR,
+                          })}
                         </span>
                         <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                           <Calendar size={24} color="red" />
-                          {plantao.datetimeend}
+                          {format(parseISO(plantao.datetimeend), "dd/MM/yy", {
+                            locale: ptBR,
+                          })}
                         </span>
                       </div>
                     </div>

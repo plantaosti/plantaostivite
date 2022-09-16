@@ -5,6 +5,7 @@ import {
   NavigationArrow,
   Phone,
   Pill,
+  SpinnerGap,
   WhatsappLogo,
 } from "phosphor-react";
 import { Link, useParams } from "react-router-dom";
@@ -23,8 +24,13 @@ export function PgFarmacia() {
 
   if (!data) {
     return (
-      <div className="flex-1">
-        <p>Carregando...</p>
+      <div className="flex flex-col items-center p-6 mt-6">
+        <div className="flex flex-col items-center gap-3">
+          <SpinnerGap size={32} className="animate-spin text-green-600" />
+          <p className="animate-pulse text-sm text-green-600 font-bold">
+            Carregando ...
+          </p>
+        </div>
       </div>
     );
   }
@@ -56,25 +62,41 @@ export function PgFarmacia() {
                       <Phone size={24} />
                       {data.farmacia?.phone}
                     </li>
-                    <li className="flex items-center gap-2">
-                      <WhatsappLogo size={24} />{" "}
-                      <a
-                        href={`https://api.whatsapp.com/send?1=pt_BR&phone=+${data.farmacia?.whatsapp}`}
-                      >
-                        {data.farmacia?.whatsapp}
-                      </a>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <InstagramLogo size={24} />{" "}
-                      <a
-                        href={`https://instagram.com/{data.farmacia?.instagram}`}
-                      >
-                        {data.farmacia?.instagram}
-                      </a>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Envelope size={24} /> {data.farmacia?.email}
-                    </li>
+                    {data.farmacia?.whatsapp ? (
+                      <li className="flex items-center gap-2">
+                        <WhatsappLogo size={24} />{" "}
+                        <a
+                          className="text-gray-400 hover:text-gray-600"
+                          target="_blank"
+                          href={`https://api.whatsapp.com/send?1=pt_BR&phone=+${data.farmacia?.whatsapp}`}
+                        >
+                          {data.farmacia?.whatsapp}
+                        </a>
+                      </li>
+                    ) : (
+                      ""
+                    )}
+                    {data.farmacia?.instagram ? (
+                      <li className="flex items-center gap-2">
+                        <InstagramLogo size={24} />{" "}
+                        <a
+                          className=""
+                          target="_blank"
+                          href={`https://www.instagram.com/${data.farmacia?.instagram}`}
+                        >
+                          {data.farmacia?.instagram}
+                        </a>
+                      </li>
+                    ) : (
+                      ""
+                    )}
+                    {data.farmacia?.neighborhood ? (
+                      <li className="flex items-center gap-2">
+                        <Envelope size={24} /> {data.farmacia?.email}
+                      </li>
+                    ) : (
+                      ""
+                    )}
                     <li className="flex items-center gap-2">
                       <NavigationArrow size={24} />
                       {data.farmacia?.street}

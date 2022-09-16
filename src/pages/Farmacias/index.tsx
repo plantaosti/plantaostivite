@@ -1,11 +1,4 @@
-import {
-  Envelope,
-  Flag,
-  NavigationArrow,
-  Phone,
-  Pill,
-  WhatsappLogo,
-} from "phosphor-react";
+import { Flag, Phone, SpinnerGap } from "phosphor-react";
 import { useParams, Link } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
@@ -17,8 +10,13 @@ export function PgFarmacias() {
 
   if (!data) {
     return (
-      <div className="flex-1">
-        <p>Carregando...</p>
+      <div className="flex flex-col items-center p-6 mt-6">
+        <div className="flex flex-col items-center gap-3">
+          <SpinnerGap size={32} className="animate-spin text-green-600" />
+          <p className="animate-pulse text-sm text-green-600 font-bold">
+            Carregando ...
+          </p>
+        </div>
       </div>
     );
   }

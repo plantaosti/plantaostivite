@@ -16,7 +16,7 @@ export function Header() {
         <nav className="flex justify-between w-5/6 max-w-5xl">
           <Link to="/" className="flex items-center">
             <Logo />
-            <span className="text-xl tracking-tight ml-3 text-gray-400 dark:text-gray-200">
+            <span className="text-xl tracking-tight ml-3 text-green-500 hover:text-gray-400">
               PLANTAO STI.
             </span>
           </Link>
@@ -90,7 +90,7 @@ export function Header() {
           </button>
           <nav className="lg:text-sm lg:leading-6 relative">
             <ul className="flex flex-col gap-6 justify-center mt-6">
-            <li>
+              <li>
                 <Link
                   to="/"
                   className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-slate-300"

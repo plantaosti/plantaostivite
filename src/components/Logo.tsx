@@ -3,7 +3,7 @@ import React from "react";
 export function Logo() {
   return (
     <svg
-      className="w-[1.5rem] fill-gray-400 dark:fill-gray-200"
+      className="w-[1.5rem] fill-green-600 dark:fill-gray-400"
       xmlns="http://www.w3.org/2000/svg"
       width="38"
       height="48"
