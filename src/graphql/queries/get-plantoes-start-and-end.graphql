@@ -8,6 +8,7 @@ query GetPlantoesStartEnd($start: DateTime){
         id
         name
         phone
+        neighborhood
         slug
         urllogo
       }

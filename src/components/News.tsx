@@ -34,8 +34,8 @@ export function Newsletter() {
     reset();
   }
   return (
-    <section className="w-full flex-col px-6 py-8 lg:py-10 lg:px-6 bg-gray-300 md:bg-none">
-      <div className="bg-gray-300">
+    <section className="w-full flex-col px-6 py-8 lg:py-10 lg:px-6 bg-green-600 md:bg-none">
+      <div className="md:bg-green-600">
         <div className="flex justify-center max-w-5xl m-auto pb-8">
           <h3 className="text-xl font-bold text-white lg:text-3xl  dark:text-gray-600">
             News Letter
@@ -65,7 +65,7 @@ export function Newsletter() {
               </div>
 
               <button
-                className="text-white bg-green-600 hover:bg-gray-400 transition-all dark:bg-gray-600 dark:hover:bg-gray-400 px-6 py-4"
+                className="text-white bg-gray-600 hover:bg-gray-400 transition-all dark:bg-gray-600 dark:hover:bg-gray-400 px-6 py-4"
                 disabled={loading}
                 type="submit"
               >

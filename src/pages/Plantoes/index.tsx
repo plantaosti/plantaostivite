@@ -16,11 +16,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { format, parseISO } from "date-fns";
-import { useGetPlantoesStartEndQuery } from "../../graphql/generated";
+import {
+  useGetPlantoesStartEndQuery,
+  useGetPlantoesStartSkipQuery,
+} from "../../graphql/generated";
 import { ptBR } from "date-fns/locale";
 
 export function PgPlantoes() {
   const start = format(Date.now(), "yyyy-MM-d'T'15:00:00+00:00");
+  const { data: datab } = useGetPlantoesStartSkipQuery({
+    variables: {
+      start,
+    },
+  });
   const { data } = useGetPlantoesStartEndQuery({
     variables: {
       start,
@@ -136,26 +144,77 @@ export function PgPlantoes() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-gray-100 text-center">
-                  <td>Lopsfarma</td>
-                  <td>Centro</td>
-                  <td>23/09/2022</td>
-                  <td>23/09/2022</td>
-                </tr>
-                <tr className="bg-gray-300 text-center">
-                  <td>Lopsfarma</td>
-                  <td>Centro</td>
-                  <td>23/09/2022</td>
-                  <td>23/09/2022</td>
-                </tr>
-                <tr className="bg-gray-100 text-center">
-                  <td>Lopsfarma</td>
-                  <td>Centro</td>
-                  <td>23/09/2022</td>
-                  <td>23/09/2022</td>
-                </tr>
+                {datab?.plantoes.map((plantaob) => {
+                  return (
+                    <tr className="bg-gray-100 text-center">
+                      <td>{plantaob.farmacias?.name}</td>
+                      <td>{plantaob.farmacias?.neighborhood}</td>
+                      <td>
+                        {format(parseISO(plantaob.datetimestart), "dd/MM/yy", {
+                          locale: ptBR,
+                        })}
+                      </td>
+                      <td>
+                        {format(parseISO(plantaob.datetimeend), "dd/MM/yy", {
+                          locale: ptBR,
+                        })}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
+          </div>
+          <div className="mt-6 pb-6 flex flex-col gap-4 md:max-w-5xl m-auto">
+            <p>
+              Início do plantão: sábado às 12 horas. Término do plantão: próximo
+              sábado às 12 horas.{" "}
+            </p>
+            <p>
+              O atendimento das demais farmácias será de 2ª a 6ª feira das 07
+              até às 19 horas e sábado das 07 às 12 horas.{" "}
+            </p>
+            <p>
+              Caso a farmácia escalada para plantão não dispor de Responsável
+              Técnico (R.T. farmacêutico) habilitado, a mesma não poderá cumprir
+              o plantão, retornando apenas na próxima data, se estiver
+              regularizada. Na presença dos interessados uma farmácia será
+              sorteada para assumir esse plantão e comunicado o setor de
+              Vigilância Sanitária. O R.T. sempre que necessitar se ausentar,
+              deverá comunicar a VISA por escrito, com antecedência. Sendo de
+              total responsabilidade do estabelecimento de plantão, o
+              atendimento noturno, com presença do R.T.{" "}
+            </p>
+            <p>
+              Não é permitida a concessão de plantões entre os estabelecimentos,
+              em casos extremos o mesmo poderá ser trocado e o setor da
+              Vigilância Sanitária, comunicado no mínimo com 15 dias de
+              antecedência, por escrito com documento firmado em cartório,
+              podendo ou não a Vigilância Sanitária deferir a mudança.{" "}
+            </p>
+            <p>
+              Havendo abertura ou fechamento de estabelecimentos farmacêuticos,
+              caberá ao Departamento de Vigilância em Saúde, setor de Vigilância
+              Sanitária, a alteração da escala de plantões. A escala pode ser
+              alterada, pela Vigilância Sanitária, caso haja necessidade.{" "}
+            </p>
+            <p>
+              Solicitação de entrada na escala de plantão somente será realizada
+              nos meses de junho e dezembro do ano vigente.
+            </p>
+            <p>
+              Avenida dos Estados, nº 2111 – Centro – Telefone: (45) 3541-1149 –
+              CEP: 85875-000 <br />
+              Página Oficial:{" "}
+              <a
+                className="text-green-600"
+                href="https://www.stitaipu.pr.gov.br"
+              >
+                www.stitaipu.pr.gov.br
+              </a>
+              <br />
+              E-mail: vigilanciasti@gmail.com
+            </p>
           </div>
         </section>
         <Footer />

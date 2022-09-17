@@ -12,11 +12,11 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <header className="bg-white flex justify-center shadow-md w-full fixed top-0 left-0 z-[90] h-20 antialiased dark:bg-gray-600">
+      <header className="bg-white/90 backdrop-blur-sm flex justify-center shadow-md w-full fixed top-0 left-0 z-[90] h-20 antialiased dark:bg-gray-600">
         <nav className="flex justify-between w-5/6 max-w-5xl">
-          <Link to="/" className="flex items-center">
-            <Logo />
-            <span className="text-xl tracking-tight ml-3 text-green-500 hover:text-gray-400">
+          <Link to="/" className="flex items-center group">
+            <Logo className="w-[1.5rem] fill-green-600 dark:fill-gray-400 group-hover:fill-gray-400" />
+            <span className="text-xl tracking-tight ml-3 text-green-500 group-hover:text-gray-400">
               PLANTAO STI.
             </span>
           </Link>

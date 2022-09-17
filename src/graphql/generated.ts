@@ -5311,7 +5311,14 @@ export type GetPlantoesStartEndQueryVariables = Exact<{
 }>;
 
 
-export type GetPlantoesStartEndQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, phone: number, slug: string, urllogo: string } | null }> };
+export type GetPlantoesStartEndQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, phone: number, neighborhood: string, slug: string, urllogo: string } | null }> };
+
+export type GetPlantoesStartSkipQueryVariables = Exact<{
+  start?: InputMaybe<Scalars['DateTime']>;
+}>;
+
+
+export type GetPlantoesStartSkipQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, neighborhood: string, phone: number } | null }> };
 
 
 export const CreateSubscriberDocument = gql`
@@ -5484,6 +5491,7 @@ export const GetPlantoesStartEndDocument = gql`
         id
         name
         phone
+        neighborhood
         slug
         urllogo
       }
@@ -5519,3 +5527,48 @@ export function useGetPlantoesStartEndLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type GetPlantoesStartEndQueryHookResult = ReturnType<typeof useGetPlantoesStartEndQuery>;
 export type GetPlantoesStartEndLazyQueryHookResult = ReturnType<typeof useGetPlantoesStartEndLazyQuery>;
 export type GetPlantoesStartEndQueryResult = Apollo.QueryResult<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>;
+export const GetPlantoesStartSkipDocument = gql`
+    query GetPlantoesStartSkip($start: DateTime) {
+  plantoes(where: {datetimestart_gte: $start}, skip: 3) {
+    id
+    datetimestart
+    datetimeend
+    farmacias {
+      ... on Farmacia {
+        id
+        name
+        neighborhood
+        phone
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPlantoesStartSkipQuery__
+ *
+ * To run a query within a React component, call `useGetPlantoesStartSkipQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPlantoesStartSkipQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPlantoesStartSkipQuery({
+ *   variables: {
+ *      start: // value for 'start'
+ *   },
+ * });
+ */
+export function useGetPlantoesStartSkipQuery(baseOptions?: Apollo.QueryHookOptions<GetPlantoesStartSkipQuery, GetPlantoesStartSkipQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPlantoesStartSkipQuery, GetPlantoesStartSkipQueryVariables>(GetPlantoesStartSkipDocument, options);
+      }
+export function useGetPlantoesStartSkipLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPlantoesStartSkipQuery, GetPlantoesStartSkipQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPlantoesStartSkipQuery, GetPlantoesStartSkipQueryVariables>(GetPlantoesStartSkipDocument, options);
+        }
+export type GetPlantoesStartSkipQueryHookResult = ReturnType<typeof useGetPlantoesStartSkipQuery>;
+export type GetPlantoesStartSkipLazyQueryHookResult = ReturnType<typeof useGetPlantoesStartSkipLazyQuery>;
+export type GetPlantoesStartSkipQueryResult = Apollo.QueryResult<GetPlantoesStartSkipQuery, GetPlantoesStartSkipQueryVariables>;

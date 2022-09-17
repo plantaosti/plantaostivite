@@ -6,10 +6,10 @@ export function Apoiadores() {
           Apoiadores
         </h3>
         <span className="text-sm py-2 text-gray-300 dark:text-gray-200">
-          Pessoas e empresas que apoian a nossa ferramenta.
+          Pessoas e empresas que apoiam essa ferramenta.
         </span>
       </div>
-      <ul className="grid grid-cols-2 gap-3 text-left md:grid-cols-4 m-auto max-w-[986px] py-10 md:text-center text-gray-500 dark:text-gray-200">
+      <ul className="grid grid-cols-2 gap-3  md:grid-cols-4 m-auto max-w-[986px] py-10 text-gray-500 dark:text-gray-200">
         <li>Thais Reis Nails</li>
         <li>Estação Store</li>
         <li>Aline Mezzari Brand</li>

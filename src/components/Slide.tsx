@@ -24,7 +24,7 @@ export function Slide() {
   });
   if (!data) {
     return (
-      <div className="flex flex-col items-center p-6 mt-6">
+      <div className="flex flex-col items-center p-6 mt-9">
         <div className="flex flex-col items-center gap-3">
           <SpinnerGap size={32} className="animate-spin text-green-600" />
           <p className="animate-pulse text-sm text-green-600 font-bold">
@@ -35,7 +35,7 @@ export function Slide() {
     );
   }
   return (
-    <section className="w-full flex-col bg-gray-100 dark:bg-gray-300 mt-8">
+    <section className="w-full flex-col bg-gray-100 dark:bg-gray-300 mt-9 pb-6">
       <div className="grid grid-cols-1 md:grid-cols-2 max-w-[980px] m-auto">
         <Swiper
           className=" my-6 mx-4 md:order-2 drop-shadow-xl"
@@ -62,7 +62,7 @@ export function Slide() {
                 <img
                   className="rounded-t-lg"
                   src={`https://www.plantaosti.com.br/images/${plantao.farmacias?.urllogo}`}
-                  alt=""
+                  alt={`Foto farmácia ${plantao.farmacias?.name}`}
                 />
                 <div className="bg-white p-4 rounded-b-lg">
                   <h3 className="text-gray-400 text-lg mb-3 md:text-xl lg:text-2xl font-bold">
