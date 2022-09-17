@@ -7,6 +7,7 @@ import { PgFarmacias } from "./pages/Farmacias";
 import { PgFarmacia } from "./pages/Farmacias/farmacia";
 import { NotFound } from "./pages/NotFound";
 import { PgProdutos } from "./pages/Produtos";
+import { Pgstory } from "./pages/Story";
 
 export function Router() {
   return (
@@ -18,6 +19,7 @@ export function Router() {
       <Route path="/plantoe/:slug" element={<PgPlantoes />} />
       <Route path="/produtos" element={<PgProdutos />} />
       <Route path="/produto/:slug" element={<PgProdutos />} />
+      <Route path="/story" element={<Pgstory />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

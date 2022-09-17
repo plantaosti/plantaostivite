@@ -6,8 +6,9 @@ import { Header } from "../../components/Header";
 import { useGetFarmaciasAllQuery } from "../../graphql/generated";
 
 export function PgFarmacias() {
+  const { parametro } = useParams();
   const { data } = useGetFarmaciasAllQuery();
-
+  console.log(parametro);
   if (!data) {
     return (
       <div className="flex flex-col items-center p-6 mt-6">
@@ -25,7 +26,7 @@ export function PgFarmacias() {
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
-          <Breadcrumbs />
+          <Breadcrumbs enderecos={["farmacias"]} />
           <div className="flex max-w-5xl m-auto pb-5 justify-center">
             <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
               Farmácias

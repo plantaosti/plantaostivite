@@ -1,5 +1,5 @@
-query GetPlantoesStartEnd($start: DateTime){
-  plantoes(where: {datetimestart_gte: $start}, first: 3) {
+query GetPlantoesStartEnd($end: DateTime){
+  plantoes(where: {datetimeend_gte: $end}, first: 3) {
     id
     datetimestart
     datetimeend
@@ -9,6 +9,7 @@ query GetPlantoesStartEnd($start: DateTime){
         name
         phone
         neighborhood
+        street
         slug
         urllogo
       }

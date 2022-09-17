@@ -16,10 +16,10 @@ import { useGetPlantoesStartEndQuery } from "../graphql/generated";
 import { ptBR } from "date-fns/locale";
 
 export function Slide() {
-  const start = format(Date.now(), "yyyy-MM-d'T'15:00:00+00:00");
+  const end = format(Date.now(), "yyyy-MM-d'T'15:00:00+00:00");
   const { data } = useGetPlantoesStartEndQuery({
     variables: {
-      start,
+      end,
     },
   });
   if (!data) {
@@ -58,7 +58,10 @@ export function Slide() {
         >
           {data?.plantoes.map((plantao) => {
             return (
-              <SwiperSlide key={plantao.id} className="w-[calc(100vw - 12rem)]">
+              <SwiperSlide
+                key={plantao.id}
+                className="max-w-[calc(100vw - 12rem)]"
+              >
                 <img
                   className="rounded-t-lg"
                   src={`https://www.plantaosti.com.br/images/${plantao.farmacias?.urllogo}`}
@@ -69,10 +72,14 @@ export function Slide() {
                     {plantao.farmacias?.name}
                   </h3>
                   <div className="">
-                    <span className="text-sm text-gray-500 flex gap-2 items-center mb-3">
+                    <p className="text-sm text-gray-500 flex gap-2 items-center mb-3">
+                      {plantao.farmacias?.neighborhood} |{" "}
+                      {plantao.farmacias?.street}
+                    </p>
+                    <p className="text-sm text-gray-500 flex gap-2 items-center mb-3">
                       <Phone size={20} />
                       {plantao.farmacias?.phone}
-                    </span>
+                    </p>
                     <div className="flex justify-between ">
                       <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
                         <Calendar size={24} color="green" />

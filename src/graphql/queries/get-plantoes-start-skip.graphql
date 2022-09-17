@@ -1,5 +1,5 @@
-query GetPlantoesStartSkip($start: DateTime){
-  plantoes(where: {datetimestart_gte: $start}, skip: 3) {
+query GetPlantoesStartSkip($end: DateTime){
+  plantoes(where: {datetimeend_gte: $end}, skip: 3) {
     id
     datetimestart
     datetimeend

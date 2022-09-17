@@ -39,7 +39,7 @@ export function PgFarmacia() {
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
-          <Breadcrumbs />
+          <Breadcrumbs enderecos={["farmacias", `${slug}`]} />
 
           <div className="flex flex-col lg:flex-row gap-7 max-w-5xl m-auto py-6">
             <div>

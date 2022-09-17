@@ -23,15 +23,15 @@ import {
 import { ptBR } from "date-fns/locale";
 
 export function PgPlantoes() {
-  const start = format(Date.now(), "yyyy-MM-d'T'15:00:00+00:00");
+  const end = format(Date.now(), "yyyy-MM-d'T'15:00:00+00:00");
   const { data: datab } = useGetPlantoesStartSkipQuery({
     variables: {
-      start,
+      end,
     },
   });
   const { data } = useGetPlantoesStartEndQuery({
     variables: {
-      start,
+      end,
     },
   });
   if (!data) {
@@ -51,7 +51,7 @@ export function PgPlantoes() {
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
-          <Breadcrumbs />
+          <Breadcrumbs enderecos={["plantoes"]} />
           <div className="flex max-w-5xl m-auto pb-5 justify-center">
             <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
               Plantões
@@ -138,6 +138,7 @@ export function PgPlantoes() {
               <thead className="p-4 bg-gray-300">
                 <tr>
                   <th>Farmácia</th>
+                  <th>Telefone</th>
                   <th>Bairro</th>
                   <th>Inicio</th>
                   <th>Fim</th>
@@ -148,6 +149,7 @@ export function PgPlantoes() {
                   return (
                     <tr className="bg-gray-100 text-center">
                       <td>{plantaob.farmacias?.name}</td>
+                      <td>{plantaob.farmacias?.phone}</td>
                       <td>{plantaob.farmacias?.neighborhood}</td>
                       <td>
                         {format(parseISO(plantaob.datetimestart), "dd/MM/yy", {

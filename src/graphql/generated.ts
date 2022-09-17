@@ -5307,14 +5307,14 @@ export type GetFarmaciasQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetFarmaciasQuery = { __typename?: 'Query', farmacias: Array<{ __typename?: 'Farmacia', id: string, slug: string, name: string, urllogo: string, neighborhood: string, phone: number }> };
 
 export type GetPlantoesStartEndQueryVariables = Exact<{
-  start?: InputMaybe<Scalars['DateTime']>;
+  end?: InputMaybe<Scalars['DateTime']>;
 }>;
 
 
-export type GetPlantoesStartEndQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, phone: number, neighborhood: string, slug: string, urllogo: string } | null }> };
+export type GetPlantoesStartEndQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, phone: number, neighborhood: string, street: string, slug: string, urllogo: string } | null }> };
 
 export type GetPlantoesStartSkipQueryVariables = Exact<{
-  start?: InputMaybe<Scalars['DateTime']>;
+  end?: InputMaybe<Scalars['DateTime']>;
 }>;
 
 
@@ -5481,8 +5481,8 @@ export type GetFarmaciasQueryHookResult = ReturnType<typeof useGetFarmaciasQuery
 export type GetFarmaciasLazyQueryHookResult = ReturnType<typeof useGetFarmaciasLazyQuery>;
 export type GetFarmaciasQueryResult = Apollo.QueryResult<GetFarmaciasQuery, GetFarmaciasQueryVariables>;
 export const GetPlantoesStartEndDocument = gql`
-    query GetPlantoesStartEnd($start: DateTime) {
-  plantoes(where: {datetimestart_gte: $start}, first: 3) {
+    query GetPlantoesStartEnd($end: DateTime) {
+  plantoes(where: {datetimeend_gte: $end}, first: 3) {
     id
     datetimestart
     datetimeend
@@ -5492,6 +5492,7 @@ export const GetPlantoesStartEndDocument = gql`
         name
         phone
         neighborhood
+        street
         slug
         urllogo
       }
@@ -5512,7 +5513,7 @@ export const GetPlantoesStartEndDocument = gql`
  * @example
  * const { data, loading, error } = useGetPlantoesStartEndQuery({
  *   variables: {
- *      start: // value for 'start'
+ *      end: // value for 'end'
  *   },
  * });
  */
@@ -5528,8 +5529,8 @@ export type GetPlantoesStartEndQueryHookResult = ReturnType<typeof useGetPlantoe
 export type GetPlantoesStartEndLazyQueryHookResult = ReturnType<typeof useGetPlantoesStartEndLazyQuery>;
 export type GetPlantoesStartEndQueryResult = Apollo.QueryResult<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>;
 export const GetPlantoesStartSkipDocument = gql`
-    query GetPlantoesStartSkip($start: DateTime) {
-  plantoes(where: {datetimestart_gte: $start}, skip: 3) {
+    query GetPlantoesStartSkip($end: DateTime) {
+  plantoes(where: {datetimeend_gte: $end}, skip: 3) {
     id
     datetimestart
     datetimeend
@@ -5557,7 +5558,7 @@ export const GetPlantoesStartSkipDocument = gql`
  * @example
  * const { data, loading, error } = useGetPlantoesStartSkipQuery({
  *   variables: {
- *      start: // value for 'start'
+ *      end: // value for 'end'
  *   },
  * });
  */
