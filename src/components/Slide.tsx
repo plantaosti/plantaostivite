@@ -12,17 +12,17 @@ import {
   SpinnerGap,
 } from "phosphor-react";
 import { format, parseISO } from "date-fns";
-import { useGetPlantoesStartEndQuery } from "../graphql/generated";
+import { useGetPlantoesDateEndQuery } from "../graphql/generated";
 import { ptBR } from "date-fns/locale";
 
 export function Slide() {
   const end = format(Date.now(), "yyyy-MM-d'T'15:00:00+00:00");
-  const { data } = useGetPlantoesStartEndQuery({
+  const { data, loading } = useGetPlantoesDateEndQuery({
     variables: {
       end,
     },
   });
-  if (!data) {
+  if (loading) {
     return (
       <div className="flex flex-col items-center p-6 mt-9">
         <div className="flex flex-col items-center gap-3">
@@ -56,49 +56,51 @@ export function Slide() {
             nextEl: ".swiper-button-next",
           }}
         >
-          {data?.plantoes.map((plantao) => {
-            return (
-              <SwiperSlide
-                key={plantao.id}
-                className="max-w-[calc(100vw - 12rem)]"
-              >
-                <img
-                  className="rounded-t-lg"
-                  src={`https://www.plantaosti.com.br/images/${plantao.farmacias?.urllogo}`}
-                  alt={`Foto farmácia ${plantao.farmacias?.name}`}
-                />
-                <div className="bg-white p-4 rounded-b-lg">
-                  <h3 className="text-gray-400 text-lg mb-3 md:text-xl lg:text-2xl font-bold">
-                    {plantao.farmacias?.name}
-                  </h3>
-                  <div className="">
-                    <p className="text-sm text-gray-500 flex gap-2 items-center mb-3">
-                      {plantao.farmacias?.neighborhood} |{" "}
-                      {plantao.farmacias?.street}
-                    </p>
-                    <p className="text-sm text-gray-500 flex gap-2 items-center mb-3">
-                      <Phone size={20} />
-                      {plantao.farmacias?.phone}
-                    </p>
-                    <div className="flex justify-between ">
-                      <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
-                        <Calendar size={24} color="green" />
-                        {format(parseISO(plantao.datetimestart), "dd/MM/yy", {
-                          locale: ptBR,
-                        })}
-                      </span>
-                      <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
-                        <Calendar size={24} color="red" />
-                        {format(parseISO(plantao.datetimeend), "dd/MM/yy", {
-                          locale: ptBR,
-                        })}
-                      </span>
+          {data?.plantoes
+            .map((plantao) => {
+              return (
+                <SwiperSlide
+                  key={plantao.id}
+                  className="max-w-[calc(100vw - 12rem)]"
+                >
+                  <img
+                    className="rounded-t-lg"
+                    src={`https://www.plantaosti.com.br/images/${plantao.farmacias?.urllogo}`}
+                    alt={`Foto farmácia ${plantao.farmacias?.name}`}
+                  />
+                  <div className="bg-white p-4 rounded-b-lg">
+                    <h3 className="text-gray-400 text-lg mb-3 md:text-xl lg:text-2xl font-bold">
+                      {plantao.farmacias?.name}
+                    </h3>
+                    <div className="">
+                      <p className="text-sm text-gray-500 flex gap-2 items-center mb-3">
+                        {plantao.farmacias?.neighborhood} |{" "}
+                        {plantao.farmacias?.street}
+                      </p>
+                      <p className="text-sm text-gray-500 flex gap-2 items-center mb-3">
+                        <Phone size={20} />
+                        {plantao.farmacias?.phone}
+                      </p>
+                      <div className="flex justify-between ">
+                        <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
+                          <Calendar size={24} color="green" />
+                          {format(parseISO(plantao.datetimestart), "dd/MM/yy", {
+                            locale: ptBR,
+                          })}
+                        </span>
+                        <span className="text-sm text-gray-500 flex gap-2 items-center p-1">
+                          <Calendar size={24} color="red" />
+                          {format(parseISO(plantao.datetimeend), "dd/MM/yy", {
+                            locale: ptBR,
+                          })}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            );
-          })}
+                </SwiperSlide>
+              );
+            })
+            .slice(0, 3)}
 
           <div className="swiper-button-prev text-white after:content-['']">
             <CaretLeft className="text-2xl lg:text-4xl" />

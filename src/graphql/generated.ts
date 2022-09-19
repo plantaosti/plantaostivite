@@ -5306,12 +5306,12 @@ export type GetFarmaciasQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetFarmaciasQuery = { __typename?: 'Query', farmacias: Array<{ __typename?: 'Farmacia', id: string, slug: string, name: string, urllogo: string, neighborhood: string, phone: number }> };
 
-export type GetPlantoesStartEndQueryVariables = Exact<{
+export type GetPlantoesDateEndQueryVariables = Exact<{
   end?: InputMaybe<Scalars['DateTime']>;
 }>;
 
 
-export type GetPlantoesStartEndQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, phone: number, neighborhood: string, street: string, slug: string, urllogo: string } | null }> };
+export type GetPlantoesDateEndQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, phone: number, neighborhood: string, street: string, slug: string, urllogo: string } | null }> };
 
 export type GetPlantoesStartSkipQueryVariables = Exact<{
   end?: InputMaybe<Scalars['DateTime']>;
@@ -5480,9 +5480,9 @@ export function useGetFarmaciasLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type GetFarmaciasQueryHookResult = ReturnType<typeof useGetFarmaciasQuery>;
 export type GetFarmaciasLazyQueryHookResult = ReturnType<typeof useGetFarmaciasLazyQuery>;
 export type GetFarmaciasQueryResult = Apollo.QueryResult<GetFarmaciasQuery, GetFarmaciasQueryVariables>;
-export const GetPlantoesStartEndDocument = gql`
-    query GetPlantoesStartEnd($end: DateTime) {
-  plantoes(where: {datetimeend_gte: $end}, first: 3) {
+export const GetPlantoesDateEndDocument = gql`
+    query GetPlantoesDateEnd($end: DateTime) {
+  plantoes(where: {datetimeend_gte: $end}) {
     id
     datetimestart
     datetimeend
@@ -5502,32 +5502,32 @@ export const GetPlantoesStartEndDocument = gql`
     `;
 
 /**
- * __useGetPlantoesStartEndQuery__
+ * __useGetPlantoesDateEndQuery__
  *
- * To run a query within a React component, call `useGetPlantoesStartEndQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetPlantoesStartEndQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetPlantoesDateEndQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPlantoesDateEndQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetPlantoesStartEndQuery({
+ * const { data, loading, error } = useGetPlantoesDateEndQuery({
  *   variables: {
  *      end: // value for 'end'
  *   },
  * });
  */
-export function useGetPlantoesStartEndQuery(baseOptions?: Apollo.QueryHookOptions<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>) {
+export function useGetPlantoesDateEndQuery(baseOptions?: Apollo.QueryHookOptions<GetPlantoesDateEndQuery, GetPlantoesDateEndQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>(GetPlantoesStartEndDocument, options);
+        return Apollo.useQuery<GetPlantoesDateEndQuery, GetPlantoesDateEndQueryVariables>(GetPlantoesDateEndDocument, options);
       }
-export function useGetPlantoesStartEndLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>) {
+export function useGetPlantoesDateEndLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPlantoesDateEndQuery, GetPlantoesDateEndQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>(GetPlantoesStartEndDocument, options);
+          return Apollo.useLazyQuery<GetPlantoesDateEndQuery, GetPlantoesDateEndQueryVariables>(GetPlantoesDateEndDocument, options);
         }
-export type GetPlantoesStartEndQueryHookResult = ReturnType<typeof useGetPlantoesStartEndQuery>;
-export type GetPlantoesStartEndLazyQueryHookResult = ReturnType<typeof useGetPlantoesStartEndLazyQuery>;
-export type GetPlantoesStartEndQueryResult = Apollo.QueryResult<GetPlantoesStartEndQuery, GetPlantoesStartEndQueryVariables>;
+export type GetPlantoesDateEndQueryHookResult = ReturnType<typeof useGetPlantoesDateEndQuery>;
+export type GetPlantoesDateEndLazyQueryHookResult = ReturnType<typeof useGetPlantoesDateEndLazyQuery>;
+export type GetPlantoesDateEndQueryResult = Apollo.QueryResult<GetPlantoesDateEndQuery, GetPlantoesDateEndQueryVariables>;
 export const GetPlantoesStartSkipDocument = gql`
     query GetPlantoesStartSkip($end: DateTime) {
   plantoes(where: {datetimeend_gte: $end}, skip: 3) {

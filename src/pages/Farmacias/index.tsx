@@ -6,10 +6,9 @@ import { Header } from "../../components/Header";
 import { useGetFarmaciasAllQuery } from "../../graphql/generated";
 
 export function PgFarmacias() {
-  const { parametro } = useParams();
-  const { data } = useGetFarmaciasAllQuery();
-  console.log(parametro);
-  if (!data) {
+  const { data, loading } = useGetFarmaciasAllQuery();
+
+  if (loading) {
     return (
       <div className="flex flex-col items-center p-6 mt-6">
         <div className="flex flex-col items-center gap-3">

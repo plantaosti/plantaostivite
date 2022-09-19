@@ -1,5 +1,5 @@
-query GetPlantoesStartEnd($end: DateTime){
-  plantoes(where: {datetimeend_gte: $end}, first: 3) {
+query GetPlantoesDateEnd($end: DateTime){
+  plantoes(where: {datetimeend_gte: $end}) {
     id
     datetimestart
     datetimeend

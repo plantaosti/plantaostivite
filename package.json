@@ -21,6 +21,8 @@
     "react-hook-form": "^7.35.0",
     "react-router-dom": "^6.3.0",
     "swiper": "^8.3.2",
+    "vue-headful": "^2.1.0",
+    "vue-simple-headful": "^2.2.6",
     "yup": "^0.32.11"
   },
   "devDependencies": {
