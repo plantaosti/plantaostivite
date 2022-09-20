@@ -1,32 +1,27 @@
 import { CaretRight } from "phosphor-react";
 import { Link } from "react-router-dom";
 
+interface IBreadcrumbsitens {
+  href: string;
+  name: string;
+}
 interface IBreadcrumbs {
-  enderecos: String[];
+  breadcrumbs: IBreadcrumbsitens[];
 }
 
-export function Breadcrumbs({ enderecos }: IBreadcrumbs) {
+export function Breadcrumbs({ breadcrumbs }: IBreadcrumbs) {
   return (
     <div className="flex max-w-5xl m-auto pb-2">
       <ul className="flex gap-2">
-        <li>
-          <Link
-            to="/"
-            className="flex flex-row items-center gap-1 hover:text-gray-300 transition-all duration-300"
-          >
-            Home <CaretRight />
-          </Link>
-        </li>
-        {enderecos.map((endereco) => {
+        {breadcrumbs.map((breadcrumb, i) => {
           return (
-            <li>
+            <li key={i}>
               <Link
                 className="flex flex-row items-center gap-1 hover:text-gray-300 transition-all duration-300"
-                to={`/${endereco}`}
+                to={`${breadcrumb.href}`}
               >
-                {enderecos.indexOf(endereco) < enderecos.length - 1
-                  ? `${endereco} >`
-                  : endereco}
+                {breadcrumb.name}
+                {i != breadcrumbs.length - 1 ? <CaretRight /> : ""}
               </Link>
             </li>
           );

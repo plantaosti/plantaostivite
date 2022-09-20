@@ -4,7 +4,6 @@ import {
   Flag,
   NavigationArrow,
   Phone,
-  Pill,
   WhatsappLogo,
 } from "phosphor-react";
 import { useParams, Link } from "react-router-dom";
@@ -20,12 +19,18 @@ export function PgProdutos() {
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         {slug ? (
           <section className="max-w-full flex-col m-auto p-6">
-            <Breadcrumbs enderecos={["produtos", `${slug}`]} />
+            <Breadcrumbs
+              breadcrumbs={[
+                { name: "Home", href: "/" },
+                { name: "Produtos", href: `/produtos` },
+                { name: `${slug}`, href: `/produto/${slug}` },
+              ]}
+            />
 
             <div className="flex flex-col lg:flex-row gap-7 max-w-5xl m-auto py-6">
               <div>
                 <img
-                  className="md:max-w-[450px] m-auto"
+                  className="md:max-w-[450px] m-auto rounded-lg"
                   src="https://images.prismic.io/plantaosti/7f2e3238-66f3-4e30-afb0-37c6e07498cf_517sIu208oL._AC_SL1000_.jpg?auto=compress,format"
                   alt=""
                 />
@@ -68,12 +73,12 @@ export function PgProdutos() {
                   <div>
                     <table>
                       <thead>
-                        <th>
-                          <td className="text-lg flex gap-2">
+                        <tr>
+                          <th className="text-lg flex gap-2">
                             <Article size={32} />
                             Programas
-                          </td>
-                        </th>
+                          </th>
+                        </tr>
                       </thead>
                       <tbody>
                         <tr>
@@ -118,7 +123,12 @@ export function PgProdutos() {
           </section>
         ) : (
           <section className="max-w-full flex-col m-auto p-6">
-            <Breadcrumbs enderecos={["produtos"]} />
+            <Breadcrumbs
+              breadcrumbs={[
+                { name: "Home", href: "/" },
+                { name: "Produtos", href: `/produtos` },
+              ]}
+            />
             <div className="flex max-w-5xl m-auto pb-5 justify-center">
               <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
                 Produtos
@@ -131,9 +141,9 @@ export function PgProdutos() {
                     to="/produto/multifuncional-hp-smart-tank-514-tanque-de-tinta"
                     className="flex flex-col gap-4 justify-center p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
                   >
-                    <div className="bg-white p-3">
+                    <div className="bg-white p-3 rounded-lg">
                       <img
-                        className="max-w-[200px] max-h-[200px] m-auto"
+                        className="max-w-[200px] max-h-[200px] m-auto rounded-lg"
                         src="https://images.prismic.io/plantaosti/7f2e3238-66f3-4e30-afb0-37c6e07498cf_517sIu208oL._AC_SL1000_.jpg?auto=compress,format"
                         alt=""
                       />
@@ -159,9 +169,9 @@ export function PgProdutos() {
                     to="/produto/echo-dot-4g-smart-speaker-com-alexa"
                     className="flex flex-col gap-4 justify-center p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
                   >
-                    <div className="bg-white p-3">
+                    <div className="bg-white p-3 rounded-lg">
                       <img
-                        className="max-w-[200px] max-h-[200px] m-auto"
+                        className="max-w-[200px] max-h-[200px] m-auto rounded-lg"
                         src="https://images.prismic.io/plantaosti/b99a9d41-0c87-4e1e-a789-b8255826372c_Echo+Dot+%284%C2%AA+Gerac%CC%A7a%CC%83o%29-+Smart+Speaker+com+Alexa+-+Cor+Preta.jpg"
                         alt=""
                       />
@@ -187,7 +197,7 @@ export function PgProdutos() {
                     to="/produto/steamer-vaporizador-profissional-sr-9000-220v"
                     className="flex flex-col gap-4 justify-center p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
                   >
-                    <div className="bg-white p-3">
+                    <div className="bg-white p-3 rounded-lg">
                       <img
                         className="max-w-[200px] max-h-[200px] m-auto"
                         src="https://images.prismic.io/plantaosti/3574427a-5df6-42b7-8417-ed02d14c688a_steamer.jpeg"
@@ -215,9 +225,9 @@ export function PgProdutos() {
                     to="/produto/smart-tv-lg-43-4k-uhd-43p75000-wifi"
                     className="flex flex-col gap-4 justify-center p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
                   >
-                    <div className="bg-white p-3">
+                    <div className="bg-white p-3 rounded-lg">
                       <img
-                        className="max-w-[200px] max-h-[200px] m-auto"
+                        className="max-w-[200px] max-h-[200px] m-auto rounded-lg"
                         src="https://images.prismic.io/plantaosti/dfeea5b9-afe6-4456-bc41-37d9381bdfb6_SmartTvLG434K.jpeg"
                         alt=""
                       />

@@ -39,7 +39,15 @@ export function PgFarmacia() {
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
-          <Breadcrumbs enderecos={["farmacias", `${slug}`]} />
+          <Breadcrumbs
+            breadcrumbs={[
+              { href: "/farmacias", name: "Farmácias" },
+              {
+                href: `/farmacia/${data.farmacia?.slug}`,
+                name: `${data.farmacia?.name}`,
+              },
+            ]}
+          />
 
           <div className="flex flex-col lg:flex-row gap-7 max-w-5xl m-auto py-6">
             <div>
@@ -111,12 +119,12 @@ export function PgFarmacia() {
                 <div>
                   <table>
                     <thead>
-                      <th>
-                        <td className="text-lg flex gap-2">
+                      <tr>
+                        <th className="text-lg flex gap-2">
                           <Pill size={32} />
                           Programas
-                        </td>
-                      </th>
+                        </th>
+                      </tr>
                     </thead>
                     <tbody>
                       <tr>

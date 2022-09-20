@@ -1,15 +1,21 @@
+import { SpinnerGap } from "phosphor-react";
 import { Link } from "react-router-dom";
-import { useGetFarmaciasQuery } from '../graphql/generated'
+import { useGetFarmaciasQuery } from "../graphql/generated";
 
 export function Farmacias() {
-  const { data } = useGetFarmaciasQuery();
+  const { data, loading } = useGetFarmaciasQuery();
 
-  if(!data) {
-    return(
-      <div className="flex-1">
-        <p>Carregando...</p>
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center p-6 mt-9">
+        <div className="flex flex-col items-center gap-3">
+          <SpinnerGap size={32} className="animate-spin text-green-600" />
+          <p className="animate-pulse text-sm text-green-600 font-bold">
+            Carregando ...
+          </p>
+        </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -20,9 +26,9 @@ export function Farmacias() {
         </h3>
       </div>
       <ul className="grid grid-cols-1 gap-4 md:gap-2 pt-8 md:grid-cols-3 max-w-5xl m-auto">
-        {data?.farmacias.map((farmacia) => {
+        {data?.farmacias.map((farmacia, i) => {
           return (
-            <li key={farmacia.id}>
+            <li key={i}>
               <Link
                 to={`/farmacia/${farmacia.slug}`}
                 title="Clique para mais detalhes!"

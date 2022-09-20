@@ -25,7 +25,12 @@ export function PgFarmacias() {
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
-          <Breadcrumbs enderecos={["farmacias"]} />
+          <Breadcrumbs
+            breadcrumbs={[
+              { name: "Home", href: "/" },
+              { name: "Farmácias", href: "/farmacais" },
+            ]}
+          />
           <div className="flex max-w-5xl m-auto pb-5 justify-center">
             <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
               Farmácias

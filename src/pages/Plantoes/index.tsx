@@ -12,7 +12,6 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import HtmlTagDescriptor from "vite";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -45,7 +44,12 @@ export function PgPlantoes() {
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
-          <Breadcrumbs enderecos={["plantoes"]} />
+          <Breadcrumbs
+            breadcrumbs={[
+              { name: "Home", href: "/" },
+              { name: "Plantões", href: "/plantoes" },
+            ]}
+          />
           <div className="flex max-w-5xl m-auto pb-5 justify-center">
             <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
               Plantões
@@ -70,16 +74,16 @@ export function PgPlantoes() {
               }}
             >
               {data?.plantoes
-                .map((plantao) => {
+                .map((plantao, i) => {
                   return (
-                    <SwiperSlide className="">
+                    <SwiperSlide className="" key={i}>
                       <Link
                         to={`/farmacia/${plantao.farmacias?.slug}`}
                         className="flex flex-col justify-center bg-slate-100 transition-all duration-200 rounded-lg"
                       >
                         <img
                           className="rounded-lg"
-                          src={`https://www.plantaosti.com.br/images/${plantao.farmacias?.urllogo}`}
+                          src={`/images/${plantao.farmacias?.urllogo}`}
                           alt=""
                         />
                         <div className="bg-white p-4">
@@ -142,34 +146,30 @@ export function PgPlantoes() {
               </thead>
               <tbody>
                 {data?.plantoes
-                  .map((plantaob) => {
+                  .map((plantao, i) => {
                     return (
-                      <tr className="bg-gray-100 text-center">
-                        <td>{plantaob.farmacias?.name}</td>
-                        <td>{plantaob.farmacias?.phone}</td>
-                        <td>{plantaob.farmacias?.neighborhood}</td>
+                      <tr className="bg-gray-100 text-center" key={i}>
+                        <td>{plantao.farmacias?.name}</td>
+                        <td>{plantao.farmacias?.phone}</td>
+                        <td>{plantao.farmacias?.neighborhood}</td>
                         <td>
-                          {format(
-                            parseISO(plantaob.datetimestart),
-                            "dd/MM/yy",
-                            {
-                              locale: ptBR,
-                            }
-                          )}
+                          {format(parseISO(plantao.datetimestart), "dd/MM/yy", {
+                            locale: ptBR,
+                          })}
                         </td>
                         <td>
-                          {format(parseISO(plantaob.datetimeend), "dd/MM/yy", {
+                          {format(parseISO(plantao.datetimeend), "dd/MM/yy", {
                             locale: ptBR,
                           })}
                         </td>
                       </tr>
                     );
                   })
-                  .slice(3, data?.plantoes.length)}
+                  .slice(3, 10)}
               </tbody>
             </table>
           </div>
-          <div className="mt-6 pb-6 flex flex-col gap-4 md:max-w-5xl m-auto">
+          <div className="mt-10 pb-6 flex flex-col gap-4 md:max-w-5xl m-auto">
             <p>
               Início do plantão: sábado às 12 horas. Término do plantão: próximo
               sábado às 12 horas.{" "}
