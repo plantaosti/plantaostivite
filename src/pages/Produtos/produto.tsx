@@ -57,10 +57,19 @@ export function PgProduto() {
                 {data?.produto?.name}
               </h4>
               <div className="flex flex-col gap-5 text-gray-400">
-                {data?.produto?.description?.text}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: `${data?.produto?.description?.html}`,
+                  }}
+                ></div>
                 <hr />
                 <div className="flex flex-col gap-5 text-gray-400">
-                  <Link to={`${data?.produto?.urlstore}`}>Ver na loja</Link>
+                  <Link
+                    to={`${data?.produto?.urlstore}`}
+                    className="bg-green-600 p-4 max-w-[200px] flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
+                  >
+                    Ver na loja
+                  </Link>
                 </div>
               </div>
             </div>

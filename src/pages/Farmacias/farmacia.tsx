@@ -21,7 +21,7 @@ export function PgFarmacia() {
       slug,
     },
   });
-
+  console.log(data?.farmacia);
   if (!data) {
     return (
       <div className="flex flex-col items-center p-6 mt-6">
@@ -41,6 +41,7 @@ export function PgFarmacia() {
         <section className="max-w-full flex-col m-auto p-6">
           <Breadcrumbs
             breadcrumbs={[
+              { href: "/", name: "Home" },
               { href: "/farmacias", name: "Farmácias" },
               {
                 href: `/farmacia/${data.farmacia?.slug}`,
@@ -53,7 +54,7 @@ export function PgFarmacia() {
             <div>
               <img
                 className="md:max-w-[450px] m-auto rounded-md"
-                src={`https://www.plantaosti.com.br/images/${data.farmacia?.urllogo}`}
+                src={`/images/${data.farmacia?.urllogo}`}
                 alt=""
               />
             </div>
@@ -127,12 +128,14 @@ export function PgFarmacia() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Farmacias Popular</td>
-                      </tr>
-                      <tr>
-                        <td>Vale Mais Saude</td>
-                      </tr>
+                      {/* {data.farmacia?.programas.map((programa: any) => {
+                        console.log(programa);
+                        return (
+                          <tr>
+                            <td>Vale Mais Saude</td>
+                          </tr>
+                        );
+                      })} */}
                       <tr>
                         <td>Vidalink</td>
                       </tr>
