@@ -6239,7 +6239,7 @@ export type GetFarmaciaBySlugLazyQueryHookResult = ReturnType<typeof useGetFarma
 export type GetFarmaciaBySlugQueryResult = Apollo.QueryResult<GetFarmaciaBySlugQuery, GetFarmaciaBySlugQueryVariables>;
 export const GetFarmaciasAllDocument = gql`
     query GetFarmaciasAll {
-  farmacias(stage: PUBLISHED) {
+  farmacias(stage: PUBLISHED, last: 20) {
     id
     slug
     name

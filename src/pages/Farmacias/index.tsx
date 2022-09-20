@@ -1,5 +1,5 @@
 import { Flag, Phone, SpinnerGap } from "phosphor-react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";

@@ -23,8 +23,8 @@ export function Newsletter() {
   } = useForm({ resolver: yupResolver(schemaSubscribe) });
   const [createSubscriber, { loading }] = useCreateSubscriberMutation();
 
-  async function handleSubscribe(data:ISubscribe) {
-    if(data.email){
+  async function handleSubscribe(data: ISubscribe) {
+    if (data.email) {
       await createSubscriber({
         variables: {
           email: data.email,
@@ -44,13 +44,13 @@ export function Newsletter() {
         <div className="flex flex-col md:flex-row justify-center items-center gap-7 max-w-5xl m-auto">
           <div className="flex flex-col text-white dark:text-gray-600 max-w-sm gap-3">
             <p className="text-sm md:text-lg">
-              Você que mora em Santa Terezinha de Itaipu e esta cansado de rodar
-              a cidade toda para encontrar a farmácia de planão da semana, se
+              Você que mora em Santa Terezinha de Itaipu e está cansado de rodar
+              a cidade toda para encontrar a farmácia de plantão da semana, se
               liga, aqui você tem todas as informações.
             </p>
             <p className="text-sm md:text-lg">
               Você também pode se inscrever na nossa newslettar e receber essa
-              informação por email!
+              informação por e-mail!
             </p>
           </div>
           <form onSubmit={handleSubmit(handleSubscribe)}>
