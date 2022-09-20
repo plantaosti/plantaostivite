@@ -1,0 +1,17 @@
+query GetProdutos{
+  produtos {
+    description {
+      html
+      text
+    }
+    id
+    name
+    price
+    promotion
+    slug
+    urlstore
+    image {
+      url
+    }
+  }
+}

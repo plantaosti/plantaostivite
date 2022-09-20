@@ -78,7 +78,7 @@ export function PgPlantoes() {
                   return (
                     <SwiperSlide className="" key={i}>
                       <Link
-                        to={`/farmacia/${plantao.farmacias?.slug}`}
+                        to={`/plantao/${plantao.id}`}
                         className="flex flex-col justify-center bg-slate-100 transition-all duration-200 rounded-lg"
                       >
                         <img

@@ -1,0 +1,20 @@
+query GetPlantaoById($id: ID){
+  plantao(where: {id: $id}) {
+    farmacias {
+      ... on Farmacia {
+        id
+        email
+        description
+        instagram
+        name
+        neighborhood
+        phone
+        programas
+        street
+        urllogo
+        whatsapp
+        slug
+      }
+    }
+  }
+}

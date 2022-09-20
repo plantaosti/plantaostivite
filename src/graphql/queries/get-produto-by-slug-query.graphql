@@ -1,0 +1,17 @@
+query GetProdutoBySlug($slug: String){
+  produto(where: {slug: $slug}) {
+    description {
+      raw
+      text
+      html
+    }
+    id
+    image {
+      url
+    }
+    name
+    price
+    slug
+    urlstore
+  }
+}
