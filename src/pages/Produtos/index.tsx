@@ -56,13 +56,7 @@ export function PgProdutos() {
                           {produto.name}
                         </h4>
                         <div className="flex gap-4 items-center  text-gray-300  pt-4">
-                          <p className="text-sm truncate">
-                            <div
-                              dangerouslySetInnerHTML={{
-                                __html: `${produto.description?.html}`,
-                              }}
-                            ></div>
-                          </p>
+                          <p className="text-sm truncate">Amazon</p>
                         </div>
                       </div>
                     </Link>

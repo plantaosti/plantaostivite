@@ -1,6 +1,9 @@
 export function Apoiadores() {
   return (
-    <section className="w-full flex-col py-8 px-4 bg-gray-100 dark:bg-gray-600">
+    <section
+      className="w-full flex-col py-8 px-4 bg-gray-100 dark:bg-gray-600"
+      id="apoiadores"
+    >
       <div className="flex flex-col text-center justify-center max-w-4xl m-auto pb-5">
         <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-100">
           Apoiadores

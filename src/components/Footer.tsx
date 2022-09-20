@@ -8,8 +8,10 @@ export function Footer() {
       <footer className="flex flex-col w-full bg-gray-100 text-center pt-8">
         <div className="flex flex-row gap-2 justify-center mb-6">
           <Link to="/" className="flex items-center gap-2 group ">
-            <Logo  className="w-[1.5rem] fill-gray-700 dark:fill-gray-400 group-hover:fill-gray-400 transition-all duration-300"  />
-            <span className="text-2xl text-gray-700 group-hover:text-gray-400 transition-all duration-300">Plantão STI.</span>
+            <Logo className="w-[1.5rem] fill-gray-700 dark:fill-gray-400 group-hover:fill-gray-400 transition-all duration-300" />
+            <span className="text-2xl text-gray-700 group-hover:text-gray-400 transition-all duration-300">
+              Plantão STI.
+            </span>
           </Link>
         </div>
         <div className="p-6 grid grid-cols-2 md:grid-cols-4 max-w-5xl md:m-auto gap-5">
@@ -19,12 +21,12 @@ export function Footer() {
             </h3>
             <ul className="text-left">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/"}
                   className="text-gray-700 hover:text-black-200 transition-all duration-300"
                 >
                   Plantão
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
@@ -43,28 +45,28 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/produtos"}
                   className="text-gray-700 hover:text-black-200 transition-all duration-300"
                 >
                   Produtos
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           <div className="flex flex-col gap-4">
-          <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
+            <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
               Contato
             </h3>
             <ul className="text-left">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/#apoiadores"}
                   className="text-gray-700 hover:text-black-200 transition-all duration-300"
                 >
                   Quem Apoia
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -86,7 +88,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-          <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
+            <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
               Mais informações
             </h3>
             <ul className="text-left text-gray-700">
@@ -96,7 +98,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-          <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
+            <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
               Social
             </h3>
             <ul className="flex">

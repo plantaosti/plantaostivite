@@ -117,55 +117,6 @@ export function PgFarmacia() {
                   </ul>
                 </div>
                 <hr />
-                <div>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th className="text-lg flex gap-2">
-                          <Pill size={32} />
-                          Programas
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {/* {data.farmacia?.programas.map((programa: any) => {
-                        console.log(programa);
-                        return (
-                          <tr>
-                            <td>Vale Mais Saude</td>
-                          </tr>
-                        );
-                      })} */}
-                      <tr>
-                        <td>Vidalink</td>
-                      </tr>
-                      <tr>
-                        <td>Pharmalink</td>
-                      </tr>
-                      <tr>
-                        <td>Funcional Card</td>
-                      </tr>
-                      <tr>
-                        <td>Pec Febrafar</td>
-                      </tr>
-                      <tr>
-                        <td>Object Pro</td>
-                      </tr>
-                      <tr>
-                        <td>MAP MasterFarma</td>
-                      </tr>
-                      <tr>
-                        <td>Ellomais / Facillite</td>
-                      </tr>
-                      <tr>
-                        <td>Orizon</td>
-                      </tr>
-                      <tr>
-                        <td>Transaction Centre</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
               </div>
             </div>
           </div>

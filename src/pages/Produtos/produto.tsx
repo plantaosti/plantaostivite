@@ -64,12 +64,13 @@ export function PgProduto() {
                 ></div>
                 <hr />
                 <div className="flex flex-col gap-5 text-gray-400">
-                  <Link
-                    to={`${data?.produto?.urlstore}`}
+                  <a
+                    href={`${data?.produto?.urlstore}`}
+                    title={`Clique para ver o produto ${data?.produto?.name} na loja da Amazon`}
                     className="bg-green-600 p-4 max-w-[200px] flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
                   >
                     Ver na loja
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

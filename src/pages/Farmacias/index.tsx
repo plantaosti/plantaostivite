@@ -7,7 +7,6 @@ import { useGetFarmaciasAllQuery } from "../../graphql/generated";
 
 export function PgFarmacias() {
   const { data, loading } = useGetFarmaciasAllQuery();
-
   if (loading) {
     return (
       <div className="flex flex-col items-center p-6 mt-6">
@@ -53,17 +52,17 @@ export function PgFarmacias() {
               </form>
             </div>
             <ul className="hidden md:flex gap-3">
-              <li>
+              <li data-filter=".centro">
                 <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
                   Centro
                 </button>
               </li>
-              <li>
+              <li data-filter=".parque-dos-estados">
                 <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
                   Parque dos Estados
                 </button>
               </li>
-              <li>
+              <li data-filter=".santa-monica">
                 <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
                   Santa Mônica
                 </button>
@@ -74,7 +73,7 @@ export function PgFarmacias() {
             <ul className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-4">
               {data?.farmacias.map((farmacia) => {
                 return (
-                  <li key={farmacia.id}>
+                  <li key={farmacia.id} className={`${farmacia.neighborhood}`}>
                     <Link
                       to={`/farmacia/${farmacia.slug}`}
                       className="flex flex-col gap-2 md:gap-4 justify-center p-4 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
@@ -85,7 +84,7 @@ export function PgFarmacias() {
                         alt=""
                       />
                       <div>
-                        <h4 className="text-sm md:text-lg text-gray-600 font-semibold pb-2">
+                        <h4 className="text-sm md:text-lg text-green-600 font-semibold pb-2">
                           {farmacia.name}
                         </h4>
                         <ul className="flex flex-col gap-1 text-gray-400">
@@ -100,7 +99,7 @@ export function PgFarmacias() {
                         </ul>
                       </div>
                       <div className="flex mx-4 md:mx-2 justify-center">
-                        <button className="bg-gray-500 py-2 px-5 text-gray-100 text-sm">
+                        <button className="bg-green-600 px-6 p-2 max-w-[200px] flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400">
                           Detalhes
                         </button>
                       </div>
