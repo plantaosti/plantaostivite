@@ -21,9 +21,9 @@ export function Farmacias() {
   return (
     <section className="w-full flex-col px-4 py-6">
       <div className="flex justify-center max-w-[986px] m-auto pb-5">
-        <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
+        <h2 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
           Farmácias
-        </h3>
+        </h2>
       </div>
       <ul className="grid grid-cols-1 gap-4 md:gap-2 pt-8 md:grid-cols-3 max-w-5xl m-auto">
         {data?.farmacias.map((farmacia, i) => {

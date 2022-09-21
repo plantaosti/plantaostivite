@@ -58,9 +58,19 @@ export function Produto() {
           </ul>
         </div>
         <div className="relative">
-            <img className="rounded-lg w-[30rem]" src="https://untree.co/demos/furni/images/why-choose-us-img.jpg" alt="" />
-            <Link className="relative bottom-[4rem] left-[2rem] bg-green-600 px-8 py-4 text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400" to="/produtos">Ver produtos</Link>
-          </div>
+          <img
+            className="rounded-lg w-[30rem]"
+            src="/images/produtos-bg.jpg"
+            alt="Imagen ilustrativa tema produtos indicados."
+          />
+          <Link
+            title="Ver lista de produtos indicados."
+            className="relative bottom-[4rem] left-[2rem] bg-green-600 px-8 py-4 text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
+            to="/produtos"
+          >
+            Ver produtos
+          </Link>
+        </div>
       </div>
     </section>
   );

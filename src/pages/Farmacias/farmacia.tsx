@@ -21,7 +21,6 @@ export function PgFarmacia() {
       slug,
     },
   });
-  console.log(data?.farmacia);
   if (!data) {
     return (
       <div className="flex flex-col items-center p-6 mt-6">

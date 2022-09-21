@@ -113,7 +113,7 @@ export function PgPlantao() {
                 </div>
                 <hr />
                 <div>
-                  <table>
+                  {/* <table>
                     <thead>
                       <tr>
                         <th className="text-lg flex gap-2">
@@ -157,7 +157,7 @@ export function PgPlantao() {
                         <td>Transaction Centre</td>
                       </tr>
                     </tbody>
-                  </table>
+                  </table> */}
                 </div>
               </div>
             </div>

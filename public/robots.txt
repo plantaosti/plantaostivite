@@ -1,0 +1,35 @@
+User-agent: *
+
+Allow: /
+
+User-agent: Googlebot
+
+Allow: /mapa-do-site
+
+Disallow: /checkout
+
+Disallow: /gift
+
+Disallow: *?c=
+
+Disallow: *?p=
+
+Disallow: *?s=
+
+Disallow: *?b=
+
+Disallow: *?o=
+
+User-agent: Googlebot-image
+
+Allow: /
+
+User-agent: Mediapartners-Google
+
+Allow: /
+
+User-agent: Adsbot-Google
+
+Allow: /
+
+Sitemap: https://plantaosti.com.br/sitemap.xml 

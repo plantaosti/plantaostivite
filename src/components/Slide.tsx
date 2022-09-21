@@ -110,14 +110,15 @@ export function Slide() {
           </div>
         </Swiper>
         <div className="p-6 flex flex-col gap-5 justify-center align-middle order-1 md:max-w-sm lg:max-w-md">
-          <h3 className="text-xl lg:text-5xl font-bold text-gray-400 dark:text-gray-100">
+          <h1 className="text-xl lg:text-5xl font-bold text-gray-400 dark:text-gray-100">
             Farmácia de Plantão
-          </h3>
+          </h1>
           <p className="text-sm text-gray-400 lg:text-lg dark:text-gray-50">
             Confira a lista atualizada dos plantões para este mês.
           </p>
           <Link
             to="/plantoes"
+            title="Lista completa das farmácias de plantão."
             className="bg-green-600 p-4 max-w-[200px] flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
           >
             Lista completa

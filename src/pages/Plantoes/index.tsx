@@ -51,7 +51,7 @@ export function PgPlantoes() {
             ]}
           />
           <div className="flex max-w-5xl m-auto pb-5 justify-center">
-            <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
+            <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-400">
               Plantões
             </h3>
           </div>

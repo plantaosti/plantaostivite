@@ -37,9 +37,9 @@ export function Newsletter() {
     <section className="w-full flex-col px-6 py-8 lg:py-10 lg:px-6 bg-green-600 md:bg-none">
       <div className="md:bg-green-600">
         <div className="flex justify-center max-w-5xl m-auto pb-8">
-          <h3 className="text-xl font-bold text-white lg:text-3xl  dark:text-gray-600">
+          <h2 className="text-xl font-bold text-white lg:text-3xl  dark:text-gray-600">
             News Letter
-          </h3>
+          </h2>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-7 max-w-5xl m-auto">
           <div className="flex flex-col text-white dark:text-gray-600 max-w-sm gap-3">

@@ -5,9 +5,9 @@ export function Apoiadores() {
       id="apoiadores"
     >
       <div className="flex flex-col text-center justify-center max-w-4xl m-auto pb-5">
-        <h3 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-100">
+        <h2 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-100">
           Apoiadores
-        </h3>
+        </h2>
         <span className="text-sm py-2 text-gray-300 dark:text-gray-200">
           Pessoas e empresas que apoiam essa ferramenta.
         </span>

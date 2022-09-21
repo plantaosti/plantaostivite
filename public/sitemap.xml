@@ -1,0 +1,50 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" temporarily-dark-style="" native-dark-active="">
+	<link type="text/css" rel="stylesheet" id="dark-mode-custom-link" />
+	<link type="text/css" rel="stylesheet" id="dark-mode-general-link" />
+	<style lang="en" type="text/css" id="dark-mode-custom-style" />
+	<style lang="en" type="text/css" id="dark-mode-native-sheet" />
+	<url>
+		<loc>
+			https://plantaosti.com.br/
+		</loc>
+		<priority>
+			0.9
+		</priority>
+		<changefreq>
+			daily
+		</changefreq>
+	</url>
+	<url>
+		<loc>
+			https://plantaosti.com.br/plantao
+		</loc>
+		<priority>
+			0.9
+		</priority>
+		<changefreq>
+			daily
+		</changefreq>
+	</url>
+	<url>
+		<loc>
+			https://plantaosti.com.br/farmacias
+		</loc>
+		<priority>
+			0.9
+		</priority>
+		<changefreq>
+			daily
+		</changefreq>
+	</url>
+	<url>
+		<loc>
+			https://plantaosti.com.br/produtos
+		</loc>
+		<priority>
+			0.9
+		</priority>
+		<changefreq>
+			daily
+		</changefreq>
+	</url>
+</urlset>
