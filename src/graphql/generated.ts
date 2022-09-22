@@ -265,6 +265,9 @@ export type AssetManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<AssetWhereStageInput>;
+  documentInStages_none?: InputMaybe<AssetWhereStageInput>;
+  documentInStages_some?: InputMaybe<AssetWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -485,6 +488,12 @@ export type AssetUpsertWithNestedWhereUniqueInput = {
   where: AssetWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type AssetWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type AssetWhereInput = {
   /** Logical AND on all given filters. */
@@ -511,6 +520,9 @@ export type AssetWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<AssetWhereStageInput>;
+  documentInStages_none?: InputMaybe<AssetWhereStageInput>;
+  documentInStages_some?: InputMaybe<AssetWhereStageInput>;
   fileName?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   fileName_contains?: InputMaybe<Scalars['String']>;
@@ -670,6 +682,20 @@ export type AssetWhereInput = {
   width_not?: InputMaybe<Scalars['Float']>;
   /** All values that are not contained in given list. */
   width_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type AssetWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<AssetWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<AssetWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<AssetWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<AssetWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
 };
 
 /** References Asset record uniquely */
@@ -987,6 +1013,9 @@ export type FarmaciaManyWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>;
+  documentInStages_every?: InputMaybe<FarmaciaWhereStageInput>;
+  documentInStages_none?: InputMaybe<FarmaciaWhereStageInput>;
+  documentInStages_some?: InputMaybe<FarmaciaWhereStageInput>;
   email?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   email_contains?: InputMaybe<Scalars['String']>;
@@ -1353,6 +1382,12 @@ export type FarmaciaUpsertWithNestedWhereUniqueInput = {
   where: FarmaciaWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type FarmaciaWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type FarmaciaWhereInput = {
   /** Logical AND on all given filters. */
@@ -1417,6 +1452,9 @@ export type FarmaciaWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>;
+  documentInStages_every?: InputMaybe<FarmaciaWhereStageInput>;
+  documentInStages_none?: InputMaybe<FarmaciaWhereStageInput>;
+  documentInStages_some?: InputMaybe<FarmaciaWhereStageInput>;
   email?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   email_contains?: InputMaybe<Scalars['String']>;
@@ -1652,6 +1690,20 @@ export type FarmaciaWhereInput = {
   zipCode_not?: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   zipCode_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type FarmaciaWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<FarmaciaWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<FarmaciaWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<FarmaciaWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<FarmaciaWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
 };
 
 /** References Farmacia record uniquely */
@@ -2896,6 +2948,9 @@ export type PlantaoManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<PlantaoWhereStageInput>;
+  documentInStages_none?: InputMaybe<PlantaoWhereStageInput>;
+  documentInStages_some?: InputMaybe<PlantaoWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -3087,6 +3142,12 @@ export type PlantaoUpsertWithNestedWhereUniqueInput = {
   where: PlantaoWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type PlantaoWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type PlantaoWhereInput = {
   /** Logical AND on all given filters. */
@@ -3143,6 +3204,9 @@ export type PlantaoWhereInput = {
   datetimestart_not?: InputMaybe<Scalars['DateTime']>;
   /** All values that are not contained in given list. */
   datetimestart_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  documentInStages_every?: InputMaybe<PlantaoWhereStageInput>;
+  documentInStages_none?: InputMaybe<PlantaoWhereStageInput>;
+  documentInStages_some?: InputMaybe<PlantaoWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -3197,6 +3261,20 @@ export type PlantaoWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type PlantaoWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<PlantaoWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<PlantaoWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<PlantaoWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<PlantaoWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
 };
 
 /** References Plantao record uniquely */
@@ -3364,6 +3442,9 @@ export type ProdutoManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<ProdutoWhereStageInput>;
+  documentInStages_none?: InputMaybe<ProdutoWhereStageInput>;
+  documentInStages_some?: InputMaybe<ProdutoWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -3611,6 +3692,12 @@ export type ProdutoUpsertWithNestedWhereUniqueInput = {
   where: ProdutoWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type ProdutoWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type ProdutoWhereInput = {
   /** Logical AND on all given filters. */
@@ -3640,6 +3727,9 @@ export type ProdutoWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<ProdutoWhereStageInput>;
+  documentInStages_none?: InputMaybe<ProdutoWhereStageInput>;
+  documentInStages_some?: InputMaybe<ProdutoWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -3782,6 +3872,20 @@ export type ProdutoWhereInput = {
   urlstore_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   urlstore_starts_with?: InputMaybe<Scalars['String']>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type ProdutoWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ProdutoWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ProdutoWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ProdutoWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<ProdutoWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
 };
 
 /** References Produto record uniquely */
@@ -5323,6 +5427,9 @@ export type SubscriberManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<SubscriberWhereStageInput>;
+  documentInStages_none?: InputMaybe<SubscriberWhereStageInput>;
+  documentInStages_some?: InputMaybe<SubscriberWhereStageInput>;
   email?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   email_contains?: InputMaybe<Scalars['String']>;
@@ -5501,6 +5608,12 @@ export type SubscriberUpsertWithNestedWhereUniqueInput = {
   where: SubscriberWhereUniqueInput;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type SubscriberWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type SubscriberWhereInput = {
   /** Logical AND on all given filters. */
@@ -5527,6 +5640,9 @@ export type SubscriberWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<SubscriberWhereStageInput>;
+  documentInStages_none?: InputMaybe<SubscriberWhereStageInput>;
+  documentInStages_some?: InputMaybe<SubscriberWhereStageInput>;
   email?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   email_contains?: InputMaybe<Scalars['String']>;
@@ -5619,6 +5735,20 @@ export type SubscriberWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type SubscriberWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<SubscriberWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<SubscriberWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<SubscriberWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<SubscriberWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
 };
 
 /** References Subscriber record uniquely */
@@ -5742,6 +5872,9 @@ export type UserManyWhereInput = {
   createdAt_not?: InputMaybe<Scalars['DateTime']>;
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  documentInStages_every?: InputMaybe<UserWhereStageInput>;
+  documentInStages_none?: InputMaybe<UserWhereStageInput>;
+  documentInStages_some?: InputMaybe<UserWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -5876,6 +6009,12 @@ export type UserUpdateOneInlineInput = {
   disconnect?: InputMaybe<Scalars['Boolean']>;
 };
 
+/** This contains a set of filters that can be used to compare values internally */
+export type UserWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** Identifies documents */
 export type UserWhereInput = {
   /** Logical AND on all given filters. */
@@ -5901,6 +6040,9 @@ export type UserWhereInput = {
   createdAt_not?: InputMaybe<Scalars['DateTime']>;
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  documentInStages_every?: InputMaybe<UserWhereStageInput>;
+  documentInStages_none?: InputMaybe<UserWhereStageInput>;
+  documentInStages_some?: InputMaybe<UserWhereStageInput>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -5998,6 +6140,20 @@ export type UserWhereInput = {
   updatedAt_not?: InputMaybe<Scalars['DateTime']>;
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type UserWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<UserWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<UserWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<UserWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<UserWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
 };
 
 /** References User record uniquely */
@@ -6115,7 +6271,7 @@ export type GetFarmaciaBySlugQuery = { __typename?: 'Query', farmacia?: { __type
 export type GetFarmaciasAllQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetFarmaciasAllQuery = { __typename?: 'Query', farmacias: Array<{ __typename?: 'Farmacia', id: string, slug: string, name: string, urllogo: string, neighborhood: string, phone: number }> };
+export type GetFarmaciasAllQuery = { __typename?: 'Query', farmacias: Array<{ __typename?: 'Farmacia', id: string, slug: string, name: string, urllogo: string, neighborhood: string, phone: number, programas?: any | null }> };
 
 export type GetFarmaciasQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -6246,6 +6402,7 @@ export const GetFarmaciasAllDocument = gql`
     urllogo
     neighborhood
     phone
+    programas
   }
 }
     `;

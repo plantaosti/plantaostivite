@@ -14,6 +14,10 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useGetFarmaciaBySlugQuery } from "../../graphql/generated";
 
+interface IProgramas {
+  name: string;
+  ativo: boolean;
+}
 export function PgFarmacia() {
   const { slug } = useParams<{ slug: string }>();
   const { data } = useGetFarmaciaBySlugQuery({
@@ -116,6 +120,7 @@ export function PgFarmacia() {
                   </ul>
                 </div>
                 <hr />
+                <div></div>
               </div>
             </div>
           </div>
