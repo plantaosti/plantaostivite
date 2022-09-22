@@ -1,0 +1,9 @@
+query GetApoiadoresQuery{
+  apoiadores(last: 20) {
+    ativo
+    name
+    slug
+    url
+    id
+  }
+}

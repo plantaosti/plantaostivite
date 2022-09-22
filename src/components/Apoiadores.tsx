@@ -1,4 +1,8 @@
+import { useGetApoiadoresQueryQuery } from "../graphql/generated";
+
 export function Apoiadores() {
+  const { data } = useGetApoiadoresQueryQuery();
+
   return (
     <section
       className="w-full flex-col py-8 px-4 bg-gray-100 dark:bg-gray-600"
@@ -13,16 +17,23 @@ export function Apoiadores() {
         </span>
       </div>
       <ul className="grid grid-cols-2 gap-3  md:grid-cols-4 m-auto max-w-[986px] py-10 text-gray-500 dark:text-gray-200">
-        <li>Thais Reis Nails</li>
-        <li>Estação Store</li>
-        <li>Aline Mezzari Brand</li>
-        <li>Renato Smania</li>
-        <li>Elaine Costa Smania</li>
-        <li>Farmácias Clarifarma</li>
-        <li>Farmácia Santa Mônica</li>
-        <li>Farmácia Biofarma</li>
-        <li>Fabiane Moda Fitness</li>
-        <li>Negão Motos</li>
+        {data?.apoiadores.map((apoiador) => {
+          return (
+            <li key={apoiador.id}>
+              {apoiador?.url ? (
+                <a
+                  className="hover:text-green-600 transition-all duration-300"
+                  href={`${apoiador.url}`}
+                  title={`${apoiador.name}`}
+                >
+                  {apoiador.name}
+                </a>
+              ) : (
+                `${apoiador.name}`
+              )}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
