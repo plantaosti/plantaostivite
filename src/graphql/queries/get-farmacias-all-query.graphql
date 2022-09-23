@@ -6,6 +6,5 @@ query GetFarmaciasAll {
       urllogo
       neighborhood
       phone
-      programas
     }
 }

@@ -1,4 +1,6 @@
 import {
+  Car,
+  CheckCircle,
   Envelope,
   Flag,
   InstagramLogo,
@@ -8,16 +10,12 @@ import {
   SpinnerGap,
   WhatsappLogo,
 } from "phosphor-react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useGetFarmaciaBySlugQuery } from "../../graphql/generated";
 
-interface IProgramas {
-  name: string;
-  ativo: boolean;
-}
 export function PgFarmacia() {
   const { slug } = useParams<{ slug: string }>();
   const { data } = useGetFarmaciaBySlugQuery({
@@ -58,7 +56,7 @@ export function PgFarmacia() {
               <img
                 className="md:max-w-[450px] m-auto rounded-md"
                 src={`/images/${data.farmacia?.urllogo}`}
-                alt=""
+                alt={data.farmacia?.name}
               />
             </div>
             <div>
@@ -80,7 +78,8 @@ export function PgFarmacia() {
                         <a
                           className="text-gray-400 hover:text-gray-600"
                           target="_blank"
-                          href={`https://api.whatsapp.com/send?1=pt_BR&phone=+${data.farmacia?.whatsapp}`}
+                          href={`https://api.whatsapp.com/send?1=pt_BR&phone=${data.farmacia?.whatsapp}`}
+                          title={`Whatsapp de atendimento da farmácia ${data.farmacia.name}`}
                         >
                           {data.farmacia?.whatsapp}
                         </a>
@@ -92,9 +91,10 @@ export function PgFarmacia() {
                       <li className="flex items-center gap-2">
                         <InstagramLogo size={24} />{" "}
                         <a
-                          className=""
+                          className="text-gray-400 hover:text-gray-600"
                           target="_blank"
                           href={`https://www.instagram.com/${data.farmacia?.instagram}`}
+                          title={`Instagram oficial da farmácia ${data.farmacia.name}`}
                         >
                           {data.farmacia?.instagram}
                         </a>
@@ -117,10 +117,53 @@ export function PgFarmacia() {
                       <Flag size={24} />
                       {data.farmacia?.neighborhood}
                     </li>
+                    <li className="flex items-center gap-2">
+                      {data.farmacia?.fazentrega ? (
+                        <>
+                          <Car size={24} /> Disk Entregas
+                        </>
+                      ) : (
+                        ""
+                      )}
+                    </li>
                   </ul>
                 </div>
                 <hr />
-                <div></div>
+                <div>
+                  {data.farmacia?.programas.length == 0 ? (
+                    ""
+                  ) : (
+                    <table>
+                      <thead className="h-12">
+                        <tr>
+                          <th>
+                            <Pill size={32} />
+                          </th>
+                          <th className="text-lg">
+                            Programas de Descontos em Medicamentos
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.farmacia?.programas?.map((programa) => {
+                          return (
+                            <tr key={programa.id}>
+                              <td width={50}>
+                                <CheckCircle
+                                  size={28}
+                                  className="text-green-600"
+                                />
+                              </td>
+                              <td className="text-lg text-left">
+                                {programa.name}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  )}
+                </div>
               </div>
             </div>
           </div>

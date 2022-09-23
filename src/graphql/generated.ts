@@ -1455,6 +1455,7 @@ export type Farmacia = Node & {
   /** Get the document in other stages */
   documentInStages: Array<Farmacia>;
   email?: Maybe<Scalars['String']>;
+  fazentrega?: Maybe<Scalars['Boolean']>;
   /** List of Farmacia versions */
   history: Array<Version>;
   /** The unique identifier */
@@ -1465,7 +1466,7 @@ export type Farmacia = Node & {
   neighborhood: Scalars['String'];
   phone: Scalars['Int'];
   plantoes: Array<Plantao>;
-  programas?: Maybe<Scalars['Json']>;
+  programas: Array<FarmaciaprogramasUnion>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -1515,6 +1516,16 @@ export type FarmaciaPlantoesArgs = {
 };
 
 
+export type FarmaciaProgramasArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
 export type FarmaciaPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
@@ -1557,13 +1568,14 @@ export type FarmaciaCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   description?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
+  fazentrega?: InputMaybe<Scalars['Boolean']>;
   instagram?: InputMaybe<Scalars['String']>;
   localization?: InputMaybe<LocationInput>;
   name: Scalars['String'];
   neighborhood: Scalars['String'];
   phone: Scalars['Int'];
   plantoes?: InputMaybe<PlantaoCreateManyInlineInput>;
-  programas?: InputMaybe<Scalars['Json']>;
+  programas?: InputMaybe<FarmaciaprogramasUnionCreateManyInlineInput>;
   slug: Scalars['String'];
   street: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -1681,6 +1693,9 @@ export type FarmaciaManyWhereInput = {
   email_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   email_starts_with?: InputMaybe<Scalars['String']>;
+  fazentrega?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  fazentrega_not?: InputMaybe<Scalars['Boolean']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -1908,6 +1923,8 @@ export enum FarmaciaOrderByInput {
   DescriptionDesc = 'description_DESC',
   EmailAsc = 'email_ASC',
   EmailDesc = 'email_DESC',
+  FazentregaAsc = 'fazentrega_ASC',
+  FazentregaDesc = 'fazentrega_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   InstagramAsc = 'instagram_ASC',
@@ -1938,13 +1955,14 @@ export type FarmaciaUpdateInput = {
   city?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
+  fazentrega?: InputMaybe<Scalars['Boolean']>;
   instagram?: InputMaybe<Scalars['String']>;
   localization?: InputMaybe<LocationInput>;
   name?: InputMaybe<Scalars['String']>;
   neighborhood?: InputMaybe<Scalars['String']>;
   phone?: InputMaybe<Scalars['Int']>;
   plantoes?: InputMaybe<PlantaoUpdateManyInlineInput>;
-  programas?: InputMaybe<Scalars['Json']>;
+  programas?: InputMaybe<FarmaciaprogramasUnionUpdateManyInlineInput>;
   slug?: InputMaybe<Scalars['String']>;
   street?: InputMaybe<Scalars['String']>;
   urllogo?: InputMaybe<Scalars['String']>;
@@ -1973,12 +1991,12 @@ export type FarmaciaUpdateManyInput = {
   city?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   email?: InputMaybe<Scalars['String']>;
+  fazentrega?: InputMaybe<Scalars['Boolean']>;
   instagram?: InputMaybe<Scalars['String']>;
   localization?: InputMaybe<LocationInput>;
   name?: InputMaybe<Scalars['String']>;
   neighborhood?: InputMaybe<Scalars['String']>;
   phone?: InputMaybe<Scalars['Int']>;
-  programas?: InputMaybe<Scalars['Json']>;
   street?: InputMaybe<Scalars['String']>;
   urllogo?: InputMaybe<Scalars['String']>;
   whatsapp?: InputMaybe<Scalars['Int']>;
@@ -2120,6 +2138,9 @@ export type FarmaciaWhereInput = {
   email_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   email_starts_with?: InputMaybe<Scalars['String']>;
+  fazentrega?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  fazentrega_not?: InputMaybe<Scalars['Boolean']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -2358,6 +2379,84 @@ export type FarmaciaWhereUniqueInput = {
   slug?: InputMaybe<Scalars['String']>;
 };
 
+export type FarmaciaprogramasUnion = Itemprograma;
+
+export type FarmaciaprogramasUnionConnectInput = {
+  Itemprograma?: InputMaybe<ItemprogramaConnectInput>;
+};
+
+export type FarmaciaprogramasUnionCreateInput = {
+  Itemprograma?: InputMaybe<ItemprogramaCreateInput>;
+};
+
+export type FarmaciaprogramasUnionCreateManyInlineInput = {
+  /** Create and connect multiple existing FarmaciaprogramasUnion documents */
+  create?: InputMaybe<Array<FarmaciaprogramasUnionCreateInput>>;
+};
+
+export type FarmaciaprogramasUnionCreateOneInlineInput = {
+  /** Create and connect one FarmaciaprogramasUnion document */
+  create?: InputMaybe<FarmaciaprogramasUnionCreateInput>;
+};
+
+export type FarmaciaprogramasUnionCreateWithPositionInput = {
+  Itemprograma?: InputMaybe<ItemprogramaCreateWithPositionInput>;
+};
+
+export type FarmaciaprogramasUnionUpdateInput = {
+  Itemprograma?: InputMaybe<ItemprogramaUpdateInput>;
+};
+
+export type FarmaciaprogramasUnionUpdateManyInlineInput = {
+  /** Create and connect multiple FarmaciaprogramasUnion component instances */
+  create?: InputMaybe<Array<FarmaciaprogramasUnionCreateWithPositionInput>>;
+  /** Delete multiple FarmaciaprogramasUnion documents */
+  delete?: InputMaybe<Array<FarmaciaprogramasUnionWhereUniqueInput>>;
+  /** Update multiple FarmaciaprogramasUnion component instances */
+  update?: InputMaybe<Array<FarmaciaprogramasUnionUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple FarmaciaprogramasUnion component instances */
+  upsert?: InputMaybe<Array<FarmaciaprogramasUnionUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+export type FarmaciaprogramasUnionUpdateManyWithNestedWhereInput = {
+  Itemprograma?: InputMaybe<ItemprogramaUpdateManyWithNestedWhereInput>;
+};
+
+export type FarmaciaprogramasUnionUpdateOneInlineInput = {
+  /** Create and connect one FarmaciaprogramasUnion document */
+  create?: InputMaybe<FarmaciaprogramasUnionCreateInput>;
+  /** Delete currently connected FarmaciaprogramasUnion document */
+  delete?: InputMaybe<Scalars['Boolean']>;
+  /** Update single FarmaciaprogramasUnion document */
+  update?: InputMaybe<FarmaciaprogramasUnionUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single FarmaciaprogramasUnion document */
+  upsert?: InputMaybe<FarmaciaprogramasUnionUpsertWithNestedWhereUniqueInput>;
+};
+
+export type FarmaciaprogramasUnionUpdateWithNestedWhereUniqueAndPositionInput = {
+  Itemprograma?: InputMaybe<ItemprogramaUpdateWithNestedWhereUniqueAndPositionInput>;
+};
+
+export type FarmaciaprogramasUnionUpdateWithNestedWhereUniqueInput = {
+  Itemprograma?: InputMaybe<ItemprogramaUpdateWithNestedWhereUniqueInput>;
+};
+
+export type FarmaciaprogramasUnionUpsertWithNestedWhereUniqueAndPositionInput = {
+  Itemprograma?: InputMaybe<ItemprogramaUpsertWithNestedWhereUniqueAndPositionInput>;
+};
+
+export type FarmaciaprogramasUnionUpsertWithNestedWhereUniqueInput = {
+  Itemprograma?: InputMaybe<ItemprogramaUpsertWithNestedWhereUniqueInput>;
+};
+
+export type FarmaciaprogramasUnionWhereInput = {
+  Itemprograma?: InputMaybe<ItemprogramaWhereInput>;
+};
+
+export type FarmaciaprogramasUnionWhereUniqueInput = {
+  Itemprograma?: InputMaybe<ItemprogramaWhereUniqueInput>;
+};
+
 export enum ImageFit {
   /** Resizes the image to fit within the specified parameters without distorting, cropping, or changing the aspect ratio. */
   Clip = 'clip',
@@ -2382,6 +2481,342 @@ export type ImageResizeInput = {
 export type ImageTransformationInput = {
   /** Resizes the image */
   resize?: InputMaybe<ImageResizeInput>;
+};
+
+export type Itemprograma = {
+  __typename?: 'Itemprograma';
+  ativo?: Maybe<Scalars['Boolean']>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  name: Scalars['String'];
+  /** System stage field */
+  stage: Stage;
+};
+
+export type ItemprogramaConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: ItemprogramaWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type ItemprogramaConnection = {
+  __typename?: 'ItemprogramaConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<ItemprogramaEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type ItemprogramaCreateInput = {
+  ativo?: InputMaybe<Scalars['Boolean']>;
+  name: Scalars['String'];
+};
+
+export type ItemprogramaCreateManyInlineInput = {
+  /** Create and connect multiple existing Itemprograma documents */
+  create?: InputMaybe<Array<ItemprogramaCreateInput>>;
+};
+
+export type ItemprogramaCreateOneInlineInput = {
+  /** Create and connect one Itemprograma document */
+  create?: InputMaybe<ItemprogramaCreateInput>;
+};
+
+export type ItemprogramaCreateWithPositionInput = {
+  /** Document to create */
+  data: ItemprogramaCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+export type ItemprogramaEdge = {
+  __typename?: 'ItemprogramaEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node: Itemprograma;
+};
+
+/** Identifies documents */
+export type ItemprogramaManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ItemprogramaWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ItemprogramaWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ItemprogramaWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  ativo?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  ativo_not?: InputMaybe<Scalars['Boolean']>;
+  id?: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  name?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  name_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  name_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  name_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  name_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  name_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  name_starts_with?: InputMaybe<Scalars['String']>;
+};
+
+export enum ItemprogramaOrderByInput {
+  AtivoAsc = 'ativo_ASC',
+  AtivoDesc = 'ativo_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  NameAsc = 'name_ASC',
+  NameDesc = 'name_DESC'
+}
+
+export type ItemprogramaParent = Farmacia;
+
+export type ItemprogramaParentConnectInput = {
+  Farmacia?: InputMaybe<FarmaciaConnectInput>;
+};
+
+export type ItemprogramaParentCreateInput = {
+  Farmacia?: InputMaybe<FarmaciaCreateInput>;
+};
+
+export type ItemprogramaParentCreateManyInlineInput = {
+  /** Connect multiple existing ItemprogramaParent documents */
+  connect?: InputMaybe<Array<ItemprogramaParentWhereUniqueInput>>;
+  /** Create and connect multiple existing ItemprogramaParent documents */
+  create?: InputMaybe<Array<ItemprogramaParentCreateInput>>;
+};
+
+export type ItemprogramaParentCreateOneInlineInput = {
+  /** Connect one existing ItemprogramaParent document */
+  connect?: InputMaybe<ItemprogramaParentWhereUniqueInput>;
+  /** Create and connect one ItemprogramaParent document */
+  create?: InputMaybe<ItemprogramaParentCreateInput>;
+};
+
+export type ItemprogramaParentUpdateInput = {
+  Farmacia?: InputMaybe<FarmaciaUpdateInput>;
+};
+
+export type ItemprogramaParentUpdateManyInlineInput = {
+  /** Connect multiple existing ItemprogramaParent documents */
+  connect?: InputMaybe<Array<ItemprogramaParentConnectInput>>;
+  /** Create and connect multiple ItemprogramaParent documents */
+  create?: InputMaybe<Array<ItemprogramaParentCreateInput>>;
+  /** Delete multiple ItemprogramaParent documents */
+  delete?: InputMaybe<Array<ItemprogramaParentWhereUniqueInput>>;
+  /** Disconnect multiple ItemprogramaParent documents */
+  disconnect?: InputMaybe<Array<ItemprogramaParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing ItemprogramaParent documents */
+  set?: InputMaybe<Array<ItemprogramaParentWhereUniqueInput>>;
+  /** Update multiple ItemprogramaParent documents */
+  update?: InputMaybe<Array<ItemprogramaParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple ItemprogramaParent documents */
+  upsert?: InputMaybe<Array<ItemprogramaParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type ItemprogramaParentUpdateManyWithNestedWhereInput = {
+  Farmacia?: InputMaybe<FarmaciaUpdateManyWithNestedWhereInput>;
+};
+
+export type ItemprogramaParentUpdateOneInlineInput = {
+  /** Connect existing ItemprogramaParent document */
+  connect?: InputMaybe<ItemprogramaParentWhereUniqueInput>;
+  /** Create and connect one ItemprogramaParent document */
+  create?: InputMaybe<ItemprogramaParentCreateInput>;
+  /** Delete currently connected ItemprogramaParent document */
+  delete?: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected ItemprogramaParent document */
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  /** Update single ItemprogramaParent document */
+  update?: InputMaybe<ItemprogramaParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single ItemprogramaParent document */
+  upsert?: InputMaybe<ItemprogramaParentUpsertWithNestedWhereUniqueInput>;
+};
+
+export type ItemprogramaParentUpdateWithNestedWhereUniqueInput = {
+  Farmacia?: InputMaybe<FarmaciaUpdateWithNestedWhereUniqueInput>;
+};
+
+export type ItemprogramaParentUpsertWithNestedWhereUniqueInput = {
+  Farmacia?: InputMaybe<FarmaciaUpsertWithNestedWhereUniqueInput>;
+};
+
+export type ItemprogramaParentWhereInput = {
+  Farmacia?: InputMaybe<FarmaciaWhereInput>;
+};
+
+export type ItemprogramaParentWhereUniqueInput = {
+  Farmacia?: InputMaybe<FarmaciaWhereUniqueInput>;
+};
+
+export type ItemprogramaUpdateInput = {
+  ativo?: InputMaybe<Scalars['Boolean']>;
+  name?: InputMaybe<Scalars['String']>;
+};
+
+export type ItemprogramaUpdateManyInlineInput = {
+  /** Create and connect multiple Itemprograma component instances */
+  create?: InputMaybe<Array<ItemprogramaCreateWithPositionInput>>;
+  /** Delete multiple Itemprograma documents */
+  delete?: InputMaybe<Array<ItemprogramaWhereUniqueInput>>;
+  /** Update multiple Itemprograma component instances */
+  update?: InputMaybe<Array<ItemprogramaUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple Itemprograma component instances */
+  upsert?: InputMaybe<Array<ItemprogramaUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+export type ItemprogramaUpdateManyInput = {
+  ativo?: InputMaybe<Scalars['Boolean']>;
+  name?: InputMaybe<Scalars['String']>;
+};
+
+export type ItemprogramaUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: ItemprogramaUpdateManyInput;
+  /** Document search */
+  where: ItemprogramaWhereInput;
+};
+
+export type ItemprogramaUpdateOneInlineInput = {
+  /** Create and connect one Itemprograma document */
+  create?: InputMaybe<ItemprogramaCreateInput>;
+  /** Delete currently connected Itemprograma document */
+  delete?: InputMaybe<Scalars['Boolean']>;
+  /** Update single Itemprograma document */
+  update?: InputMaybe<ItemprogramaUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Itemprograma document */
+  upsert?: InputMaybe<ItemprogramaUpsertWithNestedWhereUniqueInput>;
+};
+
+export type ItemprogramaUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  data?: InputMaybe<ItemprogramaUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: ItemprogramaWhereUniqueInput;
+};
+
+export type ItemprogramaUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: ItemprogramaUpdateInput;
+  /** Unique document search */
+  where: ItemprogramaWhereUniqueInput;
+};
+
+export type ItemprogramaUpsertInput = {
+  /** Create document if it didn't exist */
+  create: ItemprogramaCreateInput;
+  /** Update document if it exists */
+  update: ItemprogramaUpdateInput;
+};
+
+export type ItemprogramaUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  data?: InputMaybe<ItemprogramaUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Unique component instance search */
+  where: ItemprogramaWhereUniqueInput;
+};
+
+export type ItemprogramaUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: ItemprogramaUpsertInput;
+  /** Unique document search */
+  where: ItemprogramaWhereUniqueInput;
+};
+
+/** Identifies documents */
+export type ItemprogramaWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<ItemprogramaWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<ItemprogramaWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<ItemprogramaWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  ativo?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  ativo_not?: InputMaybe<Scalars['Boolean']>;
+  id?: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  name?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  name_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  name_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  name_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  name_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  name_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  name_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  name_starts_with?: InputMaybe<Scalars['String']>;
+};
+
+/** References Itemprograma record uniquely */
+export type ItemprogramaWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 /** Locale system enumeration */
@@ -8684,12 +9119,12 @@ export type GetFarmaciaBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetFarmaciaBySlugQuery = { __typename?: 'Query', farmacia?: { __typename?: 'Farmacia', id: string, slug: string, urllogo: string, name: string, phone: number, whatsapp?: number | null, instagram?: string | null, programas?: any | null, description?: string | null, street: string, neighborhood: string, zipCode?: number | null, city: string, email?: string | null } | null };
+export type GetFarmaciaBySlugQuery = { __typename?: 'Query', farmacia?: { __typename?: 'Farmacia', id: string, slug: string, urllogo: string, name: string, phone: number, whatsapp?: number | null, instagram?: string | null, description?: string | null, street: string, neighborhood: string, zipCode?: number | null, city: string, email?: string | null, fazentrega?: boolean | null, programas: Array<{ __typename?: 'Itemprograma', name: string, ativo?: boolean | null, id: string }> } | null };
 
 export type GetFarmaciasAllQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetFarmaciasAllQuery = { __typename?: 'Query', farmacias: Array<{ __typename?: 'Farmacia', id: string, slug: string, name: string, urllogo: string, neighborhood: string, phone: number, programas?: any | null }> };
+export type GetFarmaciasAllQuery = { __typename?: 'Query', farmacias: Array<{ __typename?: 'Farmacia', id: string, slug: string, name: string, urllogo: string, neighborhood: string, phone: number }> };
 
 export type GetFarmaciasQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8701,7 +9136,7 @@ export type GetPlantaoByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetPlantaoByIdQuery = { __typename?: 'Query', plantao?: { __typename?: 'Plantao', farmacias?: { __typename?: 'Farmacia', id: string, email?: string | null, description?: string | null, instagram?: string | null, name: string, neighborhood: string, phone: number, programas?: any | null, street: string, urllogo: string, whatsapp?: number | null, slug: string } | null } | null };
+export type GetPlantaoByIdQuery = { __typename?: 'Query', plantao?: { __typename?: 'Plantao', farmacias?: { __typename?: 'Farmacia', id: string, email?: string | null, description?: string | null, instagram?: string | null, name: string, neighborhood: string, phone: number, street: string, urllogo: string, whatsapp?: number | null, slug: string, programas: Array<{ __typename?: 'Itemprograma', name: string, ativo?: boolean | null, id: string }> } | null } | null };
 
 export type GetPlantoesDateEndQueryVariables = Exact<{
   end?: InputMaybe<Scalars['DateTime']>;
@@ -8816,13 +9251,20 @@ export const GetFarmaciaBySlugDocument = gql`
     phone
     whatsapp
     instagram
-    programas
     description
     street
     neighborhood
     zipCode
     city
     email
+    fazentrega
+    programas {
+      ... on Itemprograma {
+        name
+        ativo
+        id
+      }
+    }
   }
 }
     `;
@@ -8863,7 +9305,6 @@ export const GetFarmaciasAllDocument = gql`
     urllogo
     neighborhood
     phone
-    programas
   }
 }
     `;
@@ -8945,11 +9386,17 @@ export const GetPlantaoByIdDocument = gql`
         name
         neighborhood
         phone
-        programas
         street
         urllogo
         whatsapp
         slug
+        programas {
+          ... on Itemprograma {
+            name
+            ativo
+            id
+          }
+        }
       }
     }
   }

@@ -56,7 +56,7 @@ export function Noticias() {
                   href="#"
                   className="bg-green-600 px-8 py-4 flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
                 >
-                  Ver mais
+                  Ver todas
                 </a>
               </div>
             </li>
