@@ -1,0 +1,18 @@
+query GetPostsQuery {
+  posts(orderBy: publishedAt_ASC) {
+    title
+    thumbnail {
+      url
+    }
+    slug
+    id
+    author {
+      name
+      slug
+    }
+    content {
+      html
+    }
+    views
+  }
+}

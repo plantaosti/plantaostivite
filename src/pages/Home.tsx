@@ -3,10 +3,9 @@ import { Farmacias } from "../components/Farmacias";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Newsletter } from "../components/News";
+import { Noticias } from "../components/Noticias";
 import { Produto } from "../components/Produto";
 import { Slide } from "../components/Slide";
-
-
 
 export function Home() {
   return (
@@ -16,6 +15,7 @@ export function Home() {
         <Slide />
         <Farmacias />
         <Apoiadores />
+        <Noticias />
         <Newsletter />
         <Produto />
         <Footer />

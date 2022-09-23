@@ -1,5 +1,5 @@
-query GetPlantaoById($id: ID){
-  plantao(where: {id: $id}) {
+query GetPlantaoById($id: ID) {
+  plantao(where: { id: $id }) {
     farmacias {
       ... on Farmacia {
         id
@@ -9,11 +9,17 @@ query GetPlantaoById($id: ID){
         name
         neighborhood
         phone
-        programas
         street
         urllogo
         whatsapp
         slug
+        programas {
+          ... on Itemprograma {
+            name
+            ativo
+            id
+          }
+        }
       }
     }
   }
