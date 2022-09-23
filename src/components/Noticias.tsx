@@ -9,7 +9,7 @@ export function Noticias() {
       <section className="max-w-full flex-col m-auto pt-6 px-4">
         <div className="flex flex-col text-center justify-center max-w-4xl m-auto pb-5">
           <h2 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-100">
-            Noticias
+            Notícias
           </h2>
           <span className="text-sm py-2 text-gray-300 dark:text-gray-200">
             {""}
@@ -52,12 +52,12 @@ export function Noticias() {
             })}
             <li className="flex">
               <div className="flex p-6 m-auto max-w-sm lg:max-w-5xl justify-center items-center">
-                <a
-                  href="#"
+                <Link
+                  to={"/noticias"}
                   className="bg-green-600 px-8 py-4 flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
                 >
                   Ver todas
-                </a>
+                </Link>
               </div>
             </li>
           </ul>

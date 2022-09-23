@@ -9152,6 +9152,13 @@ export type GetPlantoesStartSkipQueryVariables = Exact<{
 
 export type GetPlantoesStartSkipQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, neighborhood: string, phone: number } | null }> };
 
+export type GetPostBySlugQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetPostBySlugQuery = { __typename?: 'Query', post?: { __typename?: 'Post', category: string, publishedAt?: any | null, slug: string, title: string, views?: number | null, content?: { __typename?: 'RichText', html: string } | null, thumbnail: { __typename?: 'Asset', url: string }, author?: { __typename?: 'Usuario', name: string } | null } | null };
+
 export type GetPostsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -9523,6 +9530,54 @@ export function useGetPlantoesStartSkipLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type GetPlantoesStartSkipQueryHookResult = ReturnType<typeof useGetPlantoesStartSkipQuery>;
 export type GetPlantoesStartSkipLazyQueryHookResult = ReturnType<typeof useGetPlantoesStartSkipLazyQuery>;
 export type GetPlantoesStartSkipQueryResult = Apollo.QueryResult<GetPlantoesStartSkipQuery, GetPlantoesStartSkipQueryVariables>;
+export const GetPostBySlugDocument = gql`
+    query GetPostBySlug($slug: String) {
+  post(where: {slug: $slug}) {
+    category
+    content {
+      html
+    }
+    publishedAt
+    slug
+    title
+    views
+    thumbnail {
+      url
+    }
+    author {
+      name
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPostBySlugQuery__
+ *
+ * To run a query within a React component, call `useGetPostBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useGetPostBySlugQuery(baseOptions?: Apollo.QueryHookOptions<GetPostBySlugQuery, GetPostBySlugQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostBySlugQuery, GetPostBySlugQueryVariables>(GetPostBySlugDocument, options);
+      }
+export function useGetPostBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostBySlugQuery, GetPostBySlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostBySlugQuery, GetPostBySlugQueryVariables>(GetPostBySlugDocument, options);
+        }
+export type GetPostBySlugQueryHookResult = ReturnType<typeof useGetPostBySlugQuery>;
+export type GetPostBySlugLazyQueryHookResult = ReturnType<typeof useGetPostBySlugLazyQuery>;
+export type GetPostBySlugQueryResult = Apollo.QueryResult<GetPostBySlugQuery, GetPostBySlugQueryVariables>;
 export const GetPostsQueryDocument = gql`
     query GetPostsQuery {
   posts(orderBy: publishedAt_ASC) {

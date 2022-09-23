@@ -7,9 +7,10 @@ import { PgFarmacias } from "./pages/Farmacias";
 import { PgFarmacia } from "./pages/Farmacias/farmacia";
 import { NotFound } from "./pages/NotFound";
 import { PgProdutos } from "./pages/Produtos";
-import { Pgstory } from "./pages/Story";
 import { PgPlantao } from "./pages/Plantoes/plantao";
 import { PgProduto } from "./pages/Produtos/produto";
+import { PgNoticias } from "./pages/Noticias";
+import { PgNoticia } from "./pages/Noticias/noticia";
 
 export function Router() {
   return (
@@ -21,7 +22,8 @@ export function Router() {
       <Route path="/plantao/:id" element={<PgPlantao />} />
       <Route path="/produtos" element={<PgProdutos />} />
       <Route path="/produto/:slug" element={<PgProduto />} />
-      <Route path="/story" element={<Pgstory />} />
+      <Route path="/noticias" element={<PgNoticias />} />
+      <Route path="/noticia/:slug" element={<PgNoticia />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
