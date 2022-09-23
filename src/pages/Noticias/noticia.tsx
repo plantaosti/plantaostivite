@@ -35,13 +35,13 @@ export function PgNoticia() {
             breadcrumbs={[
               { name: "Home", href: "/" },
               { name: "Notícias", href: "/noticias" },
-              { name: `${data?.post?.title}`, href: `/noticia/${slug}` },
+              { name: `${data?.post?.title.slice(0,30)} ...`, href: `/noticia/${slug}` },
             ]}
           />
-          <div className="flex flex-col lg:flex-row gap-7 max-w-5xl m-auto py-6">
+          <div className="flex flex-col gap-7 max-w-5xl m-auto py-6">
             <div>
               <img
-                className="md:max-w-[450px] m-auto rounded-md"
+                className="w-screen h-[calc(100vh_/_4)] object-cover m-auto rounded-md"
                 src={`${data?.post?.thumbnail.url}`}
                 alt={data?.post?.title}
               />
@@ -59,8 +59,8 @@ export function PgNoticia() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span>Por: {data?.post?.author?.name}</span>
-              <span>
+              <span className="text-green-600">Por: {data?.post?.author?.name}</span>
+              <span className="text-gray-500">
                 Publicado:{" "}
                 {format(parseISO(data?.post?.publishedAt), "dd/MM/yy", {
                   locale: ptBR,
