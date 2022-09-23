@@ -1,3 +1,5 @@
+import { format, parseISO } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { SpinnerGap } from "phosphor-react";
 import { useParams } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
@@ -48,7 +50,22 @@ export function PgNoticia() {
               <h4 className="text-xl text-gray-400 font-bold mb-6">
                 {data?.post?.title}
               </h4>
-              <div className="flex flex-col gap-5 text-gray-400"></div>
+              <div className="flex flex-col gap-5 text-gray-400">
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: `${data?.post?.content?.html}`,
+                  }}
+                ></div>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <span>Por: {data?.post?.author?.name}</span>
+              <span>
+                Publicado:{" "}
+                {format(parseISO(data?.post?.publishedAt), "dd/MM/yy", {
+                  locale: ptBR,
+                })}
+              </span>
             </div>
           </div>
         </section>
