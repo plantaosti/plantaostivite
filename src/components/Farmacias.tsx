@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { useGetFarmaciasQuery } from "../graphql/generated";
 
 export function Farmacias() {
-  const { data, loading } = useGetFarmaciasQuery();
+  const { data, error } = useGetFarmaciasQuery();
 
-  if (loading) {
+  if (error) {
     return (
       <div className="flex flex-col items-center p-6 mt-9">
         <div className="flex flex-col items-center gap-3">
           <SpinnerGap size={32} className="animate-spin text-green-600" />
           <p className="animate-pulse text-sm text-green-600 font-bold">
-            Carregando ...
+            Não estou conseguindo carregando os dados...
           </p>
         </div>
       </div>

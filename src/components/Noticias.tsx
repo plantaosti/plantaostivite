@@ -21,8 +21,9 @@ export function Noticias() {
               return (
                 <li>
                   <Link
-                    to={`/noticias/${post.slug}`}
+                    to={`/noticia/${post.slug}`}
                     className="flex flex-col gap-4 justify-center p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
+                    title={`${post.title}`}
                   >
                     <img
                       className="max-w-[200px] max-h-[200px] m-auto"
