@@ -20,9 +20,8 @@ import { useGetPlantoesDateEndQuery } from "../../graphql/generated";
 import { ptBR } from "date-fns/locale";
 
 export function PgPlantoes() {
-  const end = format(Date.now(), "yyyy-MM-d'T'15:00:00+00:00");
-
-  const { data, loading } = useGetPlantoesDateEndQuery({
+  const end = format(Date.now(), "yyyy-MM-dd'T'15:00:00+00:00");
+  const { data, loading, error } = useGetPlantoesDateEndQuery({
     variables: {
       end,
     },
@@ -35,6 +34,17 @@ export function PgPlantoes() {
           <p className="animate-pulse text-sm text-green-600 font-bold">
             Carregando ...
           </p>
+        </div>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="flex flex-col items-center p-6 mt-9">
+        <div className="flex flex-col items-center gap-3">
+          <SpinnerGap size={32} className="animate-spin text-green-600" />
+          <p>{error.name}</p>
+          <p>{error.message}</p>
         </div>
       </div>
     );
