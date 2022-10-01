@@ -6,25 +6,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Calendar, CaretLeft, CaretRight, Phone } from "phosphor-react";
 import { format, parseISO } from "date-fns";
-import { useGetPlantoesDateEndQuery } from "../graphql/generated";
+import { GetPlantoesDateEndQuery } from "../graphql/generated";
 import { ptBR } from "date-fns/locale";
 
-interface IPlantoes {
-  plantoes: IPlantao[];
-}
-interface IPlantao {
-  id: string;
-  farmacias: {
-    urllogo: string;
-    name: string;
-    neighborhood: string;
-    phone: string;
-    street: string;
-  };
-  datetimestart: string;
-  datetimeend: string;
-}
-export function Slide({ plantoes }: IPlantoes) {
+export function Slide({ plantoes }: GetPlantoesDateEndQuery) {
   if (!plantoes) {
     return (
       <section className="w-full flex-col bg-gray-100 dark:bg-gray-300 mt-9 pb-6">

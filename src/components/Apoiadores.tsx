@@ -1,15 +1,6 @@
-import { useGetApoiadoresQueryQuery } from "../graphql/generated";
+import { GetApoiadoresQueryQuery } from "../graphql/generated";
 
-interface IApoiadores {
-  apoiadores: IApoiador[] | undefined;
-}
-interface IApoiador {
-  id: string;
-  url: string;
-  name: string;
-  ativo: boolean;
-}
-export function Apoiadores({ apoiadores }: IApoiadores) {
+export function Apoiadores({ apoiadores }: GetApoiadoresQueryQuery) {
   if (!apoiadores) {
     return (
       <section

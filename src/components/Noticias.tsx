@@ -1,20 +1,8 @@
 import { Eye } from "phosphor-react";
 import { Link } from "react-router-dom";
+import { GetPostsQueryQuery } from "../graphql/generated";
 
-interface IPosts {
-  posts: IPost[] | undefined;
-}
-interface IPost {
-  id: string;
-  slug: string;
-  title: string;
-  thumbnail: {
-    url: string;
-  };
-  views: number;
-}
-
-export function Noticias({ posts }: IPosts) {
+export function Noticias({ posts }: GetPostsQueryQuery) {
   return (
     <>
       <section className="max-w-full flex-col m-auto pt-6 px-4">

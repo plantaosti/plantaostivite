@@ -44,10 +44,10 @@ export function Home() {
     <>
       <Header />
       <main className="mt-20 w-full  antialiased dark:bg-gray-200">
-        <Slide plantoes={data?.plantoes} />
-        <Farmacias farmacias={data?.farmacias} />
-        <Apoiadores apoiadores={data?.apoiadores} />
-        <Noticias posts={data?.posts} />
+        <Slide plantoes={data?.plantoes!} />
+        <Farmacias farmacias={data?.farmacias!} />
+        <Apoiadores apoiadores={data?.apoiadores!} />
+        <Noticias posts={data?.posts!} />
         <Newsletter />
         <Produto />
         <Footer />

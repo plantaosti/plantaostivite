@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
+import { GetFarmaciasQuery } from "../graphql/generated";
 
-interface IFarmacias {
-  farmacias: IFarmacia[];
-}
-interface IFarmacia {
-  id: string;
-  slug: string;
-  urllogo: string;
-  name: string;
-  neighborhood: string;
-  phone: string;
-}
-export function Farmacias({ farmacias }: IFarmacias) {
+export function Farmacias({ farmacias }: GetFarmaciasQuery) {
   if (!farmacias) {
     return (
       <section className="w-full flex-col px-4 py-6">
