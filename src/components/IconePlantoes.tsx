@@ -1,9 +1,9 @@
-import React from "react";
-
-function IconePlantoes() {
+import React, { ComponentPropsWithRef } from "react";
+type Logoprops = ComponentPropsWithRef<"svg">;
+function IconePlantoes({ ...rest }: Logoprops) {
   return (
     <svg
-      className="h-8 w-8 dark:fill-gray-200 dark:hover:fill-slate-300"
+      {...rest}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

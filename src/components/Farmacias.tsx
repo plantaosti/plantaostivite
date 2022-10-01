@@ -32,6 +32,8 @@ export function Farmacias({ farmacias }: GetFarmaciasQuery) {
               >
                 <img
                   className="max-w-[90px] rounded-md"
+                  width={90}
+                  height={60}
                   src={`https://www.plantaosti.com.br/images/${farmacia.urllogo}`}
                   alt=""
                 />

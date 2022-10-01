@@ -14,7 +14,7 @@ export function Header() {
     <>
       <header className="bg-white/90 backdrop-blur-sm flex justify-center shadow-md w-full fixed top-0 left-0 z-[90] h-20 antialiased dark:bg-gray-800/95">
         <nav className="flex justify-between w-5/6 max-w-5xl">
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group" tabIndex={1}>
             <Logo className="w-[1.5rem] fill-green-600 dark:fill-gray-300 group-hover:fill-gray-400" />
             <span className="text-xl tracking-tight ml-3 text-green-500 group-hover:text-gray-400 dark:text-gray-300">
               PLANTAO STI.
@@ -27,6 +27,8 @@ export function Header() {
                 <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
                   <Link
                     to="/"
+                    title="Link para acessar pagina de plantão"
+                    aria-label="Link para acessar página de plantão"
                     className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                   >
                     Plantão
@@ -35,6 +37,8 @@ export function Header() {
                 <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
                   <Link
                     to="/plantoes"
+                    title="Link para acessar página de plantões"
+                    aria-label="Link para acessar página de plantões"
                     className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                   >
                     Plantões
@@ -43,6 +47,8 @@ export function Header() {
                 <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
                   <Link
                     to="/farmacias"
+                    title="Link para acessar página de farmácias"
+                    aria-label="Link para acessar página de farmácias"
                     className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                   >
                     Farmácias
@@ -51,6 +57,8 @@ export function Header() {
                 <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
                   <Link
                     to="/produtos"
+                    title="Link para acessar página de produtos"
+                    aria-label="Link para acessar página de produtos"
                     className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                   >
                     Produtos
@@ -64,6 +72,9 @@ export function Header() {
             <button
               className="lg:hidden dark:text-gray-200"
               onClick={() => setOpen(!open)}
+              title="Botão para acessar menu mobile"
+              aria-label="Botão para acessar menu mobile"
+              tabIndex={2}
             >
               <List
                 size={32}
@@ -87,6 +98,8 @@ export function Header() {
           <button
             className="absolute z-50 top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-green-500 dark:text-slate-300"
             onClick={() => setOpen(!open)}
+            title="Botão para fechar menu mobile"
+            aria-label="Botão para fechar menu mobile"
           >
             <span className="sr-only">Fechar Menu</span>
             <X size={32} className="dark:hover:text-gray-500" />
@@ -96,10 +109,12 @@ export function Header() {
               <li>
                 <Link
                   to="/"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-gray-500"
+                  title="Link para acessar pagina de plantão"
+                  aria-label="Link para acessar página de plantão"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-green-500 hover:text-gray-400 dark:text-gray-200 dark:hover:text-gray-500"
                 >
-                  <div className="mr-6 ">
-                    <IconePlantao />
+                  <div className="mr-6">
+                    <IconePlantao className="h-8 w-8 fill-green-500 group-hover:fill-gray-400 dark:fill-gray-200  dark:group-hover:fill-gray-500" />
                   </div>
                   Plantão
                 </Link>
@@ -107,10 +122,12 @@ export function Header() {
               <li>
                 <Link
                   to="/plantoes"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-gray-500"
+                  title="Link para acessar página de plantões"
+                  aria-label="Link para acessar página de plantões"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-green-500 hover:text-gray-400 dark:text-gray-200 dark:hover:text-gray-500 group"
                 >
-                  <div className="mr-6 ">
-                    <IconePlantoes />
+                  <div className="mr-6">
+                    <IconePlantoes className="h-8 w-8 fill-green-500 group-hover:fill-gray-400 dark:fill-gray-200  dark:group-hover:fill-gray-500" />
                   </div>
                   Plantões
                 </Link>
@@ -118,10 +135,12 @@ export function Header() {
               <li>
                 <Link
                   to="/farmacias"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-gray-500"
+                  title="Link para acessar página de plantões"
+                  aria-label="Link para acessar página de plantões"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-green-500 hover:text-gray-400 dark:text-gray-200 dark:hover:text-gray-500"
                 >
-                  <div className="mr-5 ">
-                    <IconeFarmacia />
+                  <div className="mr-6">
+                    <IconeFarmacia className="h-8 w-8 fill-green-500 group-hover:fill-gray-400 dark:fill-gray-200  dark:group-hover:fill-gray-500" />
                   </div>
                   Farmácias
                 </Link>
@@ -129,10 +148,12 @@ export function Header() {
               <li>
                 <Link
                   to="/produtos"
-                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-slate-700 hover:text-green-500 dark:text-gray-200 dark:hover:text-gray-500"
+                  title="Link para acessar página de produtos"
+                  aria-label="Link para acessar página de produtos"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-green-500 hover:text-gray-400 dark:text-gray-200 dark:hover:text-gray-500"
                 >
-                  <div className="mr-5 ">
-                    <IconeProdutos />
+                  <div className="mr-6">
+                    <IconeProdutos className="h-8 w-8 fill-green-500 group-hover:fill-gray-400 dark:fill-gray-200  dark:group-hover:fill-gray-500" />
                   </div>
                   Produtos
                 </Link>

@@ -16,7 +16,7 @@ export function Footer() {
         </div>
         <div className="p-6 grid grid-cols-2 md:grid-cols-4 max-w-5xl md:m-auto gap-5">
           <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
+            <h3 className="text-lg font-bold text-left text-green-600 lg:text-xl  dark:text-gray-600">
               Site
             </h3>
             <ul className="text-left">
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
+            <h3 className="text-lg font-bold text-left text-green-600 lg:text-xl  dark:text-gray-600">
               Contato
             </h3>
             <ul className="text-left">
@@ -88,7 +88,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
+            <h3 className="text-lg font-bold text-left text-green-600 lg:text-xl  dark:text-gray-600">
               Mais informações
             </h3>
             <ul className="text-left text-gray-700">
@@ -98,10 +98,10 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-bold text-left text-black-200 lg:text-xl  dark:text-gray-600">
+            <h3 className="text-lg font-bold text-left text-green-600 lg:text-xl  dark:text-gray-600">
               Social
             </h3>
-            <ul className="flex">
+            <ul className="flex gap-2">
               <li>
                 <a
                   href="https://www.instagram.com/plantaosti"

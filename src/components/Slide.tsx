@@ -120,6 +120,7 @@ export function Slide({ plantoes }: GetPlantoesDateEndQuery) {
           <Link
             to="/plantoes"
             title="Lista completa das farmácias de plantão."
+            aria-label="Link para acessar a página com a lista de plantões"
             className="bg-green-600 p-4 max-w-[200px] flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
           >
             Lista completa

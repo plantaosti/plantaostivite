@@ -19,7 +19,8 @@ export function Breadcrumbs({ breadcrumbs }: IBreadcrumbs) {
               <Link
                 className="flex flex-row items-center gap-1 hover:text-gray-300 transition-all duration-300"
                 to={`${breadcrumb.href}`}
-                title={`${breadcrumb.name}`}
+                title={`Link para acessar a página ${breadcrumb.name}`}
+                aria-label={`Link para acessar a página ${breadcrumb.name}`}
               >
                 {breadcrumb.name}
                 {i != breadcrumbs.length - 1 ? <CaretRight /> : ""}
