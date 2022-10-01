@@ -1,0 +1,42 @@
+query SuperHome($end: DateTime) {
+  plantoes(where: {datetimeend_gte: $end}, first: 3) {
+    id
+    datetimestart
+    datetimeend
+    farmacias {
+      ... on Farmacia {
+        id
+        name
+        phone
+        neighborhood
+        street
+        slug
+        urllogo
+      }
+    }
+  }
+  farmacias(stage: PUBLISHED, first: 5) {
+      id
+      slug
+      name
+      urllogo
+      neighborhood
+      phone
+  }
+  apoiadores(last: 20) {
+    ativo
+    name
+    slug
+    url
+    id
+  }
+  posts(orderBy: publishedAt_ASC) {
+    title
+    thumbnail {
+      url
+    }
+    slug
+    id
+    views
+  }
+}

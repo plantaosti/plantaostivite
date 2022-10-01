@@ -1,9 +1,20 @@
 import { Eye } from "phosphor-react";
 import { Link } from "react-router-dom";
-import { useGetPostsQueryQuery } from "../graphql/generated";
 
-export function Noticias() {
-  const { data } = useGetPostsQueryQuery();
+interface IPosts {
+  posts: IPost[] | undefined;
+}
+interface IPost {
+  id: string;
+  slug: string;
+  title: string;
+  thumbnail: {
+    url: string;
+  };
+  views: number;
+}
+
+export function Noticias({ posts }: IPosts) {
   return (
     <>
       <section className="max-w-full flex-col m-auto pt-6 px-4">
@@ -17,9 +28,9 @@ export function Noticias() {
         </div>
         <div className="flex flex-col max-w-5xl m-auto py-6">
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-4">
-            {data?.posts.map((post) => {
+            {posts?.map((post) => {
               return (
-                <li>
+                <li key={post.id}>
                   <Link
                     to={`/noticia/${post.slug}`}
                     className="flex flex-col gap-4 justify-center p-6 bg-slate-100 transition-all duration-200 hover:drop-shadow-lg"
@@ -31,16 +42,10 @@ export function Noticias() {
                       alt={`${post.title}`}
                     />
                     <div>
-                      <h4 className="text-sm text-gray-500 mb-3 font-semibold">
-                        {post.title.substring(0, 80)}...
-                      </h4>
                       <div className="flex gap-4 items-center text-gray-400">
-                        <p
-                          className="text-sm truncate"
-                          dangerouslySetInnerHTML={{
-                            __html: `${post.content?.html.substring(0, 150)}`,
-                          }}
-                        ></p>
+                        <h4 className="text-sm text-gray-500 mb-3 font-semibold">
+                          {post.title.substring(0, 80)}...
+                        </h4>
                         <div className="flex flex-col items-center w-[60px]">
                           <Eye size={24} />
                           {post.views ? post.views : ""}

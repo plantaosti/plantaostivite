@@ -1,20 +1,26 @@
-import { SpinnerGap } from "phosphor-react";
 import { Link } from "react-router-dom";
-import { useGetFarmaciasQuery } from "../graphql/generated";
 
-export function Farmacias() {
-  const { data, error } = useGetFarmaciasQuery();
-
-  if (error) {
+interface IFarmacias {
+  farmacias: IFarmacia[];
+}
+interface IFarmacia {
+  id: string;
+  slug: string;
+  urllogo: string;
+  name: string;
+  neighborhood: string;
+  phone: string;
+}
+export function Farmacias({ farmacias }: IFarmacias) {
+  if (!farmacias) {
     return (
-      <div className="flex flex-col items-center p-6 mt-9">
-        <div className="flex flex-col items-center gap-3">
-          <SpinnerGap size={32} className="animate-spin text-green-600" />
-          <p className="animate-pulse text-sm text-green-600 font-bold">
-            Não estou conseguindo carregando os dados...
-          </p>
+      <section className="w-full flex-col px-4 py-6">
+        <div className="flex justify-center max-w-[986px] m-auto pb-5">
+          <h2 className="text-xl font-bold text-gray-500 lg:text-3xl  dark:text-gray-600">
+            Farmácias
+          </h2>
         </div>
-      </div>
+      </section>
     );
   }
 
@@ -26,7 +32,7 @@ export function Farmacias() {
         </h2>
       </div>
       <ul className="grid grid-cols-1 gap-4 md:gap-2 pt-8 md:grid-cols-3 max-w-5xl m-auto">
-        {data?.farmacias.map((farmacia, i) => {
+        {farmacias?.map((farmacia, i) => {
           return (
             <li key={i}>
               <Link

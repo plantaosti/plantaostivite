@@ -9220,6 +9220,13 @@ export type GetProdutosQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetProdutosQuery = { __typename?: 'Query', produtos: Array<{ __typename?: 'Produto', id: string, name: string, price: number, promotion?: number | null, slug: string, urlstore: string, description?: { __typename?: 'RichText', html: string, text: string } | null, image: { __typename?: 'Asset', url: string } }> };
 
+export type SuperHomeQueryVariables = Exact<{
+  end?: InputMaybe<Scalars['DateTime']>;
+}>;
+
+
+export type SuperHomeQuery = { __typename?: 'Query', plantoes: Array<{ __typename?: 'Plantao', id: string, datetimestart: any, datetimeend: any, farmacias?: { __typename?: 'Farmacia', id: string, name: string, phone: number, neighborhood: string, street: string, slug: string, urllogo: string } | null }>, farmacias: Array<{ __typename?: 'Farmacia', id: string, slug: string, name: string, urllogo: string, neighborhood: string, phone: number }>, apoiadores: Array<{ __typename?: 'Apoiador', ativo: boolean, name: string, slug: string, url?: string | null, id: string }>, posts: Array<{ __typename?: 'Post', title: string, slug: string, id: string, views?: number | null, thumbnail: { __typename?: 'Asset', url: string } }> };
+
 
 export const CreateSubscriberDocument = gql`
     mutation CreateSubscriber($email: String!) {
@@ -9762,3 +9769,75 @@ export function useGetProdutosLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type GetProdutosQueryHookResult = ReturnType<typeof useGetProdutosQuery>;
 export type GetProdutosLazyQueryHookResult = ReturnType<typeof useGetProdutosLazyQuery>;
 export type GetProdutosQueryResult = Apollo.QueryResult<GetProdutosQuery, GetProdutosQueryVariables>;
+export const SuperHomeDocument = gql`
+    query SuperHome($end: DateTime) {
+  plantoes(where: {datetimeend_gte: $end}, first: 3) {
+    id
+    datetimestart
+    datetimeend
+    farmacias {
+      ... on Farmacia {
+        id
+        name
+        phone
+        neighborhood
+        street
+        slug
+        urllogo
+      }
+    }
+  }
+  farmacias(stage: PUBLISHED, first: 5) {
+    id
+    slug
+    name
+    urllogo
+    neighborhood
+    phone
+  }
+  apoiadores(last: 20) {
+    ativo
+    name
+    slug
+    url
+    id
+  }
+  posts(orderBy: publishedAt_ASC) {
+    title
+    thumbnail {
+      url
+    }
+    slug
+    id
+    views
+  }
+}
+    `;
+
+/**
+ * __useSuperHomeQuery__
+ *
+ * To run a query within a React component, call `useSuperHomeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSuperHomeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSuperHomeQuery({
+ *   variables: {
+ *      end: // value for 'end'
+ *   },
+ * });
+ */
+export function useSuperHomeQuery(baseOptions?: Apollo.QueryHookOptions<SuperHomeQuery, SuperHomeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SuperHomeQuery, SuperHomeQueryVariables>(SuperHomeDocument, options);
+      }
+export function useSuperHomeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SuperHomeQuery, SuperHomeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SuperHomeQuery, SuperHomeQueryVariables>(SuperHomeDocument, options);
+        }
+export type SuperHomeQueryHookResult = ReturnType<typeof useSuperHomeQuery>;
+export type SuperHomeLazyQueryHookResult = ReturnType<typeof useSuperHomeLazyQuery>;
+export type SuperHomeQueryResult = Apollo.QueryResult<SuperHomeQuery, SuperHomeQueryVariables>;

@@ -4,45 +4,50 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import {
-  Calendar,
-  CaretLeft,
-  CaretRight,
-  Phone,
-  SpinnerGap,
-} from "phosphor-react";
+import { Calendar, CaretLeft, CaretRight, Phone } from "phosphor-react";
 import { format, parseISO } from "date-fns";
 import { useGetPlantoesDateEndQuery } from "../graphql/generated";
 import { ptBR } from "date-fns/locale";
 
-export function Slide() {
-  const end = format(Date.now(), "yyyy-MM-dd'T'15:00:00+00:00");
-  const { data, loading, error } = useGetPlantoesDateEndQuery({
-    variables: {
-      end,
-    },
-  });
-  if (loading) {
+interface IPlantoes {
+  plantoes: IPlantao[];
+}
+interface IPlantao {
+  id: string;
+  farmacias: {
+    urllogo: string;
+    name: string;
+    neighborhood: string;
+    phone: string;
+    street: string;
+  };
+  datetimestart: string;
+  datetimeend: string;
+}
+export function Slide({ plantoes }: IPlantoes) {
+  if (!plantoes) {
     return (
-      <div className="flex flex-col items-center p-6 mt-9">
-        <div className="flex flex-col items-center gap-3">
-          <SpinnerGap size={32} className="animate-spin text-green-600" />
-          <p className="animate-pulse text-sm text-green-600 font-bold">
-            Carregando ...
-          </p>
+      <section className="w-full flex-col bg-gray-100 dark:bg-gray-300 mt-9 pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-[980px] m-auto">
+          <div className="p-6 flex flex-col gap-5 justify-center align-middle md:max-w-sm lg:max-w-md">
+            <h1 className="text-xl lg:text-5xl font-bold text-gray-400 dark:text-gray-100">
+              Farmácia de Plantão
+            </h1>
+            <p className="text-sm text-gray-400 lg:text-lg dark:text-gray-50">
+              Confira a lista atualizada dos plantões para este mês.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 max-w-[980px] w-48 m-auto">
+            <Link
+              to="/plantoes"
+              title="Lista completa das farmácias de plantão."
+              className="bg-green-600 p-4 w-40 max-w-[200px] flex justify-center text-white hover:bg-gray-400 transition-all duration-300 dark:bg-gray-600 dark:hover:bg-gray-400"
+            >
+              Lista completa
+            </Link>
+          </div>
         </div>
-      </div>
-    );
-  }
-  if (error) {
-    return (
-      <div className="flex flex-col items-center p-6 mt-9">
-        <div className="flex flex-col items-center gap-3">
-          <SpinnerGap size={32} className="animate-spin text-green-600" />
-          <p>{error.name}</p>
-          <p>{error.message}</p>
-        </div>
-      </div>
+      </section>
     );
   }
   return (
@@ -67,8 +72,8 @@ export function Slide() {
             nextEl: ".swiper-button-next",
           }}
         >
-          {data?.plantoes
-            .map((plantao) => {
+          {plantoes
+            ?.map((plantao) => {
               return (
                 <SwiperSlide
                   key={plantao.id}
