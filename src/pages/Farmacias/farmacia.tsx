@@ -10,6 +10,7 @@ import {
   SpinnerGap,
   WhatsappLogo,
 } from "phosphor-react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
@@ -37,6 +38,17 @@ export function PgFarmacia() {
   }
   return (
     <>
+      <Helmet>
+        <title>{data?.farmacia?.name} | Santa Terezinha de Itaipu</title>
+        <meta
+          name="description"
+          content={`${data?.farmacia?.name} confira todos os detalhes`}
+        />
+        <meta
+          name="keywords"
+          content={`${data?.farmacia?.name}, Farmácias, Farmácia de Plantão, `}
+        />
+      </Helmet>
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
@@ -140,8 +152,11 @@ export function PgFarmacia() {
                             <Pill size={32} />
                           </th>
                           <th className="text-lg text-left p-6">
-                            Programas de Descontos em Medicamentos<br />
-                            <span className="text-sm font-normal text-left">+ Convênios</span>
+                            Programas de Descontos em Medicamentos
+                            <br />
+                            <span className="text-sm font-normal text-left">
+                              + Convênios
+                            </span>
                           </th>
                         </tr>
                       </thead>

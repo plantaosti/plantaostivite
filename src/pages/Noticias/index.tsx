@@ -1,4 +1,5 @@
 import { Eye, SpinnerGap } from "phosphor-react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
@@ -6,7 +7,7 @@ import { Header } from "../../components/Header";
 import { useGetPostsQueryQuery } from "../../graphql/generated";
 
 export function PgNoticias() {
-  const { data, loading } = useGetPostsQueryQuery();
+  const { data, loading, error } = useGetPostsQueryQuery();
   if (loading) {
     return (
       <div className="flex flex-col items-center p-6 mt-6">
@@ -19,8 +20,31 @@ export function PgNoticias() {
       </div>
     );
   }
+  if (error) {
+    return (
+      <div className="flex flex-col items-center p-6 mt-6">
+        <div className="flex flex-col items-center gap-3">
+          <SpinnerGap size={32} className="animate-spin text-green-600" />
+          <p className="animate-pulse text-sm text-green-600 font-bold">
+            Erro: {error.name}
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
+      <Helmet>
+        <title>Notícias Plantão STI | Santa Terezinha de Itaipu</title>
+        <meta
+          name="description"
+          content="Confira algumas das notícas mais relevantes do mundo da tecnlogia, farmácia, saude e segurança."
+        />
+        <meta
+          name="keywords"
+          content="Notícias, Farmácias, Farmácia de Plantão, Farmácia Clarifarma, Farmácia Coperfarma, Farmácia Preço Justo, Farmácia Santa Monica, Farmácia Medfarma"
+        />
+      </Helmet>
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
@@ -53,7 +77,9 @@ export function PgNoticias() {
                         </button>
                         <div className="flex flex-col gap-1 items-center w-[60px]">
                           <Eye size={24} />
-                          <span className="text-sm">{post.views ? post.views : ""}</span>
+                          <span className="text-sm">
+                            {post.views ? post.views : ""}
+                          </span>
                         </div>
                       </div>
                     </Link>

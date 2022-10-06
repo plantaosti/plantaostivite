@@ -1,4 +1,5 @@
 import { SpinnerGap } from "phosphor-react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
@@ -21,6 +22,19 @@ export function PgProdutos() {
   }
   return (
     <>
+      <Helmet>
+        <title>
+          Produtos Indicados Plantão STI | Santa Terezinha de Itaipu
+        </title>
+        <meta
+          name="description"
+          content="Confira alguns dos produtos que usamos e indicamos para você"
+        />
+        <meta
+          name="keywords"
+          content="Produtos, Tecnologias, Como usar, Impressoras, Dispositivos, Alexa, Amazon"
+        />
+      </Helmet>
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">

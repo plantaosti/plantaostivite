@@ -18,6 +18,7 @@ import "swiper/css/pagination";
 import { format, parseISO } from "date-fns";
 import { useGetPlantoesDateEndQuery } from "../../graphql/generated";
 import { ptBR } from "date-fns/locale";
+import { Helmet } from "react-helmet";
 
 export function PgPlantoes() {
   const end = format(Date.now(), "yyyy-MM-dd'T'15:00:00+00:00");
@@ -51,6 +52,17 @@ export function PgPlantoes() {
   }
   return (
     <>
+      <Helmet>
+        <title>Plantão | Santa Terezinha de Itaipu</title>
+        <meta
+          name="description"
+          content="Confira com as farmácias e datas dos seu plantão em Santa Terezinha de Itaipu - Paraná"
+        />
+        <meta
+          name="keywords"
+          content="Farmácias, Farmácia de Plantão, Farmácia Clarifarma, Farmácia Coperfarma, Farmácia Preço Justo, Farmácia Santa Monica, Farmácia Medfarma"
+        />
+      </Helmet>
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">

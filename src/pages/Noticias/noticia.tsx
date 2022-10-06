@@ -1,6 +1,7 @@
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { SpinnerGap } from "phosphor-react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
@@ -28,6 +29,17 @@ export function PgNoticia() {
   }
   return (
     <>
+      <Helmet>
+        <title>{data?.post?.title}</title>
+        <meta
+          name="description"
+          content={`Confira nossa notícia - ${data?.post?.title}`}
+        />
+        <meta
+          name="keywords"
+          content={`${data?.post?.title}, notícias, segurança, novidades`}
+        />
+      </Helmet>
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
@@ -35,7 +47,10 @@ export function PgNoticia() {
             breadcrumbs={[
               { name: "Home", href: "/" },
               { name: "Notícias", href: "/noticias" },
-              { name: `${data?.post?.title.slice(0,30)} ...`, href: `/noticia/${slug}` },
+              {
+                name: `${data?.post?.title.slice(0, 30)} ...`,
+                href: `/noticia/${slug}`,
+              },
             ]}
           />
           <div className="flex flex-col gap-7 max-w-5xl m-auto py-6">
@@ -59,7 +74,9 @@ export function PgNoticia() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-green-600">Por: {data?.post?.author?.name}</span>
+              <span className="text-green-600">
+                Por: {data?.post?.author?.name}
+              </span>
               <span className="text-gray-500">
                 Publicado:{" "}
                 {format(parseISO(data?.post?.publishedAt), "dd/MM/yy", {

@@ -9,6 +9,7 @@ import {
   SpinnerGap,
   WhatsappLogo,
 } from "phosphor-react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
@@ -36,6 +37,19 @@ export function PgPlantao() {
   }
   return (
     <>
+      <Helmet>
+        <title>
+          Plantão {data?.plantao?.farmacias?.name} | Santa Terezinha de Itaipu
+        </title>
+        <meta
+          name="description"
+          content={`Confira os detalhes do plantão da farmácia ${data?.plantao?.farmacias?.name}`}
+        />
+        <meta
+          name="keywords"
+          content={`${data?.plantao?.farmacias?.name}, Plantão, Farmácias, Farmácia de Plantão`}
+        />
+      </Helmet>
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">

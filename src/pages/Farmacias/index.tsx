@@ -4,6 +4,7 @@ import { Breadcrumbs } from "../../components/Breadcrumbs";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { useGetFarmaciasAllQuery } from "../../graphql/generated";
+import { Helmet } from "react-helmet";
 
 export function PgFarmacias() {
   const { data, loading } = useGetFarmaciasAllQuery();
@@ -21,6 +22,17 @@ export function PgFarmacias() {
   }
   return (
     <>
+      <Helmet>
+        <title>Farmácias | Santa Terezinha de Itaipu</title>
+        <meta
+          name="description"
+          content="Confira a lista com todas as farmácias de Santa Terezinha de Itaipu - Paraná"
+        />
+        <meta
+          name="keywords"
+          content="Farmácias, Farmácia de Plantão, Farmácia Clarifarma, Farmácia Coperfarma, Farmácia Preço Justo, Farmácia Santa Monica, Farmácia Medfarma"
+        />
+      </Helmet>
       <Header />
       <main className="mt-20 w-full antialiased dark:bg-gray-200">
         <section className="max-w-full flex-col m-auto p-6">
