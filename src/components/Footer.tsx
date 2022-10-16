@@ -61,28 +61,28 @@ export function Footer() {
             </h3>
             <ul className="text-left">
               <li>
-                <Link
-                  to={"/#apoiadores"}
+                <a
+                  href={"/#apoiadores"}
                   className="text-gray-700 hover:text-black-200 transition-all duration-300"
                 >
                   Quem Apoia
+                </a>
+              </li>
+              <li>
+                <Link
+                  to={"/sobre"}
+                  className="text-gray-700 hover:text-black-200 transition-all duration-300"
+                >
+                  Sobre
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/noticias"}
                   className="text-gray-700 hover:text-black-200 transition-all duration-300"
                 >
-                  Politicas
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-700 hover:text-black-200 transition-all duration-300"
-                >
-                  Suporte
-                </a>
+                  Notícias
+                </Link>
               </li>
             </ul>
           </div>
@@ -122,7 +122,7 @@ export function Footer() {
           </div>
         </div>
         <div className="py-6">
-          <p className="text-sm text-black-200">
+          <p className="text-sm text-gray-700">
             Copyright by Plantao Sti. All Rights Reserved
           </p>
         </div>
