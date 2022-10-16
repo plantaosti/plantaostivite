@@ -29,8 +29,8 @@ Agora ao invés de percorrer toda a cidade em busca da farmácia aberta, sem sai
 
 ## Screenshots
 
-![Plantão STI](.github/header.png)
-![Plantão STI](.github/farmacias.png)
+![Plantão STI](.github/Header.png)
+![Plantão STI](.github/Farmacias.png)
 ![Plantão STI](.github/footer.png)
 
 
