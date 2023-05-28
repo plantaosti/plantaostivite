@@ -67,7 +67,7 @@ export function PgFarmacia() {
             <div>
               <img
                 className="md:max-w-[450px] m-auto rounded-md"
-                src={`/images/${data?.farmacia?.urllogo}`}
+                src={`${data?.farmacia?.thumbnail?.url}`}
                 alt={data?.farmacia?.name}
               />
             </div>

@@ -28,13 +28,13 @@ export function Farmacias({ farmacias }: GetFarmaciasQuery) {
               <Link
                 to={`/farmacia/${farmacia.slug}`}
                 title="Clique para mais detalhes!"
-                className="p-3 flex gap-4 bg-slate-50 transition-all duration-200 hover:drop-shadow-lg"
+                className="p-3 flex gap-4 bg-slate-50 rounded-md transition-all duration-200 hover:drop-shadow-lg"
               >
                 <img
                   className="max-w-[90px] rounded-md"
                   width={90}
                   height={60}
-                  src={`https://www.plantaosti.com.br/images/${farmacia.urllogo}`}
+                  src={`${farmacia.thumbnail?.url}`}
                   alt=""
                 />
                 <div className="flex flex-col">

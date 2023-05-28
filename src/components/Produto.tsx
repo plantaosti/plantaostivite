@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function Produto() {
   return (
-    <section className="flex justify-center py-10 m-auto w-full">
+    <section className="flex flex-col items-center justify-center px-6 py-10  m-auto w-full">
       <div className="flex flex-col md:px-4 md:flex-row max-w-sm md:max-w-5xl">
         <div className="">
           <h2 className="text-2xl font-bold text-green-500 mb-1">Produtos</h2>

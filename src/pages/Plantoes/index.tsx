@@ -19,6 +19,7 @@ import { format, parseISO } from "date-fns";
 import { useGetPlantoesDateEndQuery } from "../../graphql/generated";
 import { ptBR } from "date-fns/locale";
 import { Helmet } from "react-helmet";
+import { PlantaoFake } from "../../components/PlantaoFake";
 
 export function PgPlantoes() {
   const end = format(Date.now(), "yyyy-MM-dd'T'15:00:00+00:00");
@@ -29,14 +30,14 @@ export function PgPlantoes() {
   });
   if (loading) {
     return (
-      <div className="flex flex-col items-center p-6 mt-6">
-        <div className="flex flex-col items-center gap-3">
-          <SpinnerGap size={32} className="animate-spin text-green-600" />
-          <p className="animate-pulse text-sm text-green-600 font-bold">
-            Carregando ...
-          </p>
-        </div>
-      </div>
+      <>
+        <Header />
+        <main className="mt-20 w-full antialiased dark:bg-gray-200 animate-pulse opacity-25">
+          <PlantaoFake />
+
+          <Footer />
+        </main>
+      </>
     );
   }
   if (error) {
@@ -105,7 +106,7 @@ export function PgPlantoes() {
                       >
                         <img
                           className="rounded-lg"
-                          src={`/images/${plantao.farmacias?.urllogo}`}
+                          src={`${plantao.farmacias?.thumbnail?.url}`}
                           alt=""
                         />
                         <div className="bg-white p-4">

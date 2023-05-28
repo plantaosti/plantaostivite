@@ -6,5 +6,8 @@ query GetFarmacias {
       urllogo
       neighborhood
       phone
+      thumbnail{
+        url
+      }
     }
 }

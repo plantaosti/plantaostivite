@@ -14,6 +14,9 @@ query GetFarmaciaBySlug($slug: String) {
     city
     email
     fazentrega
+    thumbnail {
+      url
+    }
     programas {
       ... on Itemprograma {
         name

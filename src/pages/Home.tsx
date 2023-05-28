@@ -1,5 +1,12 @@
 import { format } from "date-fns";
-import { Heart, SpinnerGap } from "phosphor-react";
+import {
+  Calendar,
+  CaretLeft,
+  CaretRight,
+  Heart,
+  Phone,
+  SpinnerGap,
+} from "phosphor-react";
 import { Apoiadores } from "../components/Apoiadores";
 import { Farmacias } from "../components/Farmacias";
 import { Footer } from "../components/Footer";
@@ -10,6 +17,7 @@ import { Produto } from "../components/Produto";
 import { Slide } from "../components/Slide";
 import { useSuperHomeQuery } from "../graphql/generated";
 import { Helmet } from "react-helmet";
+import { HomeFake } from "../components/HomeFake";
 
 export function Home() {
   const end = format(Date.now(), "yyyy-MM-dd'T'15:00:00+00:00");
@@ -20,25 +28,30 @@ export function Home() {
   });
   if (loading) {
     return (
-      <div className="flex flex-col items-center p-6 mt-6">
-        <div className="flex flex-col items-center gap-3">
-          <SpinnerGap size={32} className="animate-spin text-green-600" />
-          <p className="animate-pulse text-sm text-green-600 font-bold">
-            Carregando ...
-          </p>
-        </div>
-      </div>
+      <>
+        <Header />
+        <main className="mt-20 w-full  antialiased dark:bg-gray-200 animate-pulse opacity-25">
+          <Footer />
+        </main>
+      </>
     );
   }
   if (error) {
     return (
-      <div className="flex flex-col items-center p-6 mt-9">
-        <div className="flex flex-col items-center gap-3">
-          <SpinnerGap size={32} className="animate-spin text-green-600" />
-          <p>{error.name}</p>
-          <p>{error.message}</p>
-        </div>
-      </div>
+      <>
+        <Header />
+        <main className="mt-20 w-full  antialiased dark:bg-gray-200 animate-pulse opacity-25 bg-red-300/40">
+          <div className="flex flex-col items-center p-6 mt-9">
+            <div className="flex top-0 flex-col items-center gap-3">
+              <SpinnerGap size={32} className="animate-spin text-green-600" />
+              <p>{error.name}</p>
+              <p>{error.message}</p>
+            </div>
+          </div>
+          <HomeFake />
+        </main>
+        <Footer />
+      </>
     );
   }
   return (

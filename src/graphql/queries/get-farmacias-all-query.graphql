@@ -1,10 +1,13 @@
 query GetFarmaciasAll {
   farmacias(stage: PUBLISHED, last: 20) {
-      id
-      slug
-      name
-      urllogo
-      neighborhood
-      phone
+    id
+    slug
+    name
+    urllogo
+    neighborhood
+    phone
+    thumbnail {
+      url
     }
+  }
 }

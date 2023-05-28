@@ -1,5 +1,5 @@
 query SuperHome($end: DateTime) {
-  plantoes(where: {datetimeend_gte: $end}, first: 3) {
+  plantoes(where: { datetimeend_gte: $end }, first: 3) {
     id
     datetimestart
     datetimeend
@@ -12,16 +12,22 @@ query SuperHome($end: DateTime) {
         street
         slug
         urllogo
+        thumbnail {
+          url
+        }
       }
     }
   }
   farmacias(stage: PUBLISHED, first: 5) {
-      id
-      slug
-      name
-      urllogo
-      neighborhood
-      phone
+    id
+    slug
+    name
+    urllogo
+    neighborhood
+    phone
+    thumbnail {
+      url
+    }
   }
   apoiadores(last: 20) {
     ativo

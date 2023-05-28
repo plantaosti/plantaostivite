@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
-import { X, List } from "phosphor-react";
+import { X, List, Phone, PhoneCall } from "phosphor-react";
 import { useState } from "react";
 import classNames from "classnames";
 import IconePlantoes from "./IconePlantoes";
@@ -62,6 +62,16 @@ export function Header() {
                     className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
                   >
                     Produtos
+                  </Link>
+                </li>
+                <li className="after:content-[''] after:w-[0] after:cursor-pointer after:hover:w-[100%] after:transition-all after:duration-300 after:bg-gray-400 after:h-[4px] after:block dark:after:bg-gray-200">
+                  <Link
+                    to="/telefones-uteis"
+                    title="Link para acessar página de produtos"
+                    aria-label="Link para acessar página de produtos"
+                    className="block text-sm mt-4 lg:inline-block lg:mt-0 text-green-500 hover:text-gray-400 mr-4 lg:text-lg dark:text-gray-100 dark:hover:text-gray-200"
+                  >
+                    Telefones úteis
                   </Link>
                 </li>
               </ul>
@@ -156,6 +166,19 @@ export function Header() {
                     <IconeProdutos className="h-8 w-8 fill-green-500 group-hover:fill-gray-400 dark:fill-gray-200  dark:group-hover:fill-gray-500" />
                   </div>
                   Produtos
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/telefones-uteis"
+                  title="Link para acessar página de produtos"
+                  aria-label="Link para acessar página de produtos"
+                  className="group flex items-center lg:text-sm lg:leading-6 text-xl font-medium text-green-500 hover:text-gray-400 dark:text-gray-200 dark:hover:text-gray-500"
+                >
+                  <div className="mr-6">
+                    <PhoneCall size={32} weight="light" className="fill-green-500 group-hover:fill-gray-400 dark:fill-gray-200  dark:group-hover:fill-gray-500" />
+                  </div>
+                  Telefones úteis
                 </Link>
               </li>
             </ul>

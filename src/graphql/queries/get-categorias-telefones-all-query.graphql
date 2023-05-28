@@ -1,0 +1,18 @@
+query GetTelefoneCategoriaAll {
+  telefoneCategorias(stage: PUBLISHED, last: 80) {
+    id
+    name
+    telefoneUtil {
+      id
+      descricao
+      telefones {
+        ... on Itemtelefone {
+          id
+          linkPhone
+          numero
+          ativo
+        }
+      }
+    }
+  }
+}

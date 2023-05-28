@@ -13,6 +13,9 @@ query GetPlantaoById($id: ID) {
         urllogo
         whatsapp
         slug
+        thumbnail{
+          url
+        }
         programas {
           ... on Itemprograma {
             name

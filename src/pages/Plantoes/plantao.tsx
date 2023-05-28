@@ -63,7 +63,7 @@ export function PgPlantao() {
             <div>
               <img
                 className="md:max-w-[450px] m-auto rounded-md"
-                src={`/images/${data?.plantao?.farmacias?.urllogo}`}
+                src={`${data?.plantao?.farmacias?.thumbnail?.url}`}
                 alt=""
               />
             </div>
